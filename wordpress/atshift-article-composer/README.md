@@ -1,0 +1,326 @@
+# atshift Article Composer 0.7.6
+
+License: GPLv2 or later. See https://www.gnu.org/licenses/gpl-2.0.html.
+
+**Start with one thing in Article Composer: download the guide for your AI.**
+
+Give it to the AI you already use, then follow its instructions to connect to
+WordPress. Once a compatible AI client is connected and authorized, you can create
+and publish new articles through that conversation, without opening Article Composer for
+everyday authoring.
+
+Work with your AI on the article, ask it to create the page design and column
+layout, and tell it where the article should appear. Review the result, then
+simply ask, **"Publish it."** Ask your AI to select existing categories and tags,
+too. Where access rules have been verified, eligible pages also provide structure
+for the current reader and JSON-LD for anonymous public responses.
+
+**Focus on creating content. Let your AI handle the assembly and publication.**
+
+*Initial setup, permission changes, reconnection and private theme-based previews
+can still require WordPress sign-in. Site maintenance remains a separate responsibility.*
+
+The guide is available at **Articles > Download AI guide**. It includes current
+shared component contracts and schemas, not private drafts or credentials. The
+first-visit introduction is shown once per account/site; the download remains
+available. Publishing requires separately granted publication access and the
+publisher role (or administrator). Use **Article handoff** for file-based edits,
+or connect an MCP client to resume your own drafts directly.
+
+An experimental WordPress plugin for structured article snapshots. This build
+is intended only for an isolated test site, not a production website.
+
+## Install
+
+Use the supplied installation ZIP for your chosen channel. GitHub releases and checksums are at https://github.com/at-shift/atshift-article-composer/releases. Upload the ZIP through Plugins >
+Add New > Upload Plugin, activate it, and open **atshift Article Composer** as an administrator.
+Developers can build scoped PHP dependencies with `npm run build:php-deps`, then
+build the ZIP with `npm run pack:wordpress` from the repository. GitHub's source
+archive is not the installable plugin package.
+Both channels use `atshift-article-composer/atshift-article-composer.php`. Retain this identity when installing or updating. Do not activate an older experimental package alongside it.
+
+**Delegate execution. Focus on thinking.**
+Version 0.7.6 starts the new repository from the submitted review baseline. It checks membership access
+for additional structure and managed-media output. Unknown integrations pause
+these outputs and show the reason to administrators; normal article HTML remains unchanged.
+The WordPress.org slug and text domain are `atshift-article-composer`. Both channels now use the same folder and main file. MCP/OAuth URLs remain unchanged. A GitHub release is not evidence of directory approval; compatibility with older experimental data is not promised.
+It includes the 0.7.4 mixed-collation draft-listing fix without rewriting database columns or saved content.
+The 0.7.6 candidate includes database-backed private files, membership-aware additional outputs and review hardening. Automatic migration and legacy filesystem readers have been removed; validate a fresh installation rather than treating this as a data-preserving upgrade from an experimental prototype. Back up existing data and files first. MCP Adapter 0.7.1+ must be installed and active for AI connections.
+Version 0.7.0 adds per-article destinations, existing category/tag selection and public structure JSON with JSON-LD. Saved-data identities and connection permissions are preserved.
+Version 0.7.1 adds owner-only draft trash/restoration, owner information and private
+reservation entries in destination lists. Cancelled or blocked reservations return
+to drafts; saved rendering data is retained after publication.
+The new GitHub package supports normal WordPress updates, preserving the site's automatic-update
+preference and verifying the exact release ZIP with SHA-256. The WordPress.org
+package excludes this adapter and bundled translations; it uses English source text and supports WordPress language packs. The GitHub ZIP includes the partial Japanese catalog and Japanese guide. Both retain translation support and the POT template.
+The WordPress.org application is awaiting review; the separate submission is not a directory release.
+After upgrading, download a fresh AI guide from Articles and ask your AI to read it.
+Use a fresh installation when coming from Structured Fields Prototype or atshift DeFt.
+Older experimental drafts, files and grants require a separate export/import plan;
+do not treat this as an automatic data-preserving migration.
+After WordPress.org publication, a final GitHub transition update can install the
+official directory ZIP unchanged. This removes the GitHub updater and external
+Update URI; subsequent updates come from WordPress.org under the same identity.
+The directory package removes bundled Japanese files and supports standard WordPress
+language packs instead. Applying the transition update is required; publication
+alone does not switch an installed copy.
+The `structured-fields` API/MCP/admin route names and OAuth issuer are intentional
+compatibility identifiers; do not replace them with `atshift-deft` in client settings.
+No Node.js process, separate AI service, or SQLite database is required on the server.
+Japanese step-by-step installation and use: [online Japanese guide](https://github.com/at-shift/atshift-article-composer/blob/main/wordpress/atshift-article-composer/GETTING-STARTED.ja.md) (also included in the GitHub ZIP).
+External-AI instructions: [AI-GUIDE.md](AI-GUIDE.md).
+
+## AI Connection
+
+Start by downloading the AI guide from Articles and giving it to your usual AI.
+The AI guides the relevant connection route and verifies a read-only live context
+response. It then offers the included optional sample or continues your article.
+The sample needs no separate file: it creates a clearly labeled private draft and
+preview, without publication, media upload or new component registration. Skip it
+freely; existing-draft continuations do not repeat setup or the sample offer.
+Keep the original article brief in the same conversation. Connection/sample consent
+is not publication consent. The plugin does not automatically configure AI clients.
+
+Before configuring the AI connection, install and activate the official
+[MCP Adapter plugin](https://wordpress.org/plugins/mcp-adapter/), version **0.7.1 or newer**.
+An administrator opens **Plugins > Add New Plugin**, searches for **MCP Adapter**
+by **WordPress.org**, then chooses **Install Now > Activate**. If already installed,
+update if needed and make sure it is active. Ask your site administrator if you
+cannot install or activate plugins. Manual JSON import does not require it.
+
+Then open **AI connections**, create a named key, and register the displayed
+endpoint in a client supporting Streamable HTTP with `Authorization: Bearer <key>`.
+Keep the key in secure connection settings, never chat text. It is shown once,
+expires after 30 days, and can be revoked without deleting drafts. HTTPS is required
+except local loopback development. Cloud AI services cannot reach localhost.
+
+Four tools expose current component context and your own draft list/read/save.
+Saves use exact versions and refuse stale writes. Newly issued keys can separately
+allow four authoring tools: create-structure, list-media, prepare-file-transfer and
+get-preview. Existing keys keep their previous authority. The portable HTML preview
+embeds verified images within a 2 MiB media budget, without theme/JS or public links.
+The owner-login workspace remains the full theme-preview fallback. File transfers
+need actual attachment bytes and HTTP capability in the client, and are invalidated
+when their issuing connection expires or is revoked. No arbitrary code, shared
+definition updates, automatic client setup or review decisions are exposed.
+Manual import/edit/save remains available without MCP Adapter.
+
+Alpha.14 also supports pre-registered public OAuth clients with PKCE S256.
+Administrators register an exact callback URL; each staff member signs into WordPress
+and grants their own access. No AI provider API key or shared owner key is required.
+Access tokens last ten minutes; refresh tokens rotate within a 30-day consent grant.
+Refresh reuse revokes the grant. See [CONNECTIONS.md](docs/CONNECTIONS.md).
+Actual ChatGPT, Claude and Gemini account flows still require a public HTTPS test.
+Automatic client registration and remote client metadata fetching are not supported.
+
+## Page Composition and Columns
+
+Ask your AI to assemble the page, not just write its text: arrange headings,
+images and body sections, combine stacked sections with responsive two-column
+layouts, or use a supported Q&A list or accordion. Describe the design or provide
+an optional reference image. The AI reuses available components and can create
+supported missing structures with authoring permission. Columns stack on narrow
+screens. Keep your theme's look or request a separate article layout; this does
+not replace the site theme or guarantee an exact copy of a reference image.
+
+## Component Appearance
+
+Version 0.6.0 lets an authorized AI create reusable shared
+structures with typed appearance options: colors, spacing, borders, typography,
+column proportions and link buttons.
+The AI checks live `styleStructures` capability, reuses existing styled components
+first, and creates a new component only when needed. It does not edit theme
+Additional CSS, send raw CSS, or overwrite existing shared definitions.
+Decoration targets stable field keys, stays within the component, and travels with
+the saved snapshot into previews and publication. Existing articles retain their
+saved styles. See [AI-GUIDE.md](AI-GUIDE.md) for supported recipes and limitations.
+
+## Publish a Saved Draft
+
+**Save draft** and **Review** do not publish. Open **Articles > How to publish or
+schedule** for the in-plugin steps.
+
+1. Save and check **Open theme preview**.
+2. Open **AI connections** using the draft owner's WordPress account (administrator
+   or **atshift Article Composer publisher**). For a key-based client, select **Allow immediate
+   and scheduled public publication of my drafts**, then **Create connection**.
+   Add its returned publishing URL and new key as a separate AI connection; keep
+   the draft connection. For OAuth, choose **Use the publishing endpoint** and
+   authorize publication with the same owner account and an application that permits it.
+3. Return to your AI conversation, verify publication access, and say "Publish
+   this draft now and give me the URL" or specify a date, time and time zone.
+4. Check **Articles > Publication** and **View published post**. A scheduled article
+   is not public yet; **Cancel reservation** cancels a pending schedule.
+
+Only grant this access to a trusted client: there is no second WordPress approval.
+Never paste a key into chat. Missing publication options require administrator
+help with the same account, not another person's connection. Setup alone does
+not request publication; the optional sample stays private.
+
+An opt-in **atshift Article Composer publisher** can create a separate publishing key.
+Its displayed endpoint additionally exposes get-publication, set-publication and
+cancel-publication. The user chooses now or a desired date/time; the AI sets it
+without a second WordPress approval. Existing keys remain draft-only. Reservations
+bind exact content/media/policy and stop if any change. Revocation cancels pending
+reservations; expiry blocks new requests but preserves previously authorized jobs.
+WordPress cron may run late; use a server cron for reliable due-event processing.
+Only initial publication is supported. Later draft saves do not update the public post.
+Version 0.7.0 adds
+`list-post-types` to both MCP endpoints. Choose where each article appears: a normal
+post, page or eligible existing public custom type. If you have not chosen for
+this article, the AI asks **"Where would you like to publish this article?"**,
+offers available publishable destinations and waits for your answer. An existing
+choice is validated and stated with the timing without asking again. Choosing
+a destination alone does not publish anything. The AI includes the selected `postType` in `set-publication`;
+the API's legacy default is not permission to skip this conversation. No separate
+Article Composer allowlist is needed. Pages/custom types require native create/edit/publish capabilities as
+well as Article Composer publication access. Unsupported or unavailable destinations fail without
+falling back. Selection belongs to the publication request, not the draft snapshot.
+Use `list-taxonomies` and `list-terms` to select existing categories, tags or public
+custom taxonomy terms for that destination. The AI proposes a small relevant
+selection and confirms it with the destination and timing. Native assignment
+rights are required; Article Composer publisher alone does not grant them. No terms are created.
+Omitted taxonomies follow WordPress defaults, including the default category for
+normal posts. Term IDs, names, slugs and parents are pinned; changes or permission
+loss block pending reservations. The result and Articles status show the selection.
+Eligible pages embed structure JSON from the content returned to the current
+viewer. The former public-structure REST route is removed. Anonymous public
+responses can also contain minimal JSON-LD. atshift Members, Members and Ultimate
+Member whole-article rules apply automatically to structure and managed media;
+unverified plugins/themes or partial-content rules pause additional delivery.
+The admin page lists unverified environment components. Private/password-protected/
+withdrawn posts are excluded, even for owners. No private snapshots, component
+defaults or account details are exposed. CSS visibility is not a privacy boundary.
+SEO integrations can disable JSON-LD with `atshift_deft_json_ld_enabled`.
+See https://github.com/at-shift/atshift-article-composer/blob/main/docs/PUBLIC-STRUCTURE.md.
+Parent pages, templates and required custom metadata are not handled yet.
+Private previews do not reproduce a destination-specific template.
+Images/PDFs use frozen private copies served after publication, not media-library
+promotion. The plugin must remain active to serve these files and styles. A disabled
+plugin cannot process reservations. Retention/deletion UI is not implemented.
+
+For each contributor, use a separate WordPress account with the **atshift Article Composer
+author** role. No existing roles or accounts are changed automatically. Articles
+belong to their first creator; plugin APIs/UI have no administrator override.
+Authors may use active catalog or their article's saved component revisions, and
+create shared content-free structures from bounded recipes, not arbitrary HTML/CSS.
+Existing private definitions remain private; the legacy recipe path is still available.
+The opt-in **atshift Article Composer designer** role grants shared registration and
+management without site administration or access to other owners' private work.
+Administrators can still import arbitrary validated designs into their own articles.
+Account handover is not implemented.
+
+Requirements: WordPress 6.9+, PHP 8.2+ with DOM, mbstring, OpenSSL and Sodium, MySQL/MariaDB with
+InnoDB and named locks. Verified locally on WordPress 7.1, PHP 8.3.36, MySQL 8.4,
+and Twenty Twenty-Five only; minimum-version compatibility is not yet verified.
+PHP below 8.2 stops the plugin before its implementation or dependencies load and
+shows administrators a warning with the required/current versions. Stored data is
+not modified. WordPress also receives the Requires PHP header for new installations.
+
+## Try It
+
+Administrators can import one component JSON in **Components**, then register it.
+Use **New article** to choose active components and enter values; save to preview.
+Saved articles keep their component revisions even after catalog updates or
+deactivation. The **Edit article** section is a minimal manual fallback.
+The schema download describes `POST /structured-fields/v1/catalog` (shared design capability)
+and `POST /structured-fields/v1/articles/compose` (owner workspace). Compose sends
+only `{article, expectedVersion}` with block IDs, component IDs/hashes and values.
+It does not grant new AI credentials, connect a chat, approve or publish.
+
+**AI handoff** downloads instructions, field contracts and a composition template.
+Use existing parts first: own usage, then the whole shared catalog. **New structure**
+is for genuine gaps and requires catalog review plus a missing-capability reason.
+Recipes contain no field values, alt text, URLs or asset references. An equivalent
+shared structure returns its existing ID/version instead of creating a copy. Changed
+article saves automatically record exact-version usage; no extra approval is needed.
+Recipes support stack, columns and native Q&A list/accordion. IDs, content and old snapshots remain
+stable when Q&A presentation changes. Reply-language guidance is independent from
+article language; identifiers are never translated. AI JSON composition results can
+be staged with **Import snapshot** and saved through the same owner-only API.
+
+Choose **Load sample**, then **Save draft**, and inspect the active-theme preview.
+To import an article from the browser prototype, export its WordPress snapshot
+JSON, then choose **Import snapshot**. Required media must already exist on the
+WordPress site; the JSON transfer does not upload images.
+
+The **Private files** panel accepts JPEG/PNG/WebP/PDF for a saved draft.
+Both reference files and publication candidates stay private in the WordPress
+database. **Article media** can place publication candidates
+in image/PDF fields with contextual text. Reference-only files cannot be bound.
+Your own uploaded WordPress media can be searched and reused without copying files
+or changing their original metadata. New private files are not published.
+PHP fileinfo and InnoDB are required. No extra storage directory or `wp-config.php`
+edit is needed. Earlier experimental filesystem files are not imported or served;
+they are not deleted. Keep their backups. There is no plaintext public-uploads fallback.
+Limits are 10 MiB per file (or lower host limit), 50 files and 50 media bindings / 100 MiB per article,
+100 MiB of staged files per uploader across articles, and 500 MiB per site.
+New shared component IDs default to 20 per creator; existing shared reuse does not
+consume a slot. Disabled IDs still count. Manager edits never transfer creator usage.
+Trusted site code may adjust per-user limits using `atshde_shared_component_limit_per_user`
+and `atshde_private_media_limit_per_user` (integer count/bytes, then the user ID).
+Only these prefixed quota filters are supported; the old `sf_` aliases were removed.
+Existing data is retained even when over quota. Assets are retained on deactivation;
+cleanup is not implemented.
+
+Choose **Media sample**, save it, then select sources in **Article media** and
+save the changed draft. Media references use a stable ID and SHA-256, never a
+temporary preview URL. Missing or modified files block preview instead of showing
+different bytes. Existing library URLs keep their original access behavior.
+Reuse supports local JPEG/PNG/WebP/PDF inside uploads under the same per-file
+limits; offloaded files, external fetching and other formats are not supported.
+Snapshots with references have `schemaVersion: 2`. WordPress still reads v1;
+the separate browser/local-server v1 importer rejects v2 rather than losing refs.
+
+Saved versions are immutable. Changed article content needs a newer article
+revision, and conflicting writes are rejected. Previews require the authorized
+WordPress session and exact saved-version URL. Deactivation retains saved data.
+Uninstall cleanup is not implemented.
+
+## Limits
+
+Only administrators may import complete component HTML/CSS in this first phase.
+Raw shared registration/updates can be delegated separately via the designer role.
+Bounded structure creation is available to workspace authors; shared updates and
+retirement remain manager-only. Shared labels and guidance must be generic configuration,
+not confidential article information. Alpha.9 adds bundled behavior references, not arbitrary JS registration.
+
+Prefer native HTML, then CSS, then JS. Q&A uses native disclosure. The bundled
+fade-in is CSS-only and honors reduced motion; image-zoom uses JS with a native
+dialog and keyboard focus restoration. Components bind exact behavior revisions
+to semantic field keys (or root), with typed settings. Articles may override only
+those settings. V3 snapshots carry behaviors without rewriting v1/v2 data.
+Components > Behaviors lists the shipped registry; administrators can stop/restore
+an exact revision. Stopped or missing assets fall back to static content on the next
+preview load. V3 reviews become invalid after availability-policy changes.
+No code upload, external scripts, form backend or publishing capability is added.
+Personal recipes are owner-only, capped at 20 IDs per user, and normalized duplicates
+are rejected. Explicit sharing creates a separate shared copy; nothing is auto-shared.
+The catalog holds up to 100 component IDs, 30 revisions per component and 32 MiB
+of definitions. Registration is limited to 512 KiB. IDs and machine keys stay
+stable; machine keys are unique within their owner scope. Availability changes affect new selection only,
+not old pinned articles, and are not emergency revocation. No hard delete is provided.
+Separate accounts cannot read, edit or approve each other's articles or private
+files. Concurrent saves of the same article must use its current version. A new
+sample creates a unique article ID; resuming a saved draft keeps its existing ID.
+Site/DB administrators remain trusted infrastructure operators. Existing public
+WordPress upload URLs are not made private. Shared site quotas are not per-user isolation.
+Alpha.4 adds exact-file transfer grants and a separate **Review** screen with
+approval, changes-request and withdrawal controls. A changed article or file
+invalidates approval. Approving records WordPress account intent, not proof of
+human presence, and does not publish. Transfer keys cannot approve or browse files.
+HTTPS is required. HTTP is accepted only with WordPress environment type `local`,
+a loopback home URL and a loopback peer. Connections, transfers and reviews share
+this policy. The bundled Node transfer client still only accepts HTTP at 127.0.0.1.
+Only v2/v3 snapshots with pinned article media qualify for review. Unpinned image URLs
+and CSS image resources are rejected. Theme files and linked website contents are
+not frozen or covered as managed assets.
+Beyond the scoped MCP tools, there is no chat-attachment integration, public preview link
+or automatic synchronization. A saved draft is not publication permission.
+External media/CSS/font requests are blocked in preview.
+
+Button icon line-height and width are scoped to this screen to keep them centered.
+The private-file and media-binding flows are verified at desktop/mobile widths; broader mobile layout
+and other themes still need testing. Existing atshift Fields is not modified.
+
+Project: https://github.com/at-shift/atshift-article-composer

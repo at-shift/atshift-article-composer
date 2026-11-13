@@ -1,0 +1,465 @@
+# Japanese interface copy for onboarding and client connection guidance.
+msgid ""
+msgstr ""
+"Project-Id-Version: atshift Article Composer 0.7.6\n"
+"PO-Revision-Date: 2026-10-31 20:31+0900\n"
+"Last-Translator: at-shift (AI-assisted)\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: includes/class-publication-access.php
+msgid "Article structure JSON and Composer-managed image/PDF delivery are paused because access rules have not been verified for the following components. Normal article HTML is unchanged; protected files are not made public."
+msgstr "次の構成要素について閲覧制限の判定を検証できていないため、記事の構造JSONとComposerが管理する画像・PDFの配信を保留しています。通常の記事本文HTMLは変更せず、保護対象のファイルも公開しません。"
+
+#: includes/class-publication-access.php
+msgid "Additional article output is paused for these recent articles: dynamic block/shortcode content, oversized content, or an unavailable access decision needs a verified integration. Normal article HTML is unchanged."
+msgstr "次の最近の記事では追加出力を保留しています。動的なブロック・ショートコード、容量が大きすぎる本文、または取得できない閲覧権限の判定に対応する連携が必要です。通常の記事本文HTMLは変更しません。"
+
+msgid "Download AI guide"
+msgstr "AI用手順書をダウンロード"
+
+msgid "Connect your AI"
+msgstr "AIと接続する"
+
+msgid "Give this guide to your usual AI"
+msgstr "手順書を、いつものAIへ"
+
+msgid "Download this guide and ask your usual AI to read it. Your AI will guide you through connecting, confirm the connection, then continue with your article. Ask about layout as well as wording: work with your theme's look or assemble a separate article layout, using a reference image if helpful."
+msgstr "手順書をダウンロードして、いつものAIに読ませてください。AIが接続を案内し、接続を確認できたら、そのまま記事作成の相談へ進みます。文章だけでなく、段組や見た目も相談できます。「今のテーマに馴染ませたい」「記事用に別のレイアウトを組みたい」など、希望や参考画像をAIに伝えてください。"
+
+#, php-format
+msgid "atshift Article Composer requires PHP 8.2 or newer. This site runs PHP %s. The plugin is not running until PHP is upgraded. Saved data is unchanged."
+msgstr "atshift Article Composer は PHP 8.2 以上が必要です。現在は PHP %s です。サイトの PHP を更新するまで、このプラグインの処理を停止しています。保存済みデータは変更されません。"
+
+msgid "Deactivate Structured Fields Prototype before activating atshift Article Composer. Saved data will be retained. You do not need to delete the old plugin."
+msgstr "atshift Article Composer を有効化する前に、旧 Structured Fields Prototype を停止してください。保存済みデータはそのまま引き継ぎます。旧版を削除する必要はありません。"
+
+msgid "Read components and read/write my private drafts"
+msgstr "本人の部品参照・下書きの読み書き"
+
+msgid "Create bounded structures, transfer my files and export private previews"
+msgstr "限定構造の作成・本人のファイル転送・非公開プレビュー"
+
+msgid "Publish or schedule my articles without another WordPress approval"
+msgstr "本人の記事の即時公開・予約投稿（追加のWordPress承認なし）"
+
+msgid "Authorize AI connection"
+msgstr "AIとの接続を許可"
+
+#, php-format
+msgid "WordPress account: %s"
+msgstr "WordPressの担当者: %s"
+
+msgid "Consent lasts 30 days and can be revoked in AI connections. Other staff members' private data is not included."
+msgstr "許可は30日間有効です。「AI connections」でいつでも取り消せます。他の担当者の非公開データは許可されません。"
+
+msgid "Revoking this connection cancels pending reservations. Access-token expiry alone does not cancel them."
+msgstr "接続を取り消すと予約投稿も取り消されます。アクセストークンの期限切れだけでは、予約投稿は取り消されません。"
+
+msgid "Connection details"
+msgstr "接続先の詳細"
+
+msgid "Allow this access"
+msgstr "この範囲で接続を許可"
+
+msgid "Deny"
+msgstr "許可しない"
+
+#: connection-profiles.js
+msgid "ChatGPT (web: Chat / Work)"
+msgstr "ChatGPT（Web版：Chat / Work）"
+
+#: connection-profiles.js
+msgid "Open Settings > Plugins > View agents, then Add > Add custom MCP server. The installed-plugin settings list is not the creation screen. Labels may vary by version."
+msgstr "「設定 → プラグイン → エージェント一覧を見る」から、「追加 → カスタムMCPサーバーを追加」へ進みます。設定内のインストール済み一覧とは別の画面です。表示名はバージョンで変わる場合があります。"
+
+#: connection-profiles.js
+msgid "Install the created plugin, select it in the intended Chat or Work conversation, and ask the AI to confirm live context. A visible add menu does not prove that Article Composer OAuth works with this account."
+msgstr "作成したプラグインをインストールし、利用するChatまたはWorkの会話で選んで、AIに実際の接続確認を依頼します。追加メニューがあるだけでは、そのアカウントでArticle ComposerのOAuth接続が動くとは確認できません。"
+
+#: connection-profiles.js
+msgid "In Claude Desktop, open Settings > Connectors > Add to reach Add custom connector. The first screen asks for a name and MCP server URL; check the following authentication screen before choosing a route."
+msgstr "Claude.appでは「設定 → コネクタ → 追加」から「カスタムコネクタを追加」を開きます。最初の画面は名前とMCPサーバーURLの入力です。その先の認証画面を確認してから接続経路を選びます。"
+
+#: connection-profiles.js
+msgid "In Claude Desktop, open Settings > Connectors > Add. On the web, use the visible Connectors entry. Confirm Request headers is actually available before creating a key; the name and URL form alone does not prove header support."
+msgstr "Claude.appでは「設定 → コネクタ → 追加」を開きます。Web版では表示されているコネクタの入口を使います。キーを作る前に「Request headers」が実際に使えるか確認してください。名前とURLの入力欄だけではヘッダー対応を確認できません。"
+
+#: connection-profiles.js
+msgid "Codex (desktop app)"
+msgstr "Codex（デスクトップ版）"
+
+#: connection-profiles.js
+msgid "Local desktop MCP setup, separate from ChatGPT web OAuth. The steps match the desktop screens checked on 2026-10-31; if labels differ, confirm the visible screen instead of guessing."
+msgstr "ローカルのデスクトップ版MCP設定で、ChatGPT Web版のOAuthとは別の経路です。手順は2026-10-31に確認した画面に基づきます。表示名が違う場合は、推測せず実際の画面を確認してください。"
+
+#: connection-profiles.js
+msgid "Open Settings > Plugins > Add > Add MCP server."
+msgstr "「設定 → プラグイン → 追加 → MCPサーバーを追加」を開きます。"
+
+#: connection-profiles.js
+msgid "Enter a server name, select Streamable HTTP (not STDIO), and paste the full MCP endpoint into URL."
+msgstr "サーバーに名前を付け、「ストリーミング可能なHTTP」を選び、MCP endpoint全体をURL欄へ貼り付けます。STDIOではありません。"
+
+#: connection-profiles.js
+msgid "For this header-based route, leave Bearer token environment variable empty. Under Headers, set the name to Authorization and the value to Bearer <connection-key>, with one space after Bearer. Never put the key in chat or screenshots."
+msgstr "このヘッダー方式では「Bearer トークン環境変数」は空欄にします。「ヘッダー」の左欄はAuthorization、右欄はBearerと接続キーの間に半角スペースを1つ入れた値です。キーをチャットやスクリーンショットへ含めないでください。"
+
+#: connection-profiles.js
+msgid "Save. To edit later, open the MCP tab in Plugins and select the gear beside the server name you chose. Keep that server enabled."
+msgstr "保存します。後から編集する場合は、プラグイン内のMCPタブで、自分で付けたサーバー名の横にある歯車を押します。そのサーバーを有効にしておきます。"
+
+#: connection-profiles.js
+msgid "Return to the same Codex conversation and ask for a read-only context check. If the tools are still missing, use Restart when offered or restart the app and resume. A saved setting alone is not a connection check."
+msgstr "元のCodexの会話へ戻り、読み取り専用の接続確認を依頼します。ツールがまだ出ない場合は、再起動の操作が表示されていれば使い、なければアプリを再起動して再開します。設定の保存だけでは接続確認になりません。"
+
+#: includes/class-onboarding.php
+msgid "How to publish or schedule"
+msgstr "公開・予約の手順"
+
+#: includes/class-onboarding.php
+msgid "Save draft and Review do not publish. Ask your AI to publish through a separately authorized publishing connection."
+msgstr "下書きの保存やReviewでの承認だけでは公開されません。別途許可した公開用接続を使い、AIに公開を依頼します。"
+
+#: includes/class-onboarding.php
+msgid "Save your changes and check Open theme preview."
+msgstr "変更を保存し、「Open theme preview」でテーマを含めた表示を確認します。"
+
+#: includes/class-onboarding.php
+msgid "First time only: open AI connections with the same WordPress account that owns the draft and choose your AI client."
+msgstr "初回のみ、下書きを所有するWordPressアカウントでAI connectionsを開き、利用するAIを選びます。"
+
+#: includes/class-onboarding.php
+msgid "Open AI connections"
+msgstr "AI接続設定を開く"
+
+#: includes/class-onboarding.php
+msgid "For a connection key, select the following option and choose Create connection:"
+msgstr "キー方式では、次の項目を選んで「接続を作成」を押します。"
+
+#: includes/class-onboarding.php includes/connections-page.php
+msgid "Allow immediate and scheduled public publication of my drafts"
+msgstr "自分の下書きの即時公開・予約公開を許可"
+
+#: includes/connections-page.php
+msgid "Create connection"
+msgstr "接続を作成"
+
+#: includes/class-onboarding.php
+msgid "Add the returned publishing URL and new key to your AI as a separate connection. Keep the draft connection; its permissions do not change. Put the key in secure connection settings, never in chat."
+msgstr "表示された公開用URLと新しいキーを、AI側に別の接続として追加します。下書き用接続は残します。その権限は変わりません。キーは安全な接続設定に入力し、チャットには貼らないでください。"
+
+#: includes/class-onboarding.php
+msgid "For OAuth, choose Use the publishing endpoint and authorize publication with the draft owner account. The registered application must permit publication access."
+msgstr "OAuth方式では「Use the publishing endpoint」を選び、下書きの所有者アカウントで公開を許可します。登録済みアプリ側も公開アクセスを許可している必要があります。"
+
+#: includes/class-onboarding.php
+msgid "Return to the same AI conversation. Ask it to verify publication access, then say \"Publish this draft now\" or give the publication date, time and time zone. Connection setup alone does not request publication."
+msgstr "同じAIとの会話へ戻り、公開権限の接続確認を依頼します。その後「この下書きを今すぐ公開して」、または公開したい日付・時刻・タイムゾーンを伝えます。接続設定が終わっただけでは公開の依頼になりません。"
+
+#: includes/class-onboarding.php
+msgid "Check the AI result and Publication status in Articles. Published posts have View published post; scheduled posts are not public yet. Use Cancel reservation to cancel a pending schedule."
+msgstr "AIの結果と記事画面のPublication状態を確認します。公開後は「View published post」で公開ページを開けます。予約済みはまだ公開されていません。「Cancel reservation」で予約を取り消せます。"
+
+#: includes/class-onboarding.php
+msgid "Your account cannot grant publication access. Ask your administrator about the atshift Article Composer publisher role for this same account; do not switch to another owner to publish this draft."
+msgstr "このアカウントには公開アクセスを許可する権限がありません。同じアカウントにatshift Article Composer publisher権限を付けるか、管理者に相談してください。別の所有者に切り替えてこの下書きを公開することはできません。"
+
+#: includes/class-onboarding.php
+msgid "Only grant this access to a trusted AI connection: it can publish without another WordPress approval. Initial publication only is supported; later draft edits do not update the public post."
+msgstr "信頼するAI接続だけに許可してください。WordPressでの再承認なしに公開できる権限です。現在は初回公開のみ対応し、公開後の下書き編集は公開記事に反映されません。"
+
+#: includes/class-component-appearance.php
+msgid "Appearance must reference distinct existing field keys and options supported by their types and layout."
+msgstr "装飾には重複しない既存のフィールド名を指定し、その入力タイプとレイアウトで利用できる設定を使用してください。"
+
+#: includes/class-github-updater.php
+msgid "Create structured articles with your preferred AI."
+msgstr "普段使うAIで構造化された記事を作成します。"
+
+#: includes/class-github-updater.php
+msgid "View release notes on GitHub"
+msgstr "GitHubでリリースノートを表示"
+
+#: includes/class-github-updater.php
+msgid "The GitHub update could not be verified. Check for updates again."
+msgstr "GitHubの更新を確認できませんでした。更新をもう一度確認してください。"
+
+#: includes/class-github-updater.php
+msgid "Could not create a temporary update file."
+msgstr "更新用の一時ファイルを作成できませんでした。"
+
+#: includes/class-github-updater.php
+msgid "The GitHub update download failed."
+msgstr "GitHubから更新ファイルをダウンロードできませんでした。"
+
+#: includes/class-github-updater.php
+msgid "The update ZIP failed its SHA-256 integrity check."
+msgstr "更新ZIPのSHA-256整合性チェックに失敗しました。"
+
+#: admin.js
+#. translators: 1: destination label; 2: WordPress post type identifier.
+#, javascript-format
+msgid "Destination: %1$s (%2$s)"
+msgstr "公開先: %1$s (%2$s)"
+
+#: includes/class-publications.php
+msgid "This publication destination is unavailable or not permitted for this account."
+msgstr "この公開先は利用できないか、このアカウントには利用権限がありません。"
+
+#: includes/class-publications.php
+msgid "The publication destination is no longer available or permitted. Nothing was published."
+msgstr "公開先が利用できなくなったか、権限が失われました。公開は行われていません。"
+
+#: includes/class-publications.php
+msgid "The publication post no longer matches its destination or owner."
+msgstr "公開する投稿の公開先または所有者が、保存された設定と一致しません。"
+
+#: admin.js
+msgid "No terms"
+msgstr "指定なし"
+
+#: admin.js
+#. translators: %s: selected category, tag or custom taxonomy names.
+#, javascript-format
+msgid "Classification: %s"
+msgstr "分類: %s"
+
+#: includes/class-publications.php
+msgid "Use JSON within 8 KiB."
+msgstr "8 KiB以内のJSONを使用してください。"
+
+#: includes/class-publications.php
+msgid "The draft, media, categories, tags or behavior policy changed. Set publication again."
+msgstr "下書き、素材、カテゴリー、タグ、または動作方針が変更されました。公開を再設定してください。"
+
+#: includes/class-publications.php
+msgid "Could not commit the publication categories or tags."
+msgstr "公開するカテゴリーまたはタグの確定に失敗しました。"
+
+#: includes/class-taxonomies.php
+msgid "A selected taxonomy is duplicated, unavailable or not permitted for this destination."
+msgstr "選択した分類が重複しているか、この投稿先では利用できない、または利用権限がありません。"
+
+#: includes/class-taxonomies.php
+msgid "This taxonomy requires a term. Choose an existing term or omit it to use WordPress defaults."
+msgstr "この分類には項目の指定が必要です。既存の項目を選ぶか、分類の指定を省略してWordPressの既定値を使用してください。"
+
+#: includes/class-taxonomies.php
+msgid "A selected term is missing, duplicated, not permitted or over the selection limit."
+msgstr "選択した分類項目が存在しない、重複している、利用権限がない、または選択数の上限を超えています。"
+
+#: includes/class-taxonomies.php
+msgid "The selected categories or tags changed. Set publication again."
+msgstr "選択したカテゴリーまたはタグが変更されました。公開を再設定してください。"
+
+#: includes/class-taxonomies.php
+msgid "WordPress could not assign the selected categories or tags. Nothing was published."
+msgstr "選択したカテゴリーまたはタグをWordPressに設定できませんでした。公開は行われていません。"
+
+#: includes/class-taxonomies.php
+msgid "WordPress did not retain the selected categories or tags. Nothing was published."
+msgstr "WordPressが選択したカテゴリーまたはタグを保持しませんでした。公開は行われていません。"
+
+#: includes/class-public-structure.php
+msgid "Public structure not found."
+msgstr "公開構造が見つかりません。"
+
+#: includes/plugin.php
+msgid "Draft status"
+msgstr "下書きの状態"
+
+#: includes/plugin.php
+msgid "Drafts"
+msgstr "下書き"
+
+#: includes/plugin.php
+msgid "Trash"
+msgstr "ゴミ箱"
+
+#: includes/class-drafts.php
+msgid "Use JSON within 2 KiB."
+msgstr "2 KiB以内のJSONを使用してください。"
+
+#: includes/class-drafts.php
+msgid "Supply the saved version and state version only."
+msgstr "保存版と状態のバージョンだけを指定してください。"
+
+#: includes/class-drafts.php
+msgid "Supply an article ID and integer saved/state versions."
+msgstr "記事IDと、保存版・状態の整数バージョンを指定してください。"
+
+#: includes/class-drafts.php
+msgid "The draft or trash state changed. Refresh the list before trying again."
+msgstr "下書きまたはゴミ箱の状態が変わりました。一覧を更新してから操作してください。"
+
+#: includes/class-drafts.php
+msgid "Cancel the publication reservation before moving this draft to Trash."
+msgstr "この下書きをゴミ箱に移動する前に、公開予約を取り消してください。"
+
+#: includes/class-drafts.php
+msgid "The draft state could not be saved."
+msgstr "下書きの状態を保存できませんでした。"
+
+#: includes/class-store.php
+msgid "Choose drafts or Trash."
+msgstr "下書きまたはゴミ箱を選択してください。"
+
+#: admin.js
+msgid "Trash is empty."
+msgstr "ゴミ箱は空です。"
+
+#: admin.js
+msgid "No saved drafts."
+msgstr "保存された下書きはありません。"
+
+#. translators: %s: draft title.
+#: admin.js
+#, javascript-format
+msgid "Restore %s"
+msgstr "「%s」を復元"
+
+#. translators: %s: draft title.
+#: admin.js
+#, javascript-format
+msgid "Move %s to Trash"
+msgstr "「%s」をゴミ箱に移動"
+
+#: admin.js
+msgid "Discard the unsaved changes?"
+msgstr "未保存の変更を破棄しますか？"
+
+#. translators: %s: draft title.
+#: admin.js
+#, javascript-format
+msgid "Move \"%s\" to Trash? You can restore it later. Published posts and shared components will not be deleted."
+msgstr "「%s」をゴミ箱に移動しますか？ 後から復元できます。公開済みの記事や共通部品は削除されません。"
+
+#: admin.js
+msgid "Draft restored. Not published."
+msgstr "下書きを復元しました。公開はしていません。"
+
+#: admin.js
+msgid "Draft moved to Trash."
+msgstr "下書きをゴミ箱に移動しました。"
+
+#. translators: %s: current WordPress user's display name.
+#: includes/plugin.php
+#, php-format
+msgid "Draft owner: %s"
+msgstr "下書きの所有者：%s"
+
+#. translators: %s: translated WordPress role names.
+#: includes/plugin.php
+#, php-format
+msgid "WordPress role: %s"
+msgstr "WordPressの権限グループ：%s"
+
+#: includes/plugin.php
+msgid "This is a private workspace for preparing articles. Choose Posts, Pages or an available custom post type as the destination. Once published or scheduled, an article leaves this draft list and appears in its destination list. Cancelled, invalidated or failed reservations return here. Saved content and files are retained."
+msgstr "ここは公開前の記事を準備するための非公開の下書き置き場です。公開先には、投稿・固定ページ・利用可能なカスタム投稿を選べます。公開または予約が確定すると、この下書き一覧から外れ、選択した投稿先の一覧に表示されます。予約を取り消した場合、内容変更で予約が無効になった場合、公開に失敗した場合は、この一覧に戻ります。保存した本文やファイルは削除されません。"
+
+#: includes/class-reservations.php
+msgid "Scheduled (Article Composer)"
+msgstr "予約済み（Article Composer）"
+
+#: includes/class-reservations.php
+msgid "Scheduled (Article Composer) <span class=\"count\">(%s)</span>"
+msgid_plural "Scheduled (Article Composer) <span class=\"count\">(%s)</span>"
+msgstr[0] "予約済み（Article Composer）<span class=\"count\">(%s)</span>"
+
+#: includes/class-reservations.php
+msgid "Inactive Article Composer reservation"
+msgstr "無効なArticle Composer予約"
+
+#: includes/class-reservations.php
+msgid "Manage reservation in Article Composer"
+msgstr "Article Composerで予約を管理"
+
+#: includes/class-reservations.php
+msgid "Could not create reservation post."
+msgstr "予約記事を作成できませんでした。"
+
+#: includes/class-reservations.php
+msgid "The reservation post could not be verified."
+msgstr "予約記事の状態を確認できませんでした。"
+
+#: includes/class-reservations.php
+msgid "Could not attach reservation post."
+msgstr "予約記事を関連付けられませんでした。"
+
+#: includes/connections-page.php
+msgid "Before connecting: install MCP Adapter"
+msgstr "AI接続の前に：MCP Adapterをインストール"
+
+#: includes/connections-page.php
+msgid "MCP Adapter 0.7.1 or newer is required for AI connections. Manual JSON import does not require it."
+msgstr "AIとの接続にはMCP Adapter 0.7.1以上が必要です。手動でJSONを取り込むだけの場合は不要です。"
+
+#: includes/connections-page.php
+msgid "Open Plugins > Add New Plugin and search for MCP Adapter by WordPress.org."
+msgstr "「プラグイン」→「新規追加」を開き、MCP Adapter（作者：WordPress.org）を検索してください。"
+
+#: includes/connections-page.php
+msgid "Install and activate it. If already installed, update it to 0.7.1 or newer if needed, then make sure it is active."
+msgstr "インストールして有効化してください。導入済みの場合は、必要に応じて0.7.1以上へ更新し、有効になっていることを確認してください。"
+
+#: includes/connections-page.php
+msgid "Return here and continue with your AI's connection settings below."
+msgstr "この画面に戻り、下にあるAIとの接続設定へ進んでください。"
+
+#: includes/connections-page.php
+msgid "Official MCP Adapter page"
+msgstr "MCP Adapterの公式ページ"
+
+#: includes/connections-page.php
+msgid "Find MCP Adapter in WordPress"
+msgstr "WordPressでMCP Adapterを検索"
+
+#: includes/connections-page.php
+msgid "If you cannot install or activate plugins, ask your site administrator to complete this step."
+msgstr "プラグインをインストール・有効化する権限がない場合は、サイト管理者へこの操作を依頼してください。"
+
+#: atshift-article-composer.php
+msgid "atshift Article Composer could not migrate its legacy data. Its tools are disabled to avoid mixing data. Keep your database backup and check for conflicting legacy/new Article Composer tables or insufficient database permissions, then reload."
+msgstr "atshift Article Composerの既存データを移行できませんでした。データの混在を防ぐため、機能を停止しています。データベースのバックアップを保管し、新旧テーブル名の重複やデータベース権限の不足を確認してから再読み込みしてください。"
+
+#: includes/class-connections.php
+msgid "Nested requests are not permitted in this AI connection."
+msgstr "このAI接続では、処理中に別のリクエストを呼び出すことはできません。"
+
+#: includes/class-private-blobs.php
+msgid "Invalid private storage identity."
+msgstr "非公開ファイルの保存識別子が無効です。"
+
+#: includes/class-private-blobs.php
+msgid "Invalid private media metadata."
+msgstr "非公開ファイルの管理情報が無効です。"
+
+#: includes/class-private-blobs.php
+msgid "Private media storage unavailable."
+msgstr "非公開ファイルの保存領域を利用できません。"
+
+#: includes/class-private-blobs.php
+msgid "Incomplete private media."
+msgstr "非公開ファイルの保存データが完全ではありません。"
+
+#: includes/class-private-blobs.php
+msgid "Private media integrity check failed."
+msgstr "非公開ファイルの整合性を確認できませんでした。"
+
+#: includes/class-private-blobs.php
+msgid "Private media storage is busy."
+msgstr "非公開ファイルの保存領域で別の処理を実行中です。"
+
+#: includes/class-private-blobs.php
+msgid "Private media capacity reached."
+msgstr "非公開ファイルの保存容量の上限に達しました。"
+
+#: includes/class-private-blobs.php
+msgid "Private media could not be saved."
+msgstr "非公開ファイルを保存できませんでした。"
