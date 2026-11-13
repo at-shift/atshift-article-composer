@@ -18,7 +18,12 @@ Work with your AI on the article, ask it to create the page design and column la
 
 Version **0.7.6** starts this repository from the WordPress.org submission baseline. It adds membership-aware structure and managed-media access; unverified environments pause these extra outputs with an administrator notice. Directory review is pending; a GitHub release is not WordPress.org approval. MCP Adapter 0.7.1+ must be installed and active for AI connections. Start on an isolated test site with a backup.
 
-This release does **not** migrate older atshift DeFt / Structured Fields experimental data or read legacy private files. Use a fresh installation; moving an existing experimental site requires a separate export/import plan. The previous repository and its releases are unchanged.
+The main plugin does **not** migrate older atshift DeFt / Structured Fields experimental data or read legacy private files. Use a fresh installation for a new site; existing experimental sites need a separately checked migration. [DeFt development and new releases have ended](https://github.com/at-shift/atshift-deft); its historical ZIPs and tags are retained for migration and recovery.
+
+For existing DeFt sites, a separate [Migration Helper and AI runbook](docs/MIGRATION.md)
+provide two entry points to the same checked workflow. The initial supported route
+is original GitHub 0.7.4 to 0.7.6 on a single site with database-backed media.
+This helper is separate from the main plugin and must be rehearsed on a backup copy.
 
 ## Getting Started
 

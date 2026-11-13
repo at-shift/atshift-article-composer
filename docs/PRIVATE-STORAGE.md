@@ -48,4 +48,4 @@ not depend on `ABSPATH`, `WP_CONTENT_DIR`, `DOCUMENT_ROOT`, Unix file
 permissions or a hard-coded uploads path.
 
 Regression evidence and environment limitations belong in
-[WordPress.org Remediation](WORDPRESS-ORG-REMEDIATION.md).
+[0.7.6 Verification](VERIFICATION-0.7.6.md).

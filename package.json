@@ -35,6 +35,8 @@
     "test:wordpress-publications": "php tests/wordpress-publications.php && node --test tests/wordpress-publications.test.mjs",
     "test:wordpress-memberships": "node scripts/test-wordpress-memberships.mjs",
     "test:wordpress-review": "node scripts/test-wordpress-review.mjs",
+    "test:migration": "node scripts/test-migration.mjs",
+    "pack:migration": "node scripts/package-migration.mjs",
     "test:wordpress-security": "php tests/wordpress-security.php",
     "test:wordpress-nonces": "php tests/wordpress-nonces.php",
     "test:wordpress-oauth-inputs": "php tests/wordpress-oauth-inputs.php",
