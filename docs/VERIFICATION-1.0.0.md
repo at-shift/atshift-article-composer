@@ -1,13 +1,38 @@
-# 1.0.0 Local Release Verification
+# 1.0.0 Release Verification
 
-Date: November 17, 2026. At the time of these checks, no GitHub push, tag or Release,
-SVN publication, submission replacement or installed-site deployment was performed.
-The later authorized source-only GitHub update does not publish a plugin release;
-see [RELEASE-1.0.0.md](RELEASE-1.0.0.md) for the current release gates.
-The owner reported directory approval of the earlier 0.7.6 submission. Its
-historical artifacts remain unchanged.
+Date: November 17, 2026. Initial checks used local release candidates. After the
+owner authorized both destinations, SVN revision 3807381 published the first
+directory release and the complete suite was repeated against the official
+downloaded ZIP. See [RELEASE-1.0.0.md](RELEASE-1.0.0.md). Historical artifacts and
+existing installations remain unchanged.
 
-## Installed Artifacts
+## Official Distributed Artifact
+
+Official URL: `https://downloads.wordpress.org/plugin/atshift-article-composer.1.0.0.zip`.
+The ZIP is **788636 bytes** with 426 regular files; SHA-256:
+`bfbb8d9e0c79d13873a6cb425bc23d2c44520bab783519c537b7d66a183cfcef`.
+
+- Every regular file matches the local candidate and SVN trunk/tag. ZIP directory
+  entries and compression differ; the downloaded bytes were not repacked.
+- The directory API returns version 1.0.0 and this exact download URL. English and
+  Japanese listing URLs respond successfully without authentication.
+- The approved banner and icon bytes from the WordPress.org CDN match all four
+  source images. The page was visually inspected.
+- The exact official ZIP was installed before the complete suite below. All
+  checks passed again, including the original 0.7.6 native update, Japanese UI,
+  save/preview/trash/restore, access boundaries and multisite isolation.
+- Plugin Check again returned **0 errors and 371 warnings**. No finding was
+  suppressed to obtain this result.
+- The handoff assets retain the official ZIP unchanged. Future directory update
+  API responses in runtime tests remain local fixtures, not a published 1.0.1.
+
+Official-ZIP evidence:
+`/private/tmp/atshift-article-composer-qa-20261117/review-j1UgRY`.
+The test database was deleted and temporary servers stopped. The directory page
+reported a six-hour update-delivery delay; the public versioned download was
+already available.
+
+## Initial Local Artifacts
 
 | Build | Bytes | Files | SHA-256 |
 | --- | ---: | ---: | --- |
@@ -19,9 +44,8 @@ after verification produced the same hashes. Both packages include the Japanese
 PO/MO, four JavaScript translation catalogs and Japanese user guide.
 
 The updater-enabled development ZIP above is **not** the intended public GitHub
-1.0.0 transition asset. After directory publication, download and verify the
-official 1.0.0 ZIP, then use those unchanged bytes for GitHub's handoff metadata
-and asset. See [RELEASING.md](RELEASING.md).
+1.0.0 transition asset. The official ZIP described above is used unchanged for
+GitHub's handoff metadata and asset. See [RELEASING.md](RELEASING.md).
 
 ## Results
 
@@ -53,8 +77,9 @@ linguist certification. See [TRANSLATION-1.0.0.md](TRANSLATION-1.0.0.md).
 
 ## Actual-Version Native Update Rehearsal
 
-Remote update responses were controlled local fixtures. The 1.0.0 directory
-candidate is locally built, not yet a downloaded official WordPress.org release.
+Remote update responses were controlled local fixtures. The first run used a
+local candidate; the subsequent run repeated all of these checks using the
+official downloaded directory ZIP described above.
 
 1. Installed the original published GitHub 0.7.6 ZIP, verified against SHA-256
    `cab3b51de465228cc567294f46c6a3ec0c97475d075eca32f46064e8c6bf6ce8`.
@@ -68,9 +93,9 @@ candidate is locally built, not yet a downloaded official WordPress.org release.
 5. The ordinary development-build upgrade and synthetic future directory-handoff
    tests also passed.
 
-Live directory API/download verification and a handoff built from the officially
-distributed ZIP remain publication gates. Existing installed copies have not
-been switched. The separate legacy migration helper remains pinned to its
+The live directory API/download and the handoff built from the officially
+distributed ZIP were verified after publication. Existing installed copies have
+not been manually switched. The separate legacy migration helper remains pinned to its
 original DeFt 0.7.4 -> Article Composer 0.7.6 path.
 
 ## Plugin Check
@@ -115,4 +140,5 @@ After the package checks, the owner approved English banner v3 with "Just talk.
 Then publish." and smaller feature copy. The 1544x500 and 772x250 exports are
 prepared in `wordpress-org/assets/`; no Japanese banner is included. These
 directory assets are outside the plugin ZIP and do not change the tested package
-hashes. They have not been uploaded.
+hashes. They were subsequently uploaded in SVN revision 3807381 and independently
+verified from the public CDN.

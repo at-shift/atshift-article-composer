@@ -16,7 +16,7 @@ Work with your AI on the article, ask it to create the page design and column la
 
 **Delegate execution. Focus on thinking.** The name changes; that principle stays.
 
-Version **1.0.0** prepares the first directory release following WordPress.org approval. It bundles the Japanese interface and user guide, and prepares existing GitHub installations for WordPress.org updates. These files are release preparation; see [release status and gates](docs/RELEASE-1.0.0.md) for publication status. MCP Adapter 0.7.1+ must be installed and active for AI connections. Rehearse on a test site with a backup.
+Version **1.0.0** is the first [WordPress.org release](https://wordpress.org/plugins/atshift-article-composer/). It bundles the Japanese interface and user guide. The GitHub transition release uses the official directory ZIP unchanged so existing GitHub installations can move to WordPress.org updates. See the [release record](docs/RELEASE-1.0.0.md). MCP Adapter 0.7.1+ must be installed and active for AI connections. Rehearse on a test site with a backup.
 
 The main plugin does **not** migrate older atshift DeFt / Structured Fields experimental data or read legacy private files. Use a fresh installation for a new site; existing experimental sites need a separately checked migration. [DeFt development and new releases have ended](https://github.com/at-shift/atshift-deft); its historical ZIPs and tags are retained for migration and recovery.
 
@@ -29,9 +29,9 @@ This helper is separate from the main plugin and must be rehearsed on a backup c
 
 ### STEP 1. Install the Plugin
 
-After the first directory release is published, install [atshift Article Composer from WordPress.org](https://wordpress.org/plugins/atshift-article-composer/), or upload the named installation ZIP from [GitHub Releases](https://github.com/at-shift/atshift-article-composer/releases). Open **Plugins > Add New Plugin** in WordPress, then install and activate it.
+Install [atshift Article Composer from WordPress.org](https://wordpress.org/plugins/atshift-article-composer/), or upload the named installation ZIP from [GitHub Releases](https://github.com/at-shift/atshift-article-composer/releases). Open **Plugins > Add New Plugin** in WordPress, then install and activate it.
 You need **WordPress 6.9+** and **PHP 8.2+**. GitHub releases include the SHA-256 checksum. GitHub's **Download ZIP** contains source code, not the installable plugin package.
-Existing GitHub 0.7.6 installations receive the official 1.0.0 package through a normal plugin update once the transition release is published. That update removes the GitHub updater; later updates come from WordPress.org. Japanese files and automatic-update preferences are retained.
+Existing GitHub 0.7.6 installations receive the official 1.0.0 package through a normal plugin update. That update removes the GitHub updater; later updates come from WordPress.org. Japanese files and automatic-update preferences are retained. Update notices can take time to propagate.
 
 ### STEP 2. Give the Guide to Your AI
 

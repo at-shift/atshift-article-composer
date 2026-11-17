@@ -9,13 +9,14 @@ const root = new URL('../', import.meta.url);
 const {version} = JSON.parse(readFileSync(new URL('package.json', root)));
 const directory = process.env.SF_RELEASE_DIR ? new URL('file://' + process.env.SF_RELEASE_DIR.replace(/\/$/, '') + '/') : new URL('.local/releases/', root);
 const githubBytes = readFileSync(new URL(`atshift-article-composer-${version}.zip`, directory));
-const github = unzipSync(githubBytes);
+const regularFiles = archive => Object.fromEntries(Object.entries(archive).filter(([name]) => !name.endsWith('/')));
+const github = regularFiles(unzipSync(githubBytes));
 const orgBytes = readFileSync(new URL(`atshift-article-composer-${version}-wordpress-org.zip`, directory));
 const orgRaw = unzipSync(orgBytes);
 assert.ok(Object.keys(orgRaw).every(name => name.startsWith('atshift-article-composer/')));
 assert.ok(orgRaw['atshift-article-composer/atshift-article-composer.php']);
 assert.ok(!orgRaw['atshift-article-composer/atshift-deft.php']);
-const org = orgRaw;
+const org = regularFiles(orgRaw);
 const text = bytes => Buffer.from(bytes).toString();
 
 const githubOnly = name => name === 'atshift-article-composer/includes/class-github-updater.php';

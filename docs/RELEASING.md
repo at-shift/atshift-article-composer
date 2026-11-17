@@ -107,6 +107,14 @@ normal native GitHub update, a simulated future handoff, then a fresh-process
 directory update check. Future version numbers and API responses in this test
 are fixtures, not released packages or proof of directory approval.
 
+Set `AC_DIRECTORY_ZIP` to the absolute path of the downloaded official ZIP to
+repeat the suite against the exact distributed bytes. Before installation, the
+runner checks every regular file against the source build, allowing ZIP directory
+entries but no changed or extra files. Set `AC_PREVIOUS_GITHUB_ZIP` to the original
+published 0.7.6 ZIP to verify the actual-version native handoff as well. These
+inputs are read-only; test databases, update responses and future versions remain
+disposable fixtures.
+
 Before each public release, download the uploaded assets again, compare hashes,
 verify the tag/commit and plugin version, and verify WordPress.org artifacts
 separately when that destination is requested. Never treat local tests as deployment.

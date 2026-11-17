@@ -1,18 +1,18 @@
 # atshift Article Composer for WordPress 1.0.0
 
-This repository starts from the submitted 0.7.6 runtime. See [release channels](../docs/RELEASING.md) for packaging and the planned transition from GitHub updates to WordPress.org. Both packages use the same canonical basename. Older experimental data is not migrated automatically.
+This repository starts from the submitted 0.7.6 runtime. See [release channels](../docs/RELEASING.md) for packaging and the 1.0.0 transition from GitHub updates to WordPress.org. Both packages use the same canonical basename. Older experimental data is not migrated automatically.
 For installation and everyday use, see the [Installation and User Guide](../docs/GETTING-STARTED.md).
 Earlier alpha and 0.5.x documents below are historical design notes, not current upgrade instructions.
 
 Alpha.14 was the preceding private GitHub code checkpoint. Its OAuth and runtime changes remain:
 [ALPHA14.md](../docs/ALPHA14.md). Existing keys and separately delegated publication
 remain part of the current implementation. The 0.7.6 submission was approved;
-1.0.0 is being prepared locally for the first directory release.
-This does not imply a WordPress.org release or a production installation.
+1.0.0 is the first directory release. See the [release record](../docs/RELEASE-1.0.0.md).
+Publication does not mean that any existing site has been manually updated.
 
-Development candidate, not for production use. Earlier `0.2.0` labels were local-only
-prototype labels and were never released. The browser package and WordPress
-plugin use the same development version.
+Rehearse on a test site with a backup before production use. Earlier `0.2.0` labels
+were local-only prototype labels and were never released. The browser package and
+WordPress plugin use the same source version.
 Known issues and deferred work are tracked in `../docs/FOLLOW-UP.md`.
 Japanese installation and usage instructions are in
 [GETTING-STARTED.ja.md](atshift-article-composer/GETTING-STARTED.ja.md), included in both ZIPs along with Japanese catalogs. The WordPress.org ZIP excludes the GitHub updater and retains WordPress language-pack support.

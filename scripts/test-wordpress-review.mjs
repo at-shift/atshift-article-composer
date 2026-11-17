@@ -59,6 +59,18 @@ try{
 
  for(const channel of ['github','wordpress-org'])run('package-'+channel,process.execPath,['scripts/package-wordpress.mjs'],{env:{...env,SF_DISTRIBUTION:channel,SF_PACKAGE_DIR:out+'/packages'}});
 
+ if(process.env.AC_DIRECTORY_ZIP) {
+   const target=out+'/packages/atshift-article-composer-'+version+'-wordpress-org.zip';
+   const official=readFileSync(process.env.AC_DIRECTORY_ZIP), actual=unzipSync(official), expected=unzipSync(readFileSync(target));
+   const regular=archive=>Object.keys(archive).filter(name=>!name.endsWith('/')).sort();
+   assert.deepEqual(regular(actual),regular(expected),'Official ZIP must contain exactly the tested source files.');
+   for(const name of regular(expected))assert.deepEqual(actual[name],expected[name],'Official file differs: '+name);
+   const sha256=createHash('sha256').update(official).digest('hex');
+   writeFileSync(target,official);writeFileSync(target+'.sha256',sha256+'  atshift-article-composer-'+version+'-wordpress-org.zip\n');
+   summary.directoryArtifact={bytes:official.length,sha256,files:regular(actual).length};
+   console.log('Official directory ZIP verified; installing its unchanged bytes: '+sha256);
+ }
+
  cli('install-after',['plugin','install',out+'/packages/atshift-article-composer-'+version+'-wordpress-org.zip','--force','--activate']);
 
  run('frontend-build','npm',['run','build']);
@@ -180,7 +192,7 @@ try{
      assert.equal(createHash('sha256').update(previous).digest('hex'),'cab3b51de465228cc567294f46c6a3ec0c97475d075eca32f46064e8c6bf6ce8','Use the original public 0.7.6 ZIP, not a synthetic predecessor.');
      cli('original-076-install',['plugin','install',process.env.AC_PREVIOUS_GITHUB_ZIP,'--force','--activate']);
      run('original-076-integration',php,['tests/wordpress-integration.php']);
-     // Rehearse with local directory bytes. Public handoff must be rebuilt from the official download.
+     // AC_DIRECTORY_ZIP supplies the verified official bytes; otherwise this uses a local candidate.
      await writeHandoff(readFileSync(out+'/packages/atshift-article-composer-'+version+'-wordpress-org.zip'),{version,previousVersion:'0.7.6'},out+'/handoff-actual-version-rehearsal');
      cli('original-076-to-100-native-upgrade',['eval-file',root+'/tests/wordpress-github-updater.php'],{env:{...env,SF_RELEASE_DIR:out+'/handoff-actual-version-rehearsal',SF_UPDATE_FROM_VERSION:'0.7.6',SF_UPDATE_HANDOFF:'1'}});
      cli('actual-version-directory-next-update',['eval-file',root+'/tests/wordpress-org-updates.php'],{env:{...env,SF_HANDOFF_VERSION:version,SF_DIRECTORY_NEXT_VERSION:version.split('.').map((n,i)=>i===2?Number(n)+1:n).join('.')}});

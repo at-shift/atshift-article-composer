@@ -2,14 +2,14 @@
 
 **atshift Article Composer 1.0.0** / November 17, 2026
 
-This version bundles Japanese in both distribution packages and prepares the GitHub-to-directory update transition. Existing whole-article access checks for atshift Members, Members and Ultimate Member remain in place. Unknown combinations pause structure JSON and managed media, with the reason shown on the Article Composer admin page. See [Structure and Membership Access](PUBLIC-STRUCTURE.md) before testing on a restricted site.
+This version bundles Japanese in both distribution packages and provides the GitHub-to-directory update transition. Existing whole-article access checks for atshift Members, Members and Ultimate Member remain in place. Unknown combinations pause structure JSON and managed media, with the reason shown on the Article Composer admin page. See [Structure and Membership Access](PUBLIC-STRUCTURE.md) before testing on a restricted site.
 
 Both channels now use `atshift-article-composer/atshift-article-composer.php`. GitHub provides updates until a future transition release installs the official directory package; later updates then come from WordPress.org. Old experimental data is not automatically migrated. See [release channels](RELEASING.md). After upgrading,
 download a fresh AI guide from Article Composer; an earlier downloaded guide does not update itself.
 
 Article Composer means **Delegate Execution. Focus on Thinking.** Use your preferred AI to assemble structured articles, save drafts, review previews, and set an immediate or scheduled publication time.
 
-Rehearse on an isolated test site with a backup before production use. Article Composer is not a replacement for atshift Fields / CFS and does not migrate existing posts. Publication status is tracked in [1.0.0 release preparation](RELEASE-1.0.0.md).
+Rehearse on an isolated test site with a backup before production use. Article Composer is not a replacement for atshift Fields / CFS and does not migrate existing posts. Publication status is tracked in the [1.0.0 release record](RELEASE-1.0.0.md).
 
 ## Quick Start
 
