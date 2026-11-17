@@ -3,24 +3,24 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {unzipSync} from 'fflate';
+import {prepareHandoff} from '../scripts/prepare-wordpress-org-handoff.mjs';
 
 const root = new URL('../', import.meta.url);
 const {version} = JSON.parse(readFileSync(new URL('package.json', root)));
 const directory = process.env.SF_RELEASE_DIR ? new URL('file://' + process.env.SF_RELEASE_DIR.replace(/\/$/, '') + '/') : new URL('.local/releases/', root);
 const githubBytes = readFileSync(new URL(`atshift-article-composer-${version}.zip`, directory));
 const github = unzipSync(githubBytes);
-const orgRaw = unzipSync(readFileSync(new URL(`atshift-article-composer-${version}-wordpress-org.zip`, directory)));
+const orgBytes = readFileSync(new URL(`atshift-article-composer-${version}-wordpress-org.zip`, directory));
+const orgRaw = unzipSync(orgBytes);
 assert.ok(Object.keys(orgRaw).every(name => name.startsWith('atshift-article-composer/')));
 assert.ok(orgRaw['atshift-article-composer/atshift-article-composer.php']);
 assert.ok(!orgRaw['atshift-article-composer/atshift-deft.php']);
 const org = orgRaw;
 const text = bytes => Buffer.from(bytes).toString();
 
-const githubOnly = name => name === 'atshift-article-composer/includes/class-github-updater.php'
-  || name === 'atshift-article-composer/GETTING-STARTED.ja.md'
-  || /^atshift-article-composer\/languages\/atshift-article-composer-[A-Za-z]/.test(name);
+const githubOnly = name => name === 'atshift-article-composer/includes/class-github-updater.php';
 
-test('distribution channels differ only in updater and bundled localization', () => {
+test('distribution channels differ only in the GitHub updater', () => {
   const adapter = 'atshift-article-composer/includes/class-github-updater.php';
   assert.ok(github[adapter]);
   assert.equal(org[adapter], undefined);
@@ -52,20 +52,30 @@ test('release manifest pins exact installable ZIP bytes and requirements', () =>
   assert.equal(m.requires_php, header.match(/Requires PHP:\s*(\S+)/)[1]);
 });
 
-test('GitHub bundles Japanese; WordPress.org keeps English and translation support', () => {
+test('both channels bundle identical Japanese catalogs and the Japanese guide', () => {
   const files = Object.keys(github).filter(name => name.includes('/languages/'));
   assert.ok(files.some(name => name.endsWith('-ja.mo')));
   assert.ok(files.some(name => /-ja-[a-f0-9]{32}\.json$/.test(name)));
   assert.ok(github['atshift-article-composer/GETTING-STARTED.ja.md']);
-  assert.equal(org['atshift-article-composer/GETTING-STARTED.ja.md'], undefined);
+  assert.deepEqual(github['atshift-article-composer/GETTING-STARTED.ja.md'], org['atshift-article-composer/GETTING-STARTED.ja.md']);
   assert.deepEqual(Object.keys(org).filter(name => name.includes('/languages/')).sort(),
-    ['atshift-article-composer/languages/README.md', 'atshift-article-composer/languages/atshift-article-composer.pot']);
+    files.sort());
+  for (const name of files) assert.deepEqual(github[name], org[name], name);
   assert.deepEqual(github['atshift-article-composer/languages/atshift-article-composer.pot'], org['atshift-article-composer/languages/atshift-article-composer.pot']);
   assert.match(text(org['atshift-article-composer/atshift-article-composer.php']), /Text Domain: atshift-article-composer/);
   for (const file of ['atshift-article-composer.pot', 'atshift-article-composer-ja.po']) {
     assert.ok(text(github['atshift-article-composer/languages/' + file]).includes(`Project-Id-Version: atshift Article Composer ${version}\\n`));
   }
   for (const archive of [github, org]) assert.ok(!Object.keys(archive).some(name => /\.po~$|\.env$|node_modules|\.git\//.test(name)));
+});
+
+test('1.0.0 handoff rehearsal preserves the entire directory ZIP and Japanese files', () => {
+  const handoff = prepareHandoff(orgBytes, { version, previousVersion: '0.7.6' });
+  assert.equal(handoff.metadata.sha256, createHash('sha256').update(orgBytes).digest('hex'));
+  assert.equal(handoff.metadata.bytes, orgBytes.length);
+  assert.ok(org['atshift-article-composer/GETTING-STARTED.ja.md']);
+  assert.ok(org['atshift-article-composer/languages/atshift-article-composer-ja.mo']);
+  assert.equal(Object.keys(org).filter(name => /-ja-[a-f0-9]{32}\.json$/.test(name)).length, 4);
 });
 
 test('distributions omit upstream shell build tools and retain an exact dependency manifest', () => {

@@ -1,4 +1,4 @@
-# atshift Article Composer 0.7.6
+# atshift Article Composer 1.0.0
 
 License: GPLv2 or later. See https://www.gnu.org/licenses/gpl-2.0.html.
 
@@ -27,8 +27,8 @@ available. Publishing requires separately granted publication access and the
 publisher role (or administrator). Use **Article handoff** for file-based edits,
 or connect an MCP client to resume your own drafts directly.
 
-An experimental WordPress plugin for structured article snapshots. This build
-is intended only for an isolated test site, not a production website.
+Create structured article snapshots with your usual AI. Rehearse your site's
+theme, plugins and permissions on an isolated backup copy before production use.
 
 ## Install
 
@@ -40,20 +40,20 @@ archive is not the installable plugin package.
 Both channels use `atshift-article-composer/atshift-article-composer.php`. Retain this identity when installing or updating. Do not activate an older experimental package alongside it.
 
 **Delegate execution. Focus on thinking.**
-Version 0.7.6 starts the new repository from the submitted review baseline. It checks membership access
+Version 1.0.0 builds on the approved 0.7.6 runtime. It checks membership access
 for additional structure and managed-media output. Unknown integrations pause
 these outputs and show the reason to administrators; normal article HTML remains unchanged.
 The WordPress.org slug and text domain are `atshift-article-composer`. Both channels now use the same folder and main file. MCP/OAuth URLs remain unchanged. A GitHub release is not evidence of directory approval; compatibility with older experimental data is not promised.
 It includes the 0.7.4 mixed-collation draft-listing fix without rewriting database columns or saved content.
-The 0.7.6 candidate includes database-backed private files, membership-aware additional outputs and review hardening. Automatic migration and legacy filesystem readers have been removed; validate a fresh installation rather than treating this as a data-preserving upgrade from an experimental prototype. Back up existing data and files first. MCP Adapter 0.7.1+ must be installed and active for AI connections.
+It includes database-backed private files, membership-aware additional outputs and review hardening. Automatic migration and legacy filesystem readers have been removed; validate a fresh installation rather than treating this as a data-preserving upgrade from an experimental prototype. Back up existing data and files first. MCP Adapter 0.7.1+ must be installed and active for AI connections.
 Version 0.7.0 adds per-article destinations, existing category/tag selection and public structure JSON with JSON-LD. Saved-data identities and connection permissions are preserved.
 Version 0.7.1 adds owner-only draft trash/restoration, owner information and private
 reservation entries in destination lists. Cancelled or blocked reservations return
 to drafts; saved rendering data is retained after publication.
 The new GitHub package supports normal WordPress updates, preserving the site's automatic-update
 preference and verifying the exact release ZIP with SHA-256. The WordPress.org
-package excludes this adapter and bundled translations; it uses English source text and supports WordPress language packs. The GitHub ZIP includes the partial Japanese catalog and Japanese guide. Both retain translation support and the POT template.
-The WordPress.org application is awaiting review; the separate submission is not a directory release.
+package excludes this updater. Both packages include the Japanese catalog and guide,
+English source text, the POT template and support for WordPress language packs.
 After upgrading, download a fresh AI guide from Articles and ask your AI to read it.
 Use a fresh installation when coming from Structured Fields Prototype or atshift DeFt.
 Older experimental drafts, files and grants require a separate export/import plan;
@@ -61,13 +61,13 @@ do not treat this as an automatic data-preserving migration.
 After WordPress.org publication, a final GitHub transition update can install the
 official directory ZIP unchanged. This removes the GitHub updater and external
 Update URI; subsequent updates come from WordPress.org under the same identity.
-The directory package removes bundled Japanese files and supports standard WordPress
-language packs instead. Applying the transition update is required; publication
+The directory package retains bundled Japanese files and supports standard WordPress
+language packs. Applying the transition update is required; publication
 alone does not switch an installed copy.
 The `structured-fields` API/MCP/admin route names and OAuth issuer are intentional
 compatibility identifiers; do not replace them with `atshift-deft` in client settings.
 No Node.js process, separate AI service, or SQLite database is required on the server.
-Japanese step-by-step installation and use: [online Japanese guide](https://github.com/at-shift/atshift-article-composer/blob/main/wordpress/atshift-article-composer/GETTING-STARTED.ja.md) (also included in the GitHub ZIP).
+Japanese step-by-step installation and use: [GETTING-STARTED.ja.md](GETTING-STARTED.ja.md) (included in both ZIPs).
 External-AI instructions: [AI-GUIDE.md](AI-GUIDE.md).
 
 ## AI Connection
@@ -212,7 +212,8 @@ Account handover is not implemented.
 
 Requirements: WordPress 6.9+, PHP 8.2+ with DOM, mbstring, OpenSSL and Sodium, MySQL/MariaDB with
 InnoDB and named locks. Verified locally on WordPress 7.1, PHP 8.3.36, MySQL 8.4,
-and Twenty Twenty-Five only; minimum-version compatibility is not yet verified.
+and Twenty Twenty-Five. The submitted baseline was also checked on WordPress 6.9
+and PHP 8.2.35; this does not verify every theme/plugin combination.
 PHP below 8.2 stops the plugin before its implementation or dependencies load and
 shows administrators a warning with the required/current versions. Stored data is
 not modified. WordPress also receives the Requires PHP header for new installations.

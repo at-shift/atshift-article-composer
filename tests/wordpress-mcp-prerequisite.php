@@ -46,13 +46,8 @@ try {
     $locale = 'ja';
     unload_textdomain( 'atshift-article-composer', true );
     $html = deft_mp_render();
-    if ( 'wordpress-org' !== getenv( 'SF_DISTRIBUTION' ) ) {
     deft_mp_check( str_contains( $html, 'AI接続の前に：MCP Adapterをインストール' ), 'Bundled Japanese MO translates the new heading.' );
     deft_mp_check( str_contains( $html, '作者：WordPress.org' ) && str_contains( $html, 'サイト管理者へこの操作を依頼' ), 'Japanese instructions retain author and permission guidance.' );
-    } else {
-        deft_mp_check( str_contains( $html, 'Before connecting: install MCP Adapter' ), 'English-only prerequisite heading remains available in a Japanese account.' );
-        deft_mp_check( str_contains( $html, 'WordPress.org' ) && str_contains( $html, 'ask your site administrator' ), 'English-only prerequisite retains author and permission guidance.' );
-    }
     deft_mp_check( Connections::ready() === ( '1' === getenv( 'SF_EXPECT_MCP_READY' ) ), 'Guide generation works with the expected adapter activation state.' );
     echo 'MCP prerequisite: ' . $GLOBALS['deft_mp_checks'] . ' passed; adapter ready=' . ( Connections::ready() ? 'yes' : 'no' ) . PHP_EOL;
 } finally {

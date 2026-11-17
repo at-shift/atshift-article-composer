@@ -45,7 +45,6 @@ try {
     sf_guidance_check( ! str_contains( $connections, 'Your account cannot grant publication access.' ), 'Publisher does not see the author-only warning.' );
     $dom = new DOMDocument(); @$dom->loadHTML( $connections ); $xpath = new DOMXPath( $dom );
     sf_guidance_check( 1 === $xpath->query( '//input[@id="sf-connection-publishing" and not(@checked)]' )->length, 'Publication stays unchecked by default.' );
-    if ( 'wordpress-org' !== getenv( 'SF_DISTRIBUTION' ) ) {
     sf_guidance_check( load_textdomain( 'atshift-article-composer', dirname( Atshift\Deft\PLUGIN_FILE ) . '/languages/atshift-article-composer-ja.mo' ), 'Bundled Japanese catalog loads.' );
     $japanese = sf_guidance_render( array( Onboarding::class, 'publication_help' ) );
     sf_guidance_check( str_contains( $japanese, '公開・予約の手順' ) && str_contains( $japanese, '自分の下書きの即時公開・予約公開を許可' ), 'Japanese guide and option label match.' );
@@ -53,15 +52,6 @@ try {
     $japanese_workspace = sf_guidance_render( 'Atshift\Deft\\admin_page' );
     sf_guidance_check( str_contains( $japanese_workspace, '下書きの所有者：Owner &amp; QA' ) && str_contains( $japanese_workspace, 'WordPressの権限グループ：' ), 'Japanese owner and role labels are translated and escaped.' );
     sf_guidance_check( str_contains( $japanese_workspace, '公開または予約が確定すると' ) && str_contains( $japanese_workspace, '保存した本文やファイルは削除されません。' ), 'Japanese lifecycle guidance explains reservations and retention.' );
-    } else {
-        sf_guidance_check( ! file_exists( dirname( Atshift\Deft\PLUGIN_FILE ) . '/languages/atshift-article-composer-ja.mo' ), 'English-only package has no bundled Japanese catalog.' );
-        $english = sf_guidance_render( array( Onboarding::class, 'publication_help' ) );
-        sf_guidance_check( str_contains( $english, 'How to publish or schedule' ) && str_contains( $english, 'Allow immediate and scheduled public publication of my drafts' ), 'English publication guide and option label match.' );
-        sf_guidance_check( str_contains( $english, 'Initial publication only is supported' ), 'English guide preserves the publication limit.' );
-        $workspace = sf_guidance_render( 'Atshift\Deft\\admin_page' );
-        sf_guidance_check( str_contains( $workspace, 'Draft owner: Owner &amp; QA' ) && str_contains( $workspace, 'WordPress role:' ), 'English owner labels are escaped.' );
-        sf_guidance_check( str_contains( $workspace, 'Once published or scheduled' ) && str_contains( $workspace, 'Saved content and files are retained.' ), 'English lifecycle guidance preserves reservations and retention.' );
-    }
     echo wp_json_encode( array( 'guidance_checks' => $GLOBALS['sf_guidance_checks'] ) );
 } finally {
     unload_textdomain( 'atshift-article-composer', true );

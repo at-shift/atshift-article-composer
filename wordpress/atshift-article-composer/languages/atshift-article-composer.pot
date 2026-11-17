@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: atshift Article Composer 0.7.6\n"
+"Project-Id-Version: atshift Article Composer 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/atshift-article-composer\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: includes/catalog-page.php:9
 #: includes/catalog-page.php:28
-#: includes/plugin.php:265
+#: includes/plugin.php:266
 msgid "Components"
 msgstr ""
 
@@ -57,7 +57,7 @@ msgid "New example"
 msgstr ""
 
 #: includes/catalog-page.php:16
-#: includes/plugin.php:349
+#: includes/plugin.php:350
 msgid "Refresh components"
 msgstr ""
 
@@ -158,7 +158,7 @@ msgstr ""
 
 #: includes/class-ai-workflow.php:45
 #: includes/class-mcp.php:92
-#: includes/plugin.php:195
+#: includes/plugin.php:196
 msgid "Article not found."
 msgstr ""
 
@@ -424,12 +424,12 @@ msgid "Catalog storage limit reached."
 msgstr ""
 
 #: includes/class-catalog.php:248
-#: includes/class-store.php:90
+#: includes/class-store.php:92
 msgid "InnoDB tables are required."
 msgstr ""
 
 #: includes/class-catalog.php:250
-#: includes/class-store.php:92
+#: includes/class-store.php:94
 msgid "Could not start transaction."
 msgstr ""
 
@@ -461,57 +461,57 @@ msgstr ""
 msgid "Could not remember component use."
 msgstr ""
 
-#: includes/class-connections.php:95
+#: includes/class-connections.php:115
 msgid "Activate MCP Adapter 0.7.1 or newer and use HTTPS (local loopback is allowed)."
 msgstr ""
 
-#: includes/class-connections.php:105
+#: includes/class-connections.php:125
 msgid "Supply a connection name of 1 to 80 characters."
 msgstr ""
 
-#: includes/class-connections.php:108
+#: includes/class-connections.php:128
 msgid "Try again."
 msgstr ""
 
-#: includes/class-connections.php:113
+#: includes/class-connections.php:133
 #: includes/class-oauth-consent.php:73
 msgid "Revoke an existing connection first (maximum 10 active)."
 msgstr ""
 
-#: includes/class-connections.php:119
+#: includes/class-connections.php:139
 msgid "Connection could not be created."
 msgstr ""
 
-#: includes/class-connections.php:126
+#: includes/class-connections.php:146
 msgid "Connection is busy. Retry revocation."
 msgstr ""
 
-#: includes/class-connections.php:130
+#: includes/class-connections.php:150
 msgid "Connection not found."
 msgstr ""
 
-#: includes/class-connections.php:138
+#: includes/class-connections.php:158
 msgid "Nested requests are not permitted in this AI connection."
 msgstr ""
 
-#: includes/class-connections.php:143
+#: includes/class-connections.php:163
 msgid "This key is only valid at the atshift Article Composer MCP endpoint."
 msgstr ""
 
-#: includes/class-connections.php:145
+#: includes/class-connections.php:165
 msgid "Secure MCP connection unavailable."
 msgstr ""
 
-#: includes/class-connections.php:146
-#: includes/plugin.php:173
+#: includes/class-connections.php:166
+#: includes/plugin.php:174
 msgid "Payload exceeds 4 MB."
 msgstr ""
 
-#: includes/class-connections.php:167
+#: includes/class-connections.php:187
 msgid "A valid, unexpired connection credential is required."
 msgstr ""
 
-#: includes/class-connections.php:193
+#: includes/class-connections.php:213
 msgid "The publishing connection is no longer authorized."
 msgstr ""
 
@@ -956,8 +956,8 @@ msgstr ""
 #: includes/class-publication-media.php:65
 #: includes/class-publication-media.php:69
 #: includes/class-publication-media.php:72
-#: includes/class-publication-media.php:82
-#: includes/class-publication-media.php:85
+#: includes/class-publication-media.php:83
+#: includes/class-publication-media.php:86
 msgid "Unavailable media."
 msgstr ""
 
@@ -1192,80 +1192,80 @@ msgid "POST required."
 msgstr ""
 
 #: includes/class-review.php:136
-#: includes/class-review.php:149
-#: includes/class-review.php:151
-#: includes/plugin.php:267
-#: includes/plugin.php:340
+#: includes/class-review.php:150
+#: includes/class-review.php:152
+#: includes/plugin.php:268
+#: includes/plugin.php:341
 msgid "Review"
 msgstr ""
 
-#: includes/class-review.php:149
+#: includes/class-review.php:150
 msgid "Review unavailable. Open a fresh review link from your workspace."
 msgstr ""
 
-#: includes/class-review.php:151
+#: includes/class-review.php:152
 msgid "Review unavailable."
 msgstr ""
 
-#: includes/class-review.php:158
+#: includes/class-review.php:159
 msgid "Pending"
 msgstr ""
 
-#: includes/class-review.php:158
+#: includes/class-review.php:159
 msgid "Approved"
 msgstr ""
 
-#: includes/class-review.php:159
+#: includes/class-review.php:160
 msgid "Rejected"
 msgstr ""
 
-#: includes/class-review.php:159
+#: includes/class-review.php:160
 msgid "Revoked"
 msgstr ""
 
-#: includes/class-review.php:160
+#: includes/class-review.php:161
 msgid "Invalidated"
 msgstr ""
 
-#: includes/class-review.php:160
+#: includes/class-review.php:161
 msgid "Expired"
 msgstr ""
 
-#: includes/class-review.php:161
-#: includes/plugin.php:264
-#: includes/plugin.php:311
+#: includes/class-review.php:162
+#: includes/plugin.php:265
+#: includes/plugin.php:312
 msgid "Articles"
 msgstr ""
 
-#: includes/class-review.php:161
+#: includes/class-review.php:162
 msgid "Not published"
 msgstr ""
 
 #. translators: 1: saved version number, 2: article revision number.
-#: includes/class-review.php:163
+#: includes/class-review.php:164
 #, php-format
 msgid "Version %1$s · Revision %2$s"
 msgstr ""
 
 #. translators: 1: filename, 2: file size in bytes, 3: media source type.
-#: includes/class-review.php:166
+#: includes/class-review.php:167
 #, php-format
 msgid "%1$s · %2$s bytes · %3$s"
 msgstr ""
 
-#: includes/class-review.php:170
+#: includes/class-review.php:171
 msgid "Exact version preview"
 msgstr ""
 
-#: includes/class-review.php:175
+#: includes/class-review.php:176
 msgid "Approve this version"
 msgstr ""
 
-#: includes/class-review.php:175
+#: includes/class-review.php:176
 msgid "Request changes"
 msgstr ""
 
-#: includes/class-review.php:176
+#: includes/class-review.php:177
 msgid "Withdraw approval"
 msgstr ""
 
@@ -1440,43 +1440,43 @@ msgstr ""
 msgid "Only components used by the article may be imported."
 msgstr ""
 
-#: includes/class-store.php:59
+#: includes/class-store.php:61
 msgid "Choose drafts or Trash."
 msgstr ""
 
-#: includes/class-store.php:76
+#: includes/class-store.php:78
 msgid "Another save is in progress."
 msgstr ""
 
-#: includes/class-store.php:81
+#: includes/class-store.php:83
 msgid "Use active catalog components or this article's saved component revisions. New designs require an administrator."
 msgstr ""
 
-#: includes/class-store.php:83
+#: includes/class-store.php:85
 msgid "The saved version changed. Reload it before saving."
 msgstr ""
 
-#: includes/class-store.php:85
+#: includes/class-store.php:87
 msgid "Changed content must have a newer article revision."
 msgstr ""
 
-#: includes/class-store.php:86
+#: includes/class-store.php:88
 msgid "This prototype allows 100 saved versions per article."
 msgstr ""
 
-#: includes/class-store.php:97
+#: includes/class-store.php:99
 msgid "Could not create preview draft."
 msgstr ""
 
-#: includes/class-store.php:101
+#: includes/class-store.php:103
 msgid "Could not save snapshot."
 msgstr ""
 
-#: includes/class-store.php:103
+#: includes/class-store.php:105
 msgid "Could not commit snapshot."
 msgstr ""
 
-#: includes/class-store.php:109
+#: includes/class-store.php:111
 msgid "The snapshot was not saved."
 msgstr ""
 
@@ -1554,7 +1554,7 @@ msgid "Could not revoke transfer."
 msgstr ""
 
 #: includes/connections-page.php:9
-#: includes/plugin.php:266
+#: includes/plugin.php:267
 msgid "AI connections"
 msgstr ""
 
@@ -1768,204 +1768,204 @@ msgstr ""
 msgid "Check connection"
 msgstr ""
 
-#: includes/plugin.php:53
+#: includes/plugin.php:54
 msgid "Structured drafts"
 msgstr ""
 
-#: includes/plugin.php:69
+#: includes/plugin.php:70
 msgid "atshift Article Composer author"
 msgstr ""
 
-#: includes/plugin.php:70
+#: includes/plugin.php:71
 msgid "atshift Article Composer designer"
 msgstr ""
 
-#: includes/plugin.php:71
+#: includes/plugin.php:72
 msgid "atshift Article Composer publisher"
 msgstr ""
 
-#: includes/plugin.php:154
+#: includes/plugin.php:155
 msgid "Review not found."
 msgstr ""
 
-#: includes/plugin.php:161
+#: includes/plugin.php:162
 msgid "This local media file is missing, unsupported or inaccessible."
 msgstr ""
 
-#: includes/plugin.php:174
+#: includes/plugin.php:175
 msgid "Use application/json."
 msgstr ""
 
-#: includes/plugin.php:177
+#: includes/plugin.php:178
 msgid "Supply snapshot and integer expectedVersion only."
 msgstr ""
 
-#: includes/plugin.php:193
+#: includes/plugin.php:194
 msgid "Invalid version."
 msgstr ""
 
-#: includes/plugin.php:240
+#: includes/plugin.php:241
 msgid "This preview requires its authorized WordPress session and exact saved version."
 msgstr ""
 
-#: includes/plugin.php:240
-#: includes/plugin.php:247
+#: includes/plugin.php:241
+#: includes/plugin.php:248
 msgid "Private preview"
 msgstr ""
 
-#: includes/plugin.php:247
+#: includes/plugin.php:248
 msgid "A referenced media file is unavailable, changed or no longer permitted."
 msgstr ""
 
-#: includes/plugin.php:267
-#: includes/plugin.php:274
+#: includes/plugin.php:268
+#: includes/plugin.php:275
 msgid "Review structured article"
 msgstr ""
 
-#: includes/plugin.php:293
+#: includes/plugin.php:294
 msgid "Close"
 msgstr ""
 
-#: includes/plugin.php:302
+#: includes/plugin.php:303
 msgid "New article"
 msgstr ""
 
-#: includes/plugin.php:303
+#: includes/plugin.php:304
 msgid "Download article handoff"
 msgstr ""
 
-#: includes/plugin.php:303
+#: includes/plugin.php:304
 msgid "Article handoff"
 msgstr ""
 
-#: includes/plugin.php:304
+#: includes/plugin.php:305
 msgid "Import snapshot"
 msgstr ""
 
-#: includes/plugin.php:305
+#: includes/plugin.php:306
 msgid "Load sample"
 msgstr ""
 
-#: includes/plugin.php:306
+#: includes/plugin.php:307
 msgid "Media sample"
 msgstr ""
 
-#: includes/plugin.php:307
+#: includes/plugin.php:308
 msgid "Refresh articles"
 msgstr ""
 
-#: includes/plugin.php:309
+#: includes/plugin.php:310
 msgid "This is a private workspace for preparing articles. Choose Posts, Pages or an available custom post type as the destination. Once published or scheduled, an article leaves this draft list and appears in its destination list. Cancelled, invalidated or failed reservations return here. Saved content and files are retained."
 msgstr ""
 
-#: includes/plugin.php:310
+#: includes/plugin.php:311
 msgid "Private drafts"
 msgstr ""
 
 #. translators: %s: current WordPress user's display name.
-#: includes/plugin.php:315
+#: includes/plugin.php:316
 #, php-format
 msgid "Draft owner: %s"
 msgstr ""
 
 #. translators: %s: translated WordPress role names.
-#: includes/plugin.php:319
+#: includes/plugin.php:320
 #, php-format
 msgid "WordPress role: %s"
 msgstr ""
 
-#: includes/plugin.php:322
+#: includes/plugin.php:323
 msgid "Draft status"
 msgstr ""
 
-#: includes/plugin.php:323
+#: includes/plugin.php:324
 msgid "Drafts"
 msgstr ""
 
-#: includes/plugin.php:324
+#: includes/plugin.php:325
 msgid "Trash"
 msgstr ""
 
-#: includes/plugin.php:328
+#: includes/plugin.php:329
 #: admin.js:97
 msgid "No article selected"
 msgstr ""
 
-#: includes/plugin.php:333
+#: includes/plugin.php:334
 msgid "View published post"
 msgstr ""
 
-#: includes/plugin.php:334
+#: includes/plugin.php:335
 msgid "Cancel reservation"
 msgstr ""
 
-#: includes/plugin.php:337
+#: includes/plugin.php:338
 msgid "Save draft"
 msgstr ""
 
-#: includes/plugin.php:338
+#: includes/plugin.php:339
 msgid "Export snapshot"
 msgstr ""
 
-#: includes/plugin.php:339
+#: includes/plugin.php:340
 msgid "Open theme preview"
 msgstr ""
 
-#: includes/plugin.php:344
+#: includes/plugin.php:345
 msgid "Edit article"
 msgstr ""
 
-#: includes/plugin.php:345
+#: includes/plugin.php:346
 msgid "Title"
 msgstr ""
 
-#: includes/plugin.php:347
+#: includes/plugin.php:348
 msgid "Component"
 msgstr ""
 
-#: includes/plugin.php:348
+#: includes/plugin.php:349
 msgid "Add component"
 msgstr ""
 
-#: includes/plugin.php:354
+#: includes/plugin.php:355
 msgid "Private files"
 msgstr ""
 
-#: includes/plugin.php:357
+#: includes/plugin.php:358
 msgid "Use"
 msgstr ""
 
-#: includes/plugin.php:358
+#: includes/plugin.php:359
 #: admin.js:177
 msgid "Reference only"
 msgstr ""
 
-#: includes/plugin.php:358
+#: includes/plugin.php:359
 #: admin.js:178
 msgid "Publication candidate"
 msgstr ""
 
-#: includes/plugin.php:359
+#: includes/plugin.php:360
 msgid "Add files"
 msgstr ""
 
-#: includes/plugin.php:365
+#: includes/plugin.php:366
 msgid "Article media"
 msgstr ""
 
-#: includes/plugin.php:367
+#: includes/plugin.php:368
 msgid "Existing WordPress media"
 msgstr ""
 
-#: includes/plugin.php:369
+#: includes/plugin.php:370
 msgid "Search media"
 msgstr ""
 
-#: includes/plugin.php:370
+#: includes/plugin.php:371
 msgid "More results"
 msgstr ""
 
-#: includes/plugin.php:374
+#: includes/plugin.php:375
 msgid "WordPress theme preview"
 msgstr ""
 

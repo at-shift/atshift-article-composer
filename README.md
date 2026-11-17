@@ -16,7 +16,7 @@ Work with your AI on the article, ask it to create the page design and column la
 
 **Delegate execution. Focus on thinking.** The name changes; that principle stays.
 
-Version **0.7.6** starts this repository from the WordPress.org submission baseline. It adds membership-aware structure and managed-media access; unverified environments pause these extra outputs with an administrator notice. Directory review is pending; a GitHub release is not WordPress.org approval. MCP Adapter 0.7.1+ must be installed and active for AI connections. Start on an isolated test site with a backup.
+Version **1.0.0** prepares the first directory release following WordPress.org approval. It bundles the Japanese interface and user guide, and prepares existing GitHub installations for WordPress.org updates. These files are release preparation; see [release status and gates](docs/RELEASE-1.0.0.md) for publication status. MCP Adapter 0.7.1+ must be installed and active for AI connections. Rehearse on a test site with a backup.
 
 The main plugin does **not** migrate older atshift DeFt / Structured Fields experimental data or read legacy private files. Use a fresh installation for a new site; existing experimental sites need a separately checked migration. [DeFt development and new releases have ended](https://github.com/at-shift/atshift-deft); its historical ZIPs and tags are retained for migration and recovery.
 
@@ -29,9 +29,9 @@ This helper is separate from the main plugin and must be rehearsed on a backup c
 
 ### STEP 1. Install the Plugin
 
-[Download the WordPress ZIP](https://github.com/at-shift/atshift-article-composer/releases/download/v0.7.6/atshift-article-composer-0.7.6.zip), then open **Plugins > Add New Plugin > Upload Plugin** in WordPress and install and activate it.
-You need **WordPress 6.9+** and **PHP 8.2+**. The [release page includes the SHA-256 checksum](https://github.com/at-shift/atshift-article-composer/releases/tag/v0.7.6). GitHub's **Download ZIP** contains source code, not the installable plugin package.
-This GitHub package receives later releases through the normal WordPress plugin update screen. Automatic updates remain your choice. After directory publication, a final GitHub transition update will switch the installed plugin to WordPress.org updates.
+After the first directory release is published, install [atshift Article Composer from WordPress.org](https://wordpress.org/plugins/atshift-article-composer/), or upload the named installation ZIP from [GitHub Releases](https://github.com/at-shift/atshift-article-composer/releases). Open **Plugins > Add New Plugin** in WordPress, then install and activate it.
+You need **WordPress 6.9+** and **PHP 8.2+**. GitHub releases include the SHA-256 checksum. GitHub's **Download ZIP** contains source code, not the installable plugin package.
+Existing GitHub 0.7.6 installations receive the official 1.0.0 package through a normal plugin update once the transition release is published. That update removes the GitHub updater; later updates come from WordPress.org. Japanese files and automatic-update preferences are retained.
 
 ### STEP 2. Give the Guide to Your AI
 
@@ -142,7 +142,7 @@ The submitted baseline was tested with WordPress 6.9 and 7.1.4, PHP 8.2.35 and 8
 
 Report vulnerability details privately through the support form below, not in a public issue. Never send credentials.
 
-## Scope of 0.7.6
+## Scope of 1.0.0
 
 Article Composer is **separate from atshift Fields / CFS**. It does not automatically convert or migrate existing posts.
 Attaching a file to chat does not automatically upload it to WordPress: the AI client must be able to read the file's bytes and perform the HTTP transfer.
@@ -164,13 +164,13 @@ See [FOLLOW-UP.md](docs/FOLLOW-UP.md) for known limitations and [CHANGELOG.md](C
 ## Translations
 
 The WordPress UI uses gettext and supports additional POT, PO/MO, and JavaScript JSON catalogs.
-The GitHub ZIP bundles Japanese PO/MO and JavaScript catalogs covering part of the interface, not a complete UI translation. The WordPress.org ZIP is English-only, without bundled locale catalogs or the Japanese guide. Both retain the same POT and WordPress language-pack support. No additional complete translations are claimed.
+Both packages bundle Japanese PO/MO and four JavaScript catalogs covering the current gettext interface, plus the Japanese user guide. English is the source language. WordPress language packs remain supported, and the POT template allows additional translations. Article content, machine identifiers and AI contracts are not translated by the interface catalog. No additional complete languages are claimed.
 
 ## Distribution Channels
 
-Both builds use `atshift-article-composer/atshift-article-composer.php` and the `atshift-article-composer` text domain. The WordPress.org submission is the canonical runtime baseline. Only the GitHub build adds its updater and partial Japanese catalogs/guide; the English-only WordPress.org build contains no external updater.
+Both builds use `atshift-article-composer/atshift-article-composer.php` and the `atshift-article-composer` text domain. The WordPress.org package is the canonical runtime. Both include the same translations and guide. The development GitHub build additionally contains an updater, but the final GitHub transition release must use the official directory ZIP without that updater.
 
-Once a newer official WordPress.org ZIP is publicly available, a final GitHub transition release can deliver that ZIP unchanged. Applying it removes the GitHub updater and external `Update URI`; subsequent updates use WordPress.org. Publication alone does not switch installed copies. This preserves the new plugin identity and data, not unsupported older experimental data. Bundled Japanese files are replaced by the directory package; translation availability then follows WordPress.org language packs.
+Once the official WordPress.org 1.0.0 ZIP is publicly available and verified, the final GitHub transition release delivers that ZIP unchanged. Applying it removes the GitHub updater and external `Update URI`; subsequent updates use WordPress.org. Publication alone does not switch installed copies. This preserves the canonical plugin identity and data, not unsupported older experimental data. Japanese is included in the target package, so the transition does not depend on a separate language pack being available.
 See [Release and Update Channels](docs/RELEASING.md) for packaging, verification and transition steps. The existing submission is not changed by creating this repository.
 See [Adding Translation Files](wordpress/atshift-article-composer/languages/README.md).
 

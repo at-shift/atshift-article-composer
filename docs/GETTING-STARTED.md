@@ -1,19 +1,19 @@
 # Installation and User Guide
 
-**atshift Article Composer 0.7.6** / November 13, 2026
+**atshift Article Composer 1.0.0** / November 17, 2026
 
-This version adds automatic whole-article access checks for atshift Members, Members and Ultimate Member. Unknown combinations pause structure JSON and managed media, with the reason shown on the Article Composer admin page. See [Structure and Membership Access](PUBLIC-STRUCTURE.md) before testing on a restricted site.
+This version bundles Japanese in both distribution packages and prepares the GitHub-to-directory update transition. Existing whole-article access checks for atshift Members, Members and Ultimate Member remain in place. Unknown combinations pause structure JSON and managed media, with the reason shown on the Article Composer admin page. See [Structure and Membership Access](PUBLIC-STRUCTURE.md) before testing on a restricted site.
 
 Both channels now use `atshift-article-composer/atshift-article-composer.php`. GitHub provides updates until a future transition release installs the official directory package; later updates then come from WordPress.org. Old experimental data is not automatically migrated. See [release channels](RELEASING.md). After upgrading,
 download a fresh AI guide from Article Composer; an earlier downloaded guide does not update itself.
 
 Article Composer means **Delegate Execution. Focus on Thinking.** Use your preferred AI to assemble structured articles, save drafts, review previews, and set an immediate or scheduled publication time.
 
-This is a development release. Start on an isolated test site with a backup, not your production site. Article Composer is not a replacement for atshift Fields / CFS and does not migrate existing posts.
+Rehearse on an isolated test site with a backup before production use. Article Composer is not a replacement for atshift Fields / CFS and does not migrate existing posts. Publication status is tracked in [1.0.0 release preparation](RELEASE-1.0.0.md).
 
 ## Quick Start
 
-1. Install the [WordPress plugin ZIP](https://github.com/at-shift/atshift-article-composer/releases/download/v0.7.6/atshift-article-composer-0.7.6.zip) and activate **atshift Article Composer**.
+1. Install **atshift Article Composer** from [WordPress.org](https://wordpress.org/plugins/atshift-article-composer/) once the directory release is published, or use the named installation ZIP from [GitHub Releases](https://github.com/at-shift/atshift-article-composer/releases), and activate it.
 2. Open Article Composer, choose **Download AI guide**, and give that file to your usual AI.
 3. Say, **"Read this guide and walk me through connecting to my site."** Before configuring the AI client, have an administrator install and activate the official [MCP Adapter](https://wordpress.org/plugins/mcp-adapter/) **0.7.1+** through **Plugins > Add New Plugin** (author: **WordPress.org**). Update it if needed when already installed.
 4. Follow the client-specific setup and authorize only the required access.
@@ -47,12 +47,12 @@ The HTTP exception is for an explicitly configured loopback development environm
 ## 2. Install Article Composer
 
 1. Back up the test site's files and database.
-2. Download `atshift-article-composer-0.7.6.zip` from the [GitHub Release](https://github.com/at-shift/atshift-article-composer/releases/tag/v0.7.6). The SHA-256 file is available there too.
+2. Download the directory plugin ZIP, or the named `atshift-article-composer-VERSION.zip` from [GitHub Releases](https://github.com/at-shift/atshift-article-composer/releases), which also provide a SHA-256 file.
 3. Sign into WordPress as an administrator and open **Plugins > Add New Plugin > Upload Plugin**.
 4. Upload the ZIP, install it, and activate **atshift Article Composer**.
 5. Open **atshift Article Composer** in the sidebar. Under **Components**, check that **Introduction** and **Article resources** are available.
 
-Use the named plugin ZIP, not GitHub's automatically generated **Source code (zip)**. The source archive does not contain the built runtime dependencies. This version is not distributed through WordPress.org.
+Use the named plugin ZIP, not GitHub's automatically generated **Source code (zip)**. The source archive does not contain the built runtime dependencies. After directory publication you can also search for Article Composer under **Plugins > Add New Plugin**. Both packages include Japanese; change the WordPress user language to Japanese to use it. The GitHub transition is a normal plugin update, not deletion/reinstallation.
 
 ### Moving from Structured Fields Prototype
 

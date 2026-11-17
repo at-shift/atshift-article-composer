@@ -1,6 +1,6 @@
 import { spawnSync, spawn } from 'node:child_process';
 import { mkdirSync, cpSync, writeFileSync, readFileSync, readdirSync, symlinkSync, mkdtempSync, existsSync, openSync, closeSync, renameSync } from 'node:fs';
-import { randomBytes } from 'node:crypto';
+import { randomBytes, createHash } from 'node:crypto';
 import { join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { once } from 'node:events';
@@ -15,6 +15,7 @@ const fixtures=process.env.AC_WP_FIXTURES || core;
 const checker=process.env.AC_PLUGIN_CHECK || fixtures+'/wp-content/plugins/plugin-check';
 const deps=process.env.AC_NODE_MODULES, adapter=process.env.AC_MCP_ADAPTER, base=process.env.AC_TEST_OUTPUT;
 for(const path of [core,wpcli,deps,adapter,base]) assert.ok(path && resolve(path)===path,'Supply absolute test fixture paths.');
+assert.ok(!base.split('/').includes('.local'),'Put AC_TEST_OUTPUT outside .local (for example under /private/tmp); Vite intentionally denies private paths.');
 const version=JSON.parse(readFileSync(repo+'/package.json')).version;
 const testTimeout=Number(process.env.AC_TEST_TIMEOUT_MS || 300000);
 assert.ok(Number.isSafeInteger(testTimeout) && testTimeout >= 300000 && testTimeout <= 1800000,'Test timeout must be between five and thirty minutes.');
@@ -41,7 +42,7 @@ const password=randomBytes(32).toString('hex');
 try{
  assert.equal(await fetch(origin,{signal:AbortSignal.timeout(500)}).catch(()=>null),null,'Port is occupied; do not replace another server.');
  mkdirSync(root,{recursive:true});run('copy-checkout','rsync',['-a','--exclude=/.git/','--exclude=/.local/','--exclude=/node_modules','--exclude=/dist/',repo+'/',root+'/']);
- symlinkSync(deps,root+'/node_modules');run('copy-core','rsync',['-a','--exclude=/wp-config.php','--exclude=/wp-content/','--exclude=/.htaccess','--exclude=*.log',core+'/',wp+'/']);
+ symlinkSync(deps,root+'/node_modules');run('copy-core','rsync',['-a','--exclude=/wp-config.php','--exclude=/wp-content/','--exclude=/site-content/','--exclude=/.htaccess','--exclude=*.log',core+'/',wp+'/']);
  mkdirSync(wp+'/wp-content/plugins',{recursive:true});mkdirSync(wp+'/wp-content/themes',{recursive:true});
  cpSync(fixtures+'/wp-content/themes/twentytwentyfive',wp+'/wp-content/themes/twentytwentyfive',{recursive:true});
  cpSync(adapter,wp+'/wp-content/plugins/mcp-adapter',{recursive:true});
@@ -134,6 +135,28 @@ try{
    await page.waitForFunction(()=>document.querySelector('#sf-status').textContent==='Draft restored. Not published.');
    assert.deepEqual(errors,[]);summary.checks.push({name:'browser-save-preview-trash-restore-desktop-mobile',status:0});
  }
+ {
+   cli('japanese-user-locale',['user','meta','update','sf_local_admin','locale','ja']);
+   for(const slug of ['structured-fields','structured-fields-catalog','structured-fields-connections']) {
+     await page.goto(origin+'/wp-admin/admin.php?page='+slug);await page.waitForLoadState('networkidle');
+     const expected=slug==='structured-fields-catalog'?'部品':'AI用手順書をダウンロード';
+     assert.ok((await page.locator('body').innerText()).includes(expected),'Japanese labels render on '+slug);
+     for(const width of [1440,390]) {
+       await page.setViewportSize({width,height:width===390?844:1000});
+       await page.screenshot({path:out+'/'+slug+'-ja-'+width+'.png'});
+       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1),'Japanese page must fit at '+width+': '+slug);
+     }
+   }
+   await page.setViewportSize({width:1440,height:1000});
+   await page.goto(origin+'/wp-admin/admin.php?page=structured-fields');await page.waitForLoadState('networkidle');
+   await page.locator('#sf-sample').click();await page.waitForFunction(()=>!document.querySelector('#sf-save').disabled);
+   const response=page.waitForResponse(r=>r.request().method()==='POST'&&decodeURIComponent(r.url()).includes('/articles'));
+   await page.locator('#sf-save').click();assert.ok((await response).ok());
+   await page.waitForFunction(()=>document.querySelector('#sf-status').textContent==='下書きを保存しました。公開はされていません。');
+   await page.screenshot({path:out+'/sample-saved-ja.png'});
+   assert.deepEqual(errors,[]);summary.checks.push({name:'browser-japanese-three-pages-desktop-mobile-save',status:0});
+   cli('restore-user-locale',['user','meta','delete','sf_local_admin','locale']);
+ }
  const content=wp+'/site-content';
  const check=spawnSync(php,[wpcli,'plugin','check','atshift-article-composer','--mode=new','--slug=atshift-article-composer','--format=strict-json','--fields=file,line,column,type,code,message,docs','--path='+wp,'--no-color','--require='+content+'/plugins/plugin-check/cli.php'],{cwd:root,env,encoding:'utf8',timeout:300000,maxBuffer:16*1024*1024});
  writeFileSync(out+'/plugin-check.json',check.stdout||'',{mode:0o600});writeFileSync(out+'/plugin-check.stderr',check.stderr||'',{mode:0o600});
@@ -152,6 +175,18 @@ try{
  }
  {
    cli('org-network-deactivate',['plugin','deactivate','atshift-article-composer','--network']);
+   if(process.env.AC_PREVIOUS_GITHUB_ZIP) {
+     const previous=readFileSync(process.env.AC_PREVIOUS_GITHUB_ZIP);
+     assert.equal(createHash('sha256').update(previous).digest('hex'),'cab3b51de465228cc567294f46c6a3ec0c97475d075eca32f46064e8c6bf6ce8','Use the original public 0.7.6 ZIP, not a synthetic predecessor.');
+     cli('original-076-install',['plugin','install',process.env.AC_PREVIOUS_GITHUB_ZIP,'--force','--activate']);
+     run('original-076-integration',php,['tests/wordpress-integration.php']);
+     // Rehearse with local directory bytes. Public handoff must be rebuilt from the official download.
+     await writeHandoff(readFileSync(out+'/packages/atshift-article-composer-'+version+'-wordpress-org.zip'),{version,previousVersion:'0.7.6'},out+'/handoff-actual-version-rehearsal');
+     cli('original-076-to-100-native-upgrade',['eval-file',root+'/tests/wordpress-github-updater.php'],{env:{...env,SF_RELEASE_DIR:out+'/handoff-actual-version-rehearsal',SF_UPDATE_FROM_VERSION:'0.7.6',SF_UPDATE_HANDOFF:'1'}});
+     cli('actual-version-directory-next-update',['eval-file',root+'/tests/wordpress-org-updates.php'],{env:{...env,SF_HANDOFF_VERSION:version,SF_DIRECTORY_NEXT_VERSION:version.split('.').map((n,i)=>i===2?Number(n)+1:n).join('.')}});
+     run('actual-version-handoff-i18n',php,['tests/wordpress-i18n.php']);
+     run('actual-version-handoff-integration',php,['tests/wordpress-integration.php']);
+   }
    cli('github-install',['plugin','install',out+'/packages/atshift-article-composer-'+version+'.zip','--force','--activate']);
    const entry=content+'/plugins/atshift-article-composer/atshift-article-composer.php';
    const installed=readFileSync(entry,'utf8');

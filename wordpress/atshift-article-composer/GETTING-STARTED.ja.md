@@ -1,7 +1,7 @@
 # atshift Article Composer 試作版の導入・利用手順
 
 **Delegate Execution. Focus on Thinking.** という考え方は、新名称でも変わりません。
-対象: **0.7.6** / 2026-11-13。WordPress.org申請版を基準にした新しいリポジトリです。GitHub版・WordPress.org版ともに `atshift-article-composer/atshift-article-composer.php` を使います。
+対象: **1.0.0** / 2026-11-17。承認されたWordPress.org申請版を基準にしています。GitHub版・WordPress.org版ともに `atshift-article-composer/atshift-article-composer.php` を使い、日本語の画面翻訳とこの手順書を同梱します。WordPressのユーザー言語を日本語にすると日本語表示になります。
 
 ### 旧試作版を使っていた場合
 
@@ -53,11 +53,13 @@ AIに「この下書きをゴミ箱に入れて」「ゴミ箱から復元して
 
 1. テストサイトのWordPressとデータベースをバックアップする。
 2. 管理者でログインし、「プラグイン」→「新規追加」→「プラグインのアップロード」を開く。
-3. `atshift-article-composer-0.7.6.zip` を選択し、インストール・有効化する。
+3. ダウンロードした `atshift-article-composer-VERSION.zip` を選択し、インストール・有効化する。
 4. 左メニューの **atshift Article Composer** を開く。
 5. **Components** に初期部品の **Introduction** と **Article resources** が表示されることを確認する。
 
-インストール用ZIPとSHA-256は [GitHub Release](https://github.com/at-shift/atshift-article-composer/releases/tag/v0.7.6) から取得します。GitHubの「Download ZIP」はソース一式で、インストール用ZIPとは別です。WordPress.org版は審査待ちで、配布開始は承認後です。
+正式公開後は [WordPress.org](https://ja.wordpress.org/plugins/atshift-article-composer/) またはWordPressの「プラグイン → 新規プラグインを追加」から導入できます。[GitHub Releases](https://github.com/at-shift/atshift-article-composer/releases) のインストール用ZIPとSHA-256も利用できます。GitHubの「Download ZIP」はソース一式で、インストール用ZIPとは別です。
+
+既存のGitHub版0.7.6は、移行用1.0.0の公開後に通常のプラグイン更新でWordPress.org版へ切り替わります。以後の更新はWordPress.orgから受け取ります。日本語ファイルは引き続き同梱され、更新時に削除・再インストールする必要はありません。自動更新の設定も変更しません。承認だけでは切り替わらず、公開された移行用更新を適用する必要があります。
 開発者はリポジトリで `npm run build:php-deps`、`npm run pack:wordpress` の順に実行すると `.local/releases/` に依存ライブラリ同梱ZIPとSHA-256を作成できます。
 サーバーへNode.jsや別のAIサービスを設置する必要はありません。
 

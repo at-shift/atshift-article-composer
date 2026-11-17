@@ -71,3 +71,22 @@ test("distribution contains current translation files and excludes backups", () 
   assert.ok(zip['atshift-article-composer/includes/i18n.php']);
   assert.ok(!Object.keys(zip).some(p=>/\.po~$|deft-catalog-/.test(p)));
 });
+
+test("bundled Japanese scripts cover all four UI sources and preserve machine contracts", () => {
+  const i18n = installI18n({});
+  for (const [source, message] of [
+    ['admin.js', 'Draft saved. Not published.'],
+    ['catalog.js', 'Component loaded.'],
+    ['connections.js', 'No connections.'],
+    ['connection-profiles.js', 'Choose your AI and client first.'],
+  ]) {
+    const hash = createHash('md5').update(source).digest('hex');
+    const catalog = JSON.parse(read(`languages/atshift-article-composer-ja-${hash}.json`));
+    assert.equal(catalog.source, source);
+    assert.equal(catalog.locale_data.messages[''].lang, 'ja');
+    i18n.setLocaleData(catalog.locale_data.messages, 'atshift-article-composer');
+    assert.match(i18n.__(message, 'atshift-article-composer'), /[\u3040-\u30ff\u4e00-\u9fff]/u);
+  }
+  assert.equal(i18n.__('expectedVersion', 'atshift-article-composer'), 'expectedVersion');
+  assert.equal(i18n.__('Bearer', 'atshift-article-composer'), 'Bearer');
+});

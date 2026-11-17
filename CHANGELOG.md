@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0 - Unreleased
+
+- Prepare the first directory release following WordPress.org approval.
+- Complete the current Japanese gettext catalog and bundle PHP/JavaScript translations and the Japanese user guide in both distribution packages.
+- Preserve bundled Japanese through the GitHub-to-WordPress.org update handoff, with regression checks for the installed package and later directory updates.
+- Organize the directory description around quick-start steps, article composition, publication, permissions and service boundaries.
+- Prepare the owner-approved English banner with "Just talk. Then publish." and smaller feature copy in both directory sizes; Japanese banner artwork is not included.
+
 ## 0.7.6 - Article Composer Repository Baseline
 
 - Start the new repository from the submitted WordPress.org runtime. Earlier entries below describe the old repository's history, not migration support.

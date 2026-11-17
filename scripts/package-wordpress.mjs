@@ -42,11 +42,10 @@ const names = [
   "includes/class-public-structure.php", "includes/class-publication-access.php",
   "behaviors/fade-in-v1.css", "behaviors/image-zoom-v1.css", "behaviors/image-zoom-v1.js",
   "behaviors/manifest.json",
-  "AI-GUIDE.md", "docs/CONNECTIONS.md",
+  "AI-GUIDE.md", "GETTING-STARTED.ja.md", "docs/CONNECTIONS.md",
   "sample.json", "schema/snapshot.json",
 ];
 const files = {};
-if (channel === "github") names.push("GETTING-STARTED.ja.md");
 for (const name of names) files[`atshift-article-composer/${name}`] = new Uint8Array(await readFile(new URL(name, source)));
 files['atshift-article-composer/assets/admin-logo.png'] = new Uint8Array(await readFile(new URL('assets/icon-128x128.png', source)));
 if (channel === "github") {
@@ -60,7 +59,6 @@ if (channel === "github") {
 }
 for (const entry of await readdir(new URL("languages/", source), { withFileTypes: true })) {
   if (!entry.isFile() || !/^(?:README\.md|atshift-article-composer\.pot|atshift-article-composer-[A-Za-z][A-Za-z0-9_@-]*\.(?:po|mo)|atshift-article-composer-[A-Za-z][A-Za-z0-9_@-]*-[a-f0-9]{32}\.json)$/.test(entry.name)) continue;
-  if (channel === "wordpress-org" && !["README.md", "atshift-article-composer.pot"].includes(entry.name)) continue;
   files[`atshift-article-composer/languages/${entry.name}`] = new Uint8Array(await readFile(new URL(`languages/${entry.name}`, source)));
 }
 for (const name of ["composer.json", "composer.lock", "LICENSE"]) files[`atshift-article-composer/${name}`] = new Uint8Array(await readFile(new URL(name, root)));

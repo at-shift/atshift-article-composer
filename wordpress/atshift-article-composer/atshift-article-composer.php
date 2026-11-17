@@ -2,7 +2,7 @@
 /**
  * Plugin Name: atshift Article Composer
  * Description: Delegate execution. Focus on thinking. Create structured articles with your preferred AI.
- * Version: 0.7.6
+ * Version: 1.0.0
  * Author: at-shift
  * Author URI: https://plugins.at-shift.net/
  * Requires at least: 6.9
@@ -23,6 +23,6 @@ require_once __DIR__ . '/includes/i18n.php';
 require_once __DIR__ . '/includes/runtime.php';
 if ( ! runtime_guard( PHP_VERSION_ID ) ) return;
 
-const VERSION = '0.7.6';
+const VERSION = '1.0.0';
 const PLUGIN_FILE = __FILE__;
 require_once __DIR__ . '/includes/bootstrap.php';

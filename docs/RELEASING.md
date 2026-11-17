@@ -5,6 +5,15 @@ Both channels install `atshift-article-composer/atshift-article-composer.php`.
 The old `at-shift/atshift-deft` repository, releases and experimental installations
 are separate. No automatic migration from their data is provided.
 
+## One Source Branch
+
+Maintain runtime code, translations, guides, tests and directory assets together
+on `main`. Do not create separate long-lived GitHub and WordPress.org source
+branches. Distribution differences belong in the package builder; the final
+GitHub handoff uses the officially downloaded directory ZIP unchanged.
+Historical tags and Releases remain immutable. Updating `main` does not create
+a Release or offer a new version to installed plugins.
+
 ## Build
 
 ```sh
@@ -16,8 +25,8 @@ npm run test:distribution
 node --test tests/update-handoff.test.mjs
 ```
 
-GitHub adds only its updater, `Update URI`, partial Japanese translations and
-Japanese guide. The WordPress.org build excludes these additions. Runtime code,
+The development GitHub build adds only its updater and `Update URI`.
+Both builds include Japanese translations and the Japanese guide. Runtime code,
 schemas and dependencies must otherwise match. Source archives are not installable
 plugin ZIPs. Do not commit generated dependencies, ZIPs, credentials or test data.
 
@@ -68,9 +77,27 @@ publish subsequent production updates through WordPress.org.
 
 Users apply a normal plugin update; automatic update behavior follows their existing
 preference. No deletion/reinstallation is required for this canonical identity.
-The English-only directory package removes bundled Japanese catalogs; standard
-WordPress.org language packs remain supported, but translation availability is
-not guaranteed until those language packs exist.
+The directory package includes the Japanese catalogs and guide. Verify their
+presence and actual gettext/JavaScript loading after the update; do not depend on
+a separate WordPress.org language pack being ready. Standard language packs remain
+supported for subsequent translation updates.
+
+### First Directory Release: 1.0.0
+
+1. Finish local verification and obtain publication approval. The owner-approved
+   English v3 banner exports are in `wordpress-org/assets/`; earlier candidates
+   are reference-only. Image approval is separate from publication approval.
+2. Publish the 1.0.0 WordPress.org package to SVN trunk and tags/1.0.0; verify the
+   resulting directory API and official downloadable ZIP independently.
+3. Run `node scripts/prepare-wordpress-org-handoff.mjs 1.0.0 0.7.6 .local/handoff-1.0.0`.
+4. Test the downloaded bytes, then publish GitHub v1.0.0 with those exact handoff
+   assets. Do not publish the ordinary updater-enabled 1.0.0 ZIP first: an
+   equal-version replacement would not be offered to installed users.
+5. Re-download GitHub's assets and compare with the official ZIP and manifest.
+   Keep the transition release available as the final GitHub update route.
+
+Local rehearsal ZIPs and mocked update APIs do not prove that this public
+transition has happened. The release record must distinguish these stages.
 
 ## Verification
 

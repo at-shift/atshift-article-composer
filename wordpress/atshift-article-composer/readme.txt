@@ -4,13 +4,21 @@ Tags: ai, mcp, publishing, structured-content
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 0.7.6
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Create and publish WordPress articles with your usual AI. Focus on your content, not the editor.
 
 == Description ==
+
+**Create the article, its layout and its publication plan with the AI you already use.**
+
+atshift Article Composer connects a compatible AI client to WordPress so you can
+turn a conversation, reference materials or a layout image into a structured
+article. Your AI can assemble sections and responsive columns, style reusable
+components, save a private draft, prepare a preview, and publish or schedule it
+to the destination you choose. It does not include an AI model or a new chat app.
 
 Start with one thing in Article Composer: download the guide for your AI.
 
@@ -30,24 +38,87 @@ Focus on creating content. Let your AI handle the assembly and publication.
 Initial setup, permission changes, reconnection and private theme-based previews
 can still require WordPress sign-in. Site maintenance remains a separate responsibility.
 
-This is an early release. Evaluate it on an isolated test site before production use.
-It does not replace atshift Fields or migrate existing posts.
-Delegate execution. Focus on thinking. Let your AI handle the assembly.
+English and Japanese interfaces are included. Additional languages can be added
+using the bundled translation template or WordPress language packs.
 
-The AI guide is available from the Articles screen. Drafts retain
-typed content, pinned component versions, private media references and an
-authenticated preview. Publishing requires a separate publishing connection and
-the appropriate WordPress role.
+[Plugin website](https://plugins.at-shift.net/article-composer/) |
+[User guide](https://github.com/at-shift/atshift-article-composer/blob/main/docs/GETTING-STARTED.md) |
+[Support](https://plugins.at-shift.net/en/support/?product=article-composer)
 
-Ask the AI for page composition and column layouts as well as text: headings,
-images, stacked sections, responsive two-column sections and supported Q&A.
-Describe the design in conversation or provide an optional reference image.
-Reuse your theme's look or assemble an article layout from Article Composer components;
-supported component styling does not require changes to theme Additional CSS.
+= Get started in six steps =
 
-See README.md for installation, architecture and deployment constraints,
-and AI-GUIDE.md for the external-AI authoring contract.
-These Markdown files are required documentation shipped with the plugin.
+1. **STEP 1 - Install Article Composer.** In WordPress, open Plugins > Add New Plugin, find atshift Article Composer, then install and activate it. WordPress 6.9+ and PHP 8.2+ are required. Back up before updating an existing installation.
+2. **STEP 2 - Give the guide to your AI.** Open atshift Article Composer, choose Download AI guide, and attach the file to your usual AI conversation or chat project. Say, "Read this guide and help me connect to my site."
+3. **STEP 3 - Install the required MCP Adapter.** Before connecting, an administrator must install and activate the official [MCP Adapter](https://wordpress.org/plugins/mcp-adapter/) 0.7.1 or newer. In Plugins > Add New Plugin, search for MCP Adapter by WordPress.org. Update it if necessary when already installed. Ask your site administrator if you cannot do this yourself.
+4. **STEP 4 - Connect and verify.** Follow the client-specific instructions, authorize your own WordPress account for the access you need, and ask the AI to verify a real connection. Keep connection keys in secure client settings, never in chat. A compatible MCP client and an externally reachable HTTPS site are needed for remote AI access.
+5. **STEP 5 - Try a sample or create your article.** The guide includes an optional private sample. Or tell the AI who the article is for, provide your materials, and ask for the wording, page composition and column layout. Ask it to follow your theme's look or build a separate article layout. Save the draft and check the preview.
+6. **STEP 6 - Choose where and when to publish.** Confirm the destination (post, page or eligible custom post type), existing categories/tags and timing. Grant a separate publishing connection when ready, then say "Publish it" or specify the date, time and time zone. Ask for the resulting public URL or reservation status. Saving or reviewing a draft alone never publishes it.
+
+Initial setup is needed only for the chosen client and permissions, not for each
+article. The guide remains available from Articles after the welcome dialog closes.
+You can also import article JSON manually when an AI client cannot connect over MCP.
+
+= Compose articles and page layouts =
+
+Ask for page composition as well as wording, including responsive two-column
+sections and multi-section layouts.
+
+* Work from conversation, supporting documents and optional layout-reference images.
+* Assemble headings, images, stacked sections, responsive columns and supported Q&A layouts.
+* Reuse your theme's look or create an article design from shared components.
+* Let an authorized AI set bounded colors, spacing, borders and typography inside Article Composer, without editing theme Additional CSS.
+* Reuse available components before creating a missing structure. Saved articles retain their exact component revisions.
+
+= Save, review and publish =
+
+* Save and resume owner-only drafts with version checks that reject stale writes.
+* Review a portable preview or an authenticated preview using your site's theme.
+* Choose a normal post, page or eligible existing custom post type for each article.
+* Select existing categories, tags and supported taxonomy terms with native WordPress permissions.
+* Publish immediately or at a requested date/time through a separately authorized connection.
+* Trash and restore drafts without deleting saved versions or files.
+
+Saving a draft or approving Review does not publish it. A publishing connection
+can publish without a second WordPress confirmation; grant it only to a trusted
+client. Revocation cancels pending reservations; expiry alone does not cancel
+an already accepted reservation. Scheduled processing depends on WP-Cron.
+
+= Keep staff work and files separate =
+
+Each person's drafts, private files and connections belong to their WordPress
+account. Shared content-free structures can be reused without sharing private
+article content. Selected images/PDFs can be stored privately and bound to a
+saved version; attaching a file to chat alone does not upload it to WordPress.
+The AI client needs file-byte and transfer capabilities. Supported existing
+WordPress media can also be reused; existing public URLs are not made private.
+
+= Provide reader-safe structure =
+
+Eligible pages embed content-only structure JSON for the current viewer and
+minimal JSON-LD for anonymous public responses. Supported whole-article access
+rules from atshift Members, Members and Ultimate Member apply to structure and
+managed media. Unverified integrations pause these additional outputs and show
+the reason to administrators; normal article HTML is not rewritten.
+
+= Requirements and boundaries =
+
+WordPress 6.9+, PHP 8.2+ with DOM, mbstring, OpenSSL and Sodium, and MySQL/MariaDB
+with InnoDB and named-lock support are required. Private files also require PHP
+fileinfo and database capacity. Remote AI connections require an externally
+reachable HTTPS site, MCP Adapter 0.7.1+ and a compatible client. No Node.js server
+or AI provider API key is required in WordPress. AI service accounts, subscriptions
+and client capabilities are separate; not every client supports every workflow.
+Manual JSON import is available without MCP.
+
+Test your theme/plugin combination on a backup copy before production use.
+Published-post updates, staff ownership transfers and file-retention controls
+are not implemented. Deactivation stops scheduled processing, managed-media
+delivery and plugin styles. Designer/admin raw CSS can affect the whole page;
+assign those roles only to trusted people. This plugin does not replace atshift
+Fields or automatically migrate existing posts or experimental plugin data.
+
+README.md contains detailed installation and deployment constraints;
+AI-GUIDE.md defines the external-AI workflow. Both are shipped with the plugin.
 
 == Installation ==
 
@@ -58,12 +129,11 @@ These Markdown files are required documentation shipped with the plugin.
    Do not activate an older experimental package alongside Article Composer.
 2. Upload the plugin ZIP using Plugins > Add New > Upload Plugin and activate it.
 3. Open atshift Article Composer and download the AI guide.
-4. Private images and PDFs use the WordPress database; PHP fileinfo is required. No extra storage path is needed.
-5. Before AI connection setup, an administrator must install and activate the official [MCP Adapter](https://wordpress.org/plugins/mcp-adapter/) 0.7.1 or newer. Open Plugins > Add New Plugin, search for MCP Adapter by WordPress.org, then choose Install Now > Activate. If already installed, update if needed and ensure it is active. Ask your site administrator if you cannot install or activate plugins. Manual JSON import does not require it.
-6. Give the downloaded guide to your AI, follow connection setup, then try the optional private sample.
-7. Describe the article and its layout, review the saved preview, and explicitly request publication only after granting publishing access.
+4. Give the downloaded guide to your AI. Before AI connection setup, an administrator must install and activate the official [MCP Adapter](https://wordpress.org/plugins/mcp-adapter/) 0.7.1 or newer. Open Plugins > Add New Plugin, search for MCP Adapter by WordPress.org, then choose Install Now > Activate. If already installed, update if needed and ensure it is active. Ask your site administrator if you cannot install or activate plugins. Manual JSON import does not require it.
+5. Follow connection setup, then try the optional private sample or start your article.
+6. Describe the article and its layout, review the saved preview, and explicitly request publication only after granting publishing access.
 
-Private storage requires PHP fileinfo and database capacity. Version 0.7.6 does not
+Private storage requires PHP fileinfo and database capacity. This plugin does not
 automatically migrate older experimental data or read legacy private files.
 Test a fresh installation first. Back up existing data and files; deploying over
 an older installation requires a separate export/import plan. Do not mix old/new
@@ -75,7 +145,7 @@ No AI provider credentials or external AI service are bundled with this plugin.
 
 = Is this ready for production? =
 
-Evaluate this early release on an isolated test site first. Published-post updates,
+Evaluate your site's theme, plugins and permissions on an isolated test site first. Published-post updates,
 ownership transfers and file-retention controls are not yet implemented.
 Back up before upgrading and review the documented permission boundaries.
 
@@ -109,7 +179,7 @@ Arbitrary CSS and JavaScript are not accepted by the AI structure-creation tool.
 
 = Can I choose where each article is published? =
 
-Version 0.7.0 supports normal posts, pages and eligible existing
+Yes. Choose normal posts, pages and eligible existing
 public custom post types. If you have not chosen a destination for the article,
 the AI guide instructs it to ask where to publish, show available destinations and
 wait for your answer. An existing choice is validated and stated without asking
@@ -118,7 +188,7 @@ and separate Article Composer publication access still apply.
 
 = Can the AI select categories and tags? =
 
-Version 0.7.0 can select existing categories, tags and public
+Yes. The AI can select existing categories, tags and public
 custom taxonomy terms attached to the selected destination. The AI confirms a
 relevant selection with you; native assignment permissions are required. It does
 not create terms. Without a selection, WordPress defaults apply. Changes to selected
@@ -156,9 +226,16 @@ official directory ZIP unchanged and remove the external updater and Update URI.
 Later updates then come from WordPress.org. Publication alone does not switch
 installed copies; the transition update must be applied. Automatic-update
 preferences are not changed. Bundled Japanese files are replaced by the directory
-package, which supports WordPress.org language packs.
+package, which also includes Japanese catalogs and the Japanese guide. Standard
+WordPress.org language packs remain supported.
 
 == Changelog ==
+
+= 1.0.0 =
+* Prepare the first directory release following WordPress.org approval.
+* Complete the current Japanese interface catalog and include PHP/JavaScript translations and the Japanese guide in both distribution packages.
+* Retain Japanese through the verified GitHub-to-WordPress.org update path; subsequent updates use WordPress.org.
+* Organize setup, composition, publication and permission guidance for the directory listing.
 
 = 0.7.6 =
 * Address the November review: verify database setup, restrict AI request capabilities, protect review links and remove obsolete compatibility code.

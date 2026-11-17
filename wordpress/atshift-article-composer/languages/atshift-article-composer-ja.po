@@ -1,9 +1,10 @@
-# Japanese interface copy for onboarding and client connection guidance.
 msgid ""
 msgstr ""
-"Project-Id-Version: atshift Article Composer 0.7.6\n"
-"PO-Revision-Date: 2026-10-31 20:31+0900\n"
-"Last-Translator: at-shift (AI-assisted)\n"
+"Project-Id-Version: atshift Article Composer 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/atshift-article-composer\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2026-11-17 00:00+0900\n"
+"Last-Translator: at-shift (AI-assisted, context reviewed)\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -11,455 +12,2679 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: includes/class-publication-access.php
-msgid "Article structure JSON and Composer-managed image/PDF delivery are paused because access rules have not been verified for the following components. Normal article HTML is unchanged; protected files are not made public."
-msgstr "次の構成要素について閲覧制限の判定を検証できていないため、記事の構造JSONとComposerが管理する画像・PDFの配信を保留しています。通常の記事本文HTMLは変更せず、保護対象のファイルも公開しません。"
+#. Plugin Name of the plugin
+#: atshift-article-composer.php
+msgid "atshift Article Composer"
+msgstr "atshift Article Composer"
 
-#: includes/class-publication-access.php
-msgid "Additional article output is paused for these recent articles: dynamic block/shortcode content, oversized content, or an unavailable access decision needs a verified integration. Normal article HTML is unchanged."
-msgstr "次の最近の記事では追加出力を保留しています。動的なブロック・ショートコード、容量が大きすぎる本文、または取得できない閲覧権限の判定に対応する連携が必要です。通常の記事本文HTMLは変更しません。"
+#. Description of the plugin
+#: atshift-article-composer.php
+msgid "Delegate execution. Focus on thinking. Create structured articles with your preferred AI."
+msgstr "作業はAIに任せ、考えることに集中。いつものAIと構造化された記事を作成できます。"
 
-msgid "Download AI guide"
-msgstr "AI用手順書をダウンロード"
+#. Author of the plugin
+#: atshift-article-composer.php
+msgid "at-shift"
+msgstr "at-shift"
 
-msgid "Connect your AI"
-msgstr "AIと接続する"
+#. Author URI of the plugin
+#: atshift-article-composer.php
+msgid "https://plugins.at-shift.net/"
+msgstr "https://plugins.at-shift.net/"
 
-msgid "Give this guide to your usual AI"
-msgstr "手順書を、いつものAIへ"
+#: includes/catalog-page.php:9 includes/catalog-page.php:28
+#: includes/plugin.php:266
+msgid "Components"
+msgstr "部品"
 
-msgid "Download this guide and ask your usual AI to read it. Your AI will guide you through connecting, confirm the connection, then continue with your article. Ask about layout as well as wording: work with your theme's look or assemble a separate article layout, using a reference image if helpful."
-msgstr "手順書をダウンロードして、いつものAIに読ませてください。AIが接続を案内し、接続を確認できたら、そのまま記事作成の相談へ進みます。文章だけでなく、段組や見た目も相談できます。「今のテーマに馴染ませたい」「記事用に別のレイアウトを組みたい」など、希望や参考画像をAIに伝えてください。"
+#: includes/catalog-page.php:11
+msgid "New structure"
+msgstr "新しい構造"
 
-#, php-format
-msgid "atshift Article Composer requires PHP 8.2 or newer. This site runs PHP %s. The plugin is not running until PHP is upgraded. Saved data is unchanged."
-msgstr "atshift Article Composer は PHP 8.2 以上が必要です。現在は PHP %s です。サイトの PHP を更新するまで、このプラグインの処理を停止しています。保存済みデータは変更されません。"
+#: includes/catalog-page.php:12
+msgid "New personal component"
+msgstr "新しい個人用部品"
 
-msgid "Deactivate Structured Fields Prototype before activating atshift Article Composer. Saved data will be retained. You do not need to delete the old plugin."
-msgstr "atshift Article Composer を有効化する前に、旧 Structured Fields Prototype を停止してください。保存済みデータはそのまま引き継ぎます。旧版を削除する必要はありません。"
+#: includes/catalog-page.php:13
+msgid "Import component"
+msgstr "部品をインポート"
 
+#: includes/catalog-page.php:15
+msgid "New example"
+msgstr "新しいサンプル"
+
+#: includes/catalog-page.php:16 includes/plugin.php:350
+msgid "Refresh components"
+msgstr "部品を再読み込み"
+
+#: includes/catalog-page.php:17
+msgid "Download API schemas"
+msgstr "APIスキーマをダウンロード"
+
+#: includes/catalog-page.php:18
+msgid "AI handoff"
+msgstr "AIへの引き継ぎ"
+
+#: includes/catalog-page.php:21 connections.js:60
+msgid "Scope"
+msgstr "範囲"
+
+#: includes/catalog-page.php:21
+msgid "All available"
+msgstr "利用可能なすべて"
+
+#: includes/catalog-page.php:21 admin.js:326
+msgid "Used by me"
+msgstr "自分が使用中"
+
+#: includes/catalog-page.php:21
+msgid "Shared catalog"
+msgstr "共有カタログ"
+
+#: includes/catalog-page.php:21
+msgid "My private components"
+msgstr "自分の非公開部品"
+
+#: includes/catalog-page.php:22
+msgid "Find existing"
+msgstr "既存の部品を検索"
+
+#: includes/catalog-page.php:23
+msgid "Check existing components"
+msgstr "既存の部品を確認"
+
+#: includes/catalog-page.php:24
+msgid "Reply language"
+msgstr "返信の言語"
+
+#: includes/catalog-page.php:26
+msgid "Component catalog"
+msgstr "部品カタログ"
+
+#: includes/catalog-page.php:27 admin.js:351
+msgid "Behaviors"
+msgstr "動作"
+
+#: includes/catalog-page.php:29
+msgid "No component selected"
+msgstr "部品が選択されていません"
+
+#: includes/catalog-page.php:32
+msgid "Register version"
+msgstr "バージョンを登録"
+
+#: includes/catalog-page.php:33
+msgid "Available for new articles"
+msgstr "新しい記事で利用可能"
+
+#: includes/catalog-page.php:34
+msgid "Register shared copy"
+msgstr "共有用のコピーを登録"
+
+#: includes/catalog-page.php:35
+msgid "Export component"
+msgstr "部品をエクスポート"
+
+#: includes/catalog-page.php:38
+msgid "Components considered"
+msgstr "検討した部品"
+
+#: includes/catalog-page.php:39
+msgid "Missing capability"
+msgstr "不足している機能"
+
+#: includes/catalog-page.php:41
+msgid "Component JSON"
+msgstr "部品JSON"
+
+#: includes/channel-guard.php:15
+msgid "Deactivate the other atshift Article Composer / atshift DeFt package before activating this one. Keep the saved data; do not delete the old plugin. Only one distribution can be active at a time."
+msgstr "このプラグインを有効化する前に、別の atshift Article Composer / atshift DeFt パッケージを無効化してください。保存済みデータは保持し、旧プラグインは削除しないでください。同時に有効化できる配布版は1つだけです。"
+
+#: includes/class-access.php:79
+msgid "This article is not available to this WordPress account."
+msgstr "このWordPressアカウントでは、この記事を利用できません。"
+
+#: includes/class-ai-workflow.php:40
+msgid "This connection cannot update shared structures."
+msgstr "この接続では共有構造を更新できません。"
+
+#: includes/class-ai-workflow.php:45 includes/class-mcp.php:92
+#: includes/plugin.php:196
+msgid "Article not found."
+msgstr "記事が見つかりません。"
+
+#: includes/class-ai-workflow.php:66
+msgid "The authoring request or a referenced file could not be validated. Reload the draft and context."
+msgstr "記事作成リクエスト、または参照ファイルを検証できませんでした。下書きとコンテキストを再読み込みしてください。"
+
+#: includes/class-ai-workflow.php:72
+msgid "Read the current draft before requesting its preview."
+msgstr "プレビューを要求する前に、現在の下書きを読み込んでください。"
+
+#: includes/class-ai-workflow.php:108
+msgid "Portable preview exceeds 4 MiB. Use the owner theme preview."
+msgstr "持ち運び用プレビューが4 MiBを超えています。所有者用のテーマプレビューを使用してください。"
+
+#: includes/class-assets.php:55
+msgid "File must be between 1 byte and 10 MiB."
+msgstr "ファイルサイズは1バイト以上、10 MiB以下にしてください。"
+
+#: includes/class-assets.php:57
+msgid "Invalid filename."
+msgstr "ファイル名が無効です。"
+
+#: includes/class-assets.php:61
+msgid "Only JPEG, PNG, WebP and PDF are accepted; fileinfo is required."
+msgstr "JPEG、PNG、WebP、PDFのみ使用できます。PHPのfileinfoが必要です。"
+
+#: includes/class-assets.php:66
+msgid "The file contents do not match its extension."
+msgstr "ファイルの内容と拡張子が一致しません。"
+
+#: includes/class-assets.php:70
+msgid "Invalid PDF header."
+msgstr "PDFヘッダーが無効です。"
+
+#: includes/class-assets.php:75
+msgid "Invalid image or image exceeds 40 megapixels."
+msgstr "画像が無効か、4,000万画素を超えています。"
+
+#: includes/class-assets.php:98 includes/class-assets.php:122
+msgid "Save the article before adding files."
+msgstr "ファイルを追加する前に記事を保存してください。"
+
+#: includes/class-assets.php:120
+msgid "Send one multipart file and optional purpose (reference or publication)."
+msgstr "multipart形式でファイルを1件送信してください。用途（reference または publication）は任意で指定できます。"
+
+#: includes/class-assets.php:126
+msgid "The file was not received. Check the server upload limit."
+msgstr "ファイルを受信できませんでした。サーバーのアップロード上限を確認してください。"
+
+#: includes/class-assets.php:129
+msgid "Private storage is unavailable. No file was retained."
+msgstr "非公開ストレージを利用できません。ファイルは保持されていません。"
+
+#: includes/class-assets.php:135
+msgid "The file exceeds the WordPress upload limit."
+msgstr "ファイルがWordPressのアップロード上限を超えています。"
+
+#: includes/class-assets.php:140
+msgid "File does not match the authorized transfer."
+msgstr "ファイルが許可された転送内容と一致しません。"
+
+#: includes/class-assets.php:145
+msgid "Another upload is in progress. Retry the same file."
+msgstr "別のアップロードを処理中です。同じファイルで再試行してください。"
+
+#: includes/class-assets.php:154
+msgid "Storage metadata unavailable."
+msgstr "ストレージのメタデータを取得できません。"
+
+#: includes/class-assets.php:157
+msgid "Your private media capacity is reached. Reuse existing files or ask the site administrator to adjust the limit."
+msgstr "本人用の非公開メディア容量の上限に達しました。既存のファイルを再利用するか、サイト管理者に上限の調整を依頼してください。"
+
+#: includes/class-assets.php:160
+msgid "Private asset quota reached (50 files / 100 MiB per article; 500 MiB per site)."
+msgstr "非公開ファイルの上限に達しました（記事ごとに50件・100 MiB、サイト全体で500 MiB）。"
+
+#: includes/class-assets.php:169
+msgid "Could not save metadata."
+msgstr "メタデータを保存できませんでした。"
+
+#: includes/class-assets.php:173
+msgid "The private file could not be saved or verified."
+msgstr "非公開ファイルを保存または検証できませんでした。"
+
+#: includes/class-assets.php:183
+msgid "Private file integrity check failed."
+msgstr "非公開ファイルの整合性チェックに失敗しました。"
+
+#: includes/class-assets.php:200 includes/class-assets.php:204
+msgid "Private file access denied."
+msgstr "非公開ファイルへのアクセスが拒否されました。"
+
+#: includes/class-assets.php:200 includes/class-assets.php:204
+#: includes/class-assets.php:210
+msgid "Private asset"
+msgstr "非公開ファイル"
+
+#: includes/class-assets.php:208
+msgid "Private file changed during transfer."
+msgstr "転送中に非公開ファイルが変更されました。"
+
+#: includes/class-assets.php:210
+msgid "Private file is unavailable."
+msgstr "非公開ファイルを利用できません。"
+
+#: includes/class-behaviors.php:61
+msgid "Behavior settings are busy."
+msgstr "動作設定を処理中です。"
+
+#: includes/class-behaviors.php:63
+msgid "Use JSON within 1 KiB."
+msgstr "1 KiB以内のJSONを使用してください。"
+
+#: includes/class-behaviors.php:69
+msgid "Unknown behavior revision."
+msgstr "不明な動作リビジョンです。"
+
+#: includes/class-behaviors.php:73
+msgid "Behavior availability changed. Reload before editing."
+msgstr "動作の利用可否が変更されました。編集前に再読み込みしてください。"
+
+#: includes/class-behaviors.php:80
+msgid "Behavior availability was not saved."
+msgstr "動作の利用可否を保存できませんでした。"
+
+#: includes/class-behaviors.php:96
+msgid "Unknown behavior revision. Use the exact registry reference."
+msgstr "不明な動作リビジョンです。登録済みの正確な参照を使用してください。"
+
+#: includes/class-behaviors.php:98
+msgid "Duplicate behavior key or target."
+msgstr "動作のキーまたは対象が重複しています。"
+
+#: includes/class-behaviors.php:103
+msgid "This behavior targets the component root."
+msgstr "この動作は部品のルート要素を対象とします。"
+
+#: includes/class-behaviors.php:107
+msgid "Image enlargement requires an image field target."
+msgstr "画像の拡大には、対象となる画像フィールドが必要です。"
+
+#: includes/class-behaviors.php:110
+msgid "A linked image cannot also be an enlargement button."
+msgstr "リンク付きの画像を拡大ボタンとして兼用することはできません。"
+
+#: includes/class-behaviors.php:118
+msgid "This behavior revision is stopped. Do not introduce it in a new component revision."
+msgstr "この動作リビジョンは停止されています。新しい部品リビジョンに追加しないでください。"
+
+#: includes/class-behaviors.php:129
+msgid "Settings reference a behavior not bound to this component."
+msgstr "設定が、この部品に関連付けられていない動作を参照しています。"
+
+#: includes/class-behaviors.php:170
+msgid "Enlarge image"
+msgstr "画像を拡大"
+
+#: includes/class-behaviors.php:170
+msgid "Close image"
+msgstr "画像を閉じる"
+
+#: includes/class-catalog-context.php:23
+msgid "Read the current catalog context before creating or revising a component."
+msgstr "部品を作成・改訂する前に、現在のカタログコンテキストを読み込んでください。"
+
+#: includes/class-catalog-context.php:24
+msgid "Consider existing components and explain the missing capability."
+msgstr "既存の部品を検討し、不足している機能を説明してください。"
+
+#: includes/class-catalog-context.php:29
+msgid "Use distinct, current, visible catalog references."
+msgstr "現在参照可能なカタログの参照を、重複せずに指定してください。"
+
+#: includes/class-catalog-context.php:38
+msgid "Use a language tag such as ja, en-US or pt-BR."
+msgstr "ja、en-US、pt-BRなどの言語タグを使用してください。"
+
+#: includes/class-catalog-context.php:48
+msgid "Query must be at most 200 characters."
+msgstr "検索語は200文字以内にしてください。"
+
+#: includes/class-catalog.php:33
+msgid "Shared component usage is unavailable."
+msgstr "共有部品の使用状況を取得できません。"
+
+#: includes/class-catalog.php:131
+msgid "Invalid catalog query."
+msgstr "カタログの検索条件が無効です。"
+
+#: includes/class-catalog.php:132
+msgid "Invalid catalog scope."
+msgstr "カタログの範囲が無効です。"
+
+#: includes/class-catalog.php:145
+msgid "Invalid revision."
+msgstr "リビジョンが無効です。"
+
+#: includes/class-catalog.php:147 includes/class-catalog.php:209
+msgid "Component not found."
+msgstr "部品が見つかりません。"
+
+#: includes/class-catalog.php:168
+msgid "Use JSON within the request size limit."
+msgstr "リクエストのサイズ上限内のJSONを使用してください。"
+
+#: includes/class-catalog.php:181
+msgid "Use the content-free structure recipe to update this definition."
+msgstr "この定義の更新には、記事内容を含まない構造レシピを使用してください。"
+
+#: includes/class-catalog.php:200
+msgid "Catalog is busy. Retry later."
+msgstr "カタログを処理中です。しばらくしてから再試行してください。"
+
+#: includes/class-catalog.php:205
+msgid "Personal component changed before sharing."
+msgstr "共有前に個人用部品が変更されました。"
+
+#: includes/class-catalog.php:208
+msgid "Catalog changed. Reload before editing."
+msgstr "カタログが変更されました。編集前に再読み込みしてください。"
+
+#: includes/class-catalog.php:210
+msgid "Keep the registered machine key when updating a component."
+msgstr "部品を更新する際は、登録済みの機械用キーを維持してください。"
+
+#: includes/class-catalog.php:211
+msgid "This machine key is already registered in this scope."
+msgstr "この機械用キーは、同じ範囲ですでに登録されています。"
+
+#: includes/class-catalog.php:216
+msgid "Existing definitions are not converted automatically."
+msgstr "既存の定義は自動変換されません。"
+
+#: includes/class-catalog.php:227
+msgid "An equivalent shared component is inactive. Ask a component manager to review it."
+msgstr "同等の共有部品が無効になっています。部品管理者に確認を依頼してください。"
+
+#: includes/class-catalog.php:233
+msgid "Reuse the existing definition instead of creating a copy."
+msgstr "コピーを作らず、既存の定義を再利用してください。"
+
+#: includes/class-catalog.php:235
+msgid "Personal component limit reached (20). Reuse or revise existing definitions."
+msgstr "個人用部品の上限（20件）に達しました。既存の定義を再利用または改訂してください。"
+
+#: includes/class-catalog.php:239
+msgid "Your shared component creation limit is reached. Reuse existing definitions or ask the site administrator to adjust the limit."
+msgstr "本人による共有部品の作成上限に達しました。既存の定義を再利用するか、サイト管理者に上限の調整を依頼してください。"
+
+#: includes/class-catalog.php:242
+msgid "Component exceeds 512 KiB."
+msgstr "部品が512 KiBを超えています。"
+
+#: includes/class-catalog.php:246
+msgid "Catalog storage limit reached."
+msgstr "カタログの保存容量の上限に達しました。"
+
+#: includes/class-catalog.php:248 includes/class-store.php:92
+msgid "InnoDB tables are required."
+msgstr "InnoDBテーブルが必要です。"
+
+#: includes/class-catalog.php:250 includes/class-store.php:94
+msgid "Could not start transaction."
+msgstr "トランザクションを開始できませんでした。"
+
+#: includes/class-catalog.php:252
+msgid "Could not save component."
+msgstr "部品を保存できませんでした。"
+
+#: includes/class-catalog.php:256
+msgid "Could not save catalog."
+msgstr "カタログを保存できませんでした。"
+
+#: includes/class-catalog.php:294
+msgid "Reload the personal component before sharing."
+msgstr "共有前に個人用部品を再読み込みしてください。"
+
+#: includes/class-catalog.php:315
+msgid "Choose an active catalog revision or a component pinned in your saved article."
+msgstr "有効なカタログリビジョン、または保存済み記事で固定されている部品を選択してください。"
+
+#: includes/class-component-appearance.php:111
+msgid "Appearance must reference distinct existing field keys and options supported by their types and layout."
+msgstr "装飾には重複しない既存のフィールド名を指定し、その入力タイプとレイアウトで利用できる設定を使用してください。"
+
+#: includes/class-component-builder.php:31
+msgid "Q&A requires question (text) and answer (textarea), in that order."
+msgstr "Q&Aには、question（text）とanswer（textarea）をこの順序で指定してください。"
+
+#: includes/class-component-usage.php:35
+msgid "Could not remember component use."
+msgstr "部品の使用状況を記録できませんでした。"
+
+#: includes/class-connections.php:115
+msgid "Activate MCP Adapter 0.7.1 or newer and use HTTPS (local loopback is allowed)."
+msgstr "MCP Adapter 0.7.1以降を有効化し、HTTPSを使用してください（ローカルのループバック接続は許可されます）。"
+
+#: includes/class-connections.php:125
+msgid "Supply a connection name of 1 to 80 characters."
+msgstr "接続名を1〜80文字で入力してください。"
+
+#: includes/class-connections.php:128
+msgid "Try again."
+msgstr "もう一度お試しください。"
+
+#: includes/class-connections.php:133 includes/class-oauth-consent.php:73
+msgid "Revoke an existing connection first (maximum 10 active)."
+msgstr "先に既存の接続を取り消してください（有効な接続は最大10件）。"
+
+#: includes/class-connections.php:139
+msgid "Connection could not be created."
+msgstr "接続を作成できませんでした。"
+
+#: includes/class-connections.php:146
+msgid "Connection is busy. Retry revocation."
+msgstr "接続を処理中です。取り消しを再試行してください。"
+
+#: includes/class-connections.php:150
+msgid "Connection not found."
+msgstr "接続が見つかりません。"
+
+#: includes/class-connections.php:158
+msgid "Nested requests are not permitted in this AI connection."
+msgstr "このAI接続では、処理中に別のリクエストを呼び出すことはできません。"
+
+#: includes/class-connections.php:163
+msgid "This key is only valid at the atshift Article Composer MCP endpoint."
+msgstr "このキーは atshift Article Composer のMCPエンドポイントでのみ有効です。"
+
+#: includes/class-connections.php:165
+msgid "Secure MCP connection unavailable."
+msgstr "安全なMCP接続を利用できません。"
+
+#: includes/class-connections.php:166 includes/plugin.php:174
+msgid "Payload exceeds 4 MB."
+msgstr "データが4 MBを超えています。"
+
+#: includes/class-connections.php:187
+msgid "A valid, unexpired connection credential is required."
+msgstr "有効で、期限の切れていない接続認証情報が必要です。"
+
+#: includes/class-connections.php:213
+msgid "The publishing connection is no longer authorized."
+msgstr "公開用接続の許可が失われています。"
+
+#: includes/class-drafts.php:47
+msgid "Use JSON within 2 KiB."
+msgstr "2 KiB以内のJSONを使用してください。"
+
+#: includes/class-drafts.php:49
+msgid "Supply the saved version and state version only."
+msgstr "保存版と状態のバージョンだけを指定してください。"
+
+#: includes/class-drafts.php:60
+msgid "Supply an article ID and integer saved/state versions."
+msgstr "記事IDと、保存版・状態の整数バージョンを指定してください。"
+
+#: includes/class-drafts.php:65 includes/class-publications.php:146
+#: includes/class-publications.php:208 includes/class-review.php:94
+#: includes/class-review.php:120 includes/class-transfer.php:58
+#: includes/class-transfer.php:94 includes/class-transfer.php:99
+#: includes/class-transfer.php:121
+msgid "Retry later."
+msgstr "しばらくしてから再試行してください。"
+
+#: includes/class-drafts.php:71
+msgid "The draft or trash state changed. Refresh the list before trying again."
+msgstr "下書きまたはゴミ箱の状態が変わりました。一覧を更新してから操作してください。"
+
+#: includes/class-drafts.php:73
+msgid "Cancel the publication reservation before moving this draft to Trash."
+msgstr "この下書きをゴミ箱に移動する前に、公開予約を取り消してください。"
+
+#: includes/class-drafts.php:79
+msgid "The draft state could not be saved."
+msgstr "下書きの状態を保存できませんでした。"
+
+#: includes/class-github-updater.php:93
+msgid "Create structured articles with your preferred AI."
+msgstr "普段使うAIで構造化された記事を作成します。"
+
+#: includes/class-github-updater.php:94
+msgid "View release notes on GitHub"
+msgstr "GitHubでリリースノートを表示"
+
+#: includes/class-github-updater.php:102
+msgid "The GitHub update could not be verified. Check for updates again."
+msgstr "GitHubの更新を確認できませんでした。更新をもう一度確認してください。"
+
+#: includes/class-github-updater.php:106
+msgid "Could not create a temporary update file."
+msgstr "更新用の一時ファイルを作成できませんでした。"
+
+#: includes/class-github-updater.php:111
+msgid "The GitHub update download failed."
+msgstr "GitHubから更新ファイルをダウンロードできませんでした。"
+
+#: includes/class-github-updater.php:116
+msgid "The update ZIP failed its SHA-256 integrity check."
+msgstr "更新ZIPのSHA-256整合性チェックに失敗しました。"
+
+#: includes/class-mcp.php:123
+msgid "Unsupported operation."
+msgstr "対応していない操作です。"
+
+#: includes/class-media.php:17
+msgid "Media is missing or not accessible."
+msgstr "メディアが見つからないか、アクセスできません。"
+
+#: includes/class-media.php:27
+msgid "Only local media inside the uploads directory is supported."
+msgstr "アップロードディレクトリ内のローカルメディアのみ使用できます。"
+
+#: includes/class-media.php:31
+msgid "Media type does not match the file."
+msgstr "メディアの種類とファイルが一致しません。"
+
+#: includes/class-media.php:46
+msgid "Invalid media search or page."
+msgstr "メディアの検索条件またはページ指定が無効です。"
+
+#: includes/class-media.php:64
+msgid "Invalid media reference or permission."
+msgstr "メディアの参照または権限が無効です。"
+
+#: includes/class-media.php:67
+msgid "Invalid private asset ID."
+msgstr "非公開ファイルIDが無効です。"
+
+#: includes/class-media.php:71
+msgid "Use a publication candidate belonging to this article, with its exact hash."
+msgstr "この記事に属する公開候補を、正確なハッシュ値とともに使用してください。"
+
+#: includes/class-media.php:78
+msgid "The existing media file has changed."
+msgstr "既存のメディアファイルが変更されています。"
+
+#: includes/class-media.php:81
+msgid "Unknown media source."
+msgstr "不明なメディアの取得元です。"
+
+#: includes/class-media.php:86
+msgid "Use an image for an image field, or a PDF for a download link."
+msgstr "画像フィールドには画像を、ダウンロードリンクにはPDFを使用してください。"
+
+#: includes/class-media.php:106
+msgid "At most 50 media bindings are supported per article."
+msgstr "メディアの関連付けは記事ごとに最大50件です。"
+
+#: includes/class-media.php:116
+msgid "Article media exceeds 100 MiB."
+msgstr "記事のメディアが100 MiBを超えています。"
+
+#: includes/class-media.php:132 includes/class-media.php:207
+msgid "Media changed during transfer."
+msgstr "転送中にメディアが変更されました。"
+
+#: includes/class-media.php:142
+msgid "Article access denied."
+msgstr "記事へのアクセスが拒否されました。"
+
+#: includes/class-media.php:156
+msgid "Invalid media binding."
+msgstr "メディアの関連付けが無効です。"
+
+#: includes/class-media.php:160
+msgid "Invalid media element."
+msgstr "メディア要素が無効です。"
+
+#: includes/class-media.php:170
+msgid "Missing media binding."
+msgstr "メディアの関連付けがありません。"
+
+#: includes/class-media.php:194 includes/class-media.php:198
+msgid "Private media access denied."
+msgstr "非公開メディアへのアクセスが拒否されました。"
+
+#: includes/class-media.php:194 includes/class-media.php:198
+#: includes/class-media.php:210
+msgid "Private preview media"
+msgstr "非公開プレビュー用メディア"
+
+#: includes/class-media.php:202
+msgid "Unknown media field."
+msgstr "不明なメディアフィールドです。"
+
+#: includes/class-media.php:210
+msgid "The referenced media is unavailable or has changed."
+msgstr "参照先のメディアを利用できないか、内容が変更されています。"
+
+#: includes/class-oauth-consent.php:30
+msgid "Secure OAuth setup is unavailable."
+msgstr "安全なOAuth設定を利用できません。"
+
+#: includes/class-oauth-consent.php:45
+msgid "Too many pending requests. Wait ten minutes and retry."
+msgstr "保留中のリクエストが多すぎます。10分待ってから再試行してください。"
+
+#: includes/class-oauth-consent.php:95
+msgid "This authorization request is unavailable or invalid. Return to the AI connection settings and start again. No access was granted."
+msgstr "この認可リクエストは利用できないか、無効です。AI接続設定に戻り、最初からやり直してください。アクセスは許可されていません。"
+
+#: includes/class-oauth-consent.php:95
+msgid "atshift Article Composer authorization"
+msgstr "atshift Article Composer の認可"
+
+#: includes/class-oauth-consent.php:109
 msgid "Read components and read/write my private drafts"
 msgstr "本人の部品参照・下書きの読み書き"
 
+#: includes/class-oauth-consent.php:110
 msgid "Create bounded structures, transfer my files and export private previews"
 msgstr "限定構造の作成・本人のファイル転送・非公開プレビュー"
 
+#: includes/class-oauth-consent.php:111
 msgid "Publish or schedule my articles without another WordPress approval"
 msgstr "本人の記事の即時公開・予約投稿（追加のWordPress承認なし）"
 
+#: includes/class-oauth-consent.php:115 includes/class-oauth-consent.php:117
 msgid "Authorize AI connection"
 msgstr "AIとの接続を許可"
 
+#. translators: %s: WordPress account display name.
+#: includes/class-oauth-consent.php:119
 #, php-format
 msgid "WordPress account: %s"
 msgstr "WordPressの担当者: %s"
 
+#: includes/class-oauth-consent.php:121
 msgid "Consent lasts 30 days and can be revoked in AI connections. Other staff members' private data is not included."
-msgstr "許可は30日間有効です。「AI connections」でいつでも取り消せます。他の担当者の非公開データは許可されません。"
+msgstr "許可は30日間有効です。「AI接続」でいつでも取り消せます。他の担当者の非公開データは許可されません。"
 
+#: includes/class-oauth-consent.php:122
 msgid "Revoking this connection cancels pending reservations. Access-token expiry alone does not cancel them."
 msgstr "接続を取り消すと予約投稿も取り消されます。アクセストークンの期限切れだけでは、予約投稿は取り消されません。"
 
+#: includes/class-oauth-consent.php:123
 msgid "Connection details"
 msgstr "接続先の詳細"
 
+#: includes/class-oauth-consent.php:127
 msgid "Allow this access"
 msgstr "この範囲で接続を許可"
 
+#: includes/class-oauth-consent.php:128
 msgid "Deny"
 msgstr "許可しない"
 
-#: connection-profiles.js
-msgid "ChatGPT (web: Chat / Work)"
-msgstr "ChatGPT（Web版：Chat / Work）"
+#: includes/class-oauth-store.php:93
+msgid "Invalid authorization record."
+msgstr "認可記録が無効です。"
 
-#: connection-profiles.js
-msgid "Open Settings > Plugins > View agents, then Add > Add custom MCP server. The installed-plugin settings list is not the creation screen. Labels may vary by version."
-msgstr "「設定 → プラグイン → エージェント一覧を見る」から、「追加 → カスタムMCPサーバーを追加」へ進みます。設定内のインストール済み一覧とは別の画面です。表示名はバージョンで変わる場合があります。"
+#: includes/class-oauth-store.php:95
+msgid "Reconnect to renew the token quota."
+msgstr "トークンの発行枠を更新するには再接続してください。"
 
-#: connection-profiles.js
-msgid "Install the created plugin, select it in the intended Chat or Work conversation, and ask the AI to confirm live context. A visible add menu does not prove that Article Composer OAuth works with this account."
-msgstr "作成したプラグインをインストールし、利用するChatまたはWorkの会話で選んで、AIに実際の接続確認を依頼します。追加メニューがあるだけでは、そのアカウントでArticle ComposerのOAuth接続が動くとは確認できません。"
+#: includes/class-oauth-store.php:98
+msgid "Authorization record could not be stored."
+msgstr "認可記録を保存できませんでした。"
 
-#: connection-profiles.js
-msgid "In Claude Desktop, open Settings > Connectors > Add to reach Add custom connector. The first screen asks for a name and MCP server URL; check the following authentication screen before choosing a route."
-msgstr "Claude.appでは「設定 → コネクタ → 追加」から「カスタムコネクタを追加」を開きます。最初の画面は名前とMCPサーバーURLの入力です。その先の認証画面を確認してから接続経路を選びます。"
+#: includes/class-oauth-store.php:104
+msgid "Credential could not be bound."
+msgstr "認証情報を関連付けられませんでした。"
 
-#: connection-profiles.js
-msgid "In Claude Desktop, open Settings > Connectors > Add. On the web, use the visible Connectors entry. Confirm Request headers is actually available before creating a key; the name and URL form alone does not prove header support."
-msgstr "Claude.appでは「設定 → コネクタ → 追加」を開きます。Web版では表示されているコネクタの入口を使います。キーを作る前に「Request headers」が実際に使えるか確認してください。名前とURLの入力欄だけではヘッダー対応を確認できません。"
+#: includes/class-oauth-store.php:110 includes/class-oauth.php:257
+msgid "Token revocation failed."
+msgstr "トークンの取り消しに失敗しました。"
 
-#: connection-profiles.js
-msgid "Codex (desktop app)"
-msgstr "Codex（デスクトップ版）"
+#: includes/class-oauth-store.php:117
+msgid "OAuth requires transactional storage."
+msgstr "OAuthにはトランザクション対応のストレージが必要です。"
 
-#: connection-profiles.js
-msgid "Local desktop MCP setup, separate from ChatGPT web OAuth. The steps match the desktop screens checked on 2026-10-31; if labels differ, confirm the visible screen instead of guessing."
-msgstr "ローカルのデスクトップ版MCP設定で、ChatGPT Web版のOAuthとは別の経路です。手順は2026-10-31に確認した画面に基づきます。表示名が違う場合は、推測せず実際の画面を確認してください。"
+#: includes/class-oauth-store.php:120
+msgid "Authorization transaction unavailable."
+msgstr "認可トランザクションを利用できません。"
 
-#: connection-profiles.js
-msgid "Open Settings > Plugins > Add > Add MCP server."
-msgstr "「設定 → プラグイン → 追加 → MCPサーバーを追加」を開きます。"
+#: includes/class-oauth-store.php:124
+msgid "Authorization transaction failed."
+msgstr "認可トランザクションに失敗しました。"
 
-#: connection-profiles.js
-msgid "Enter a server name, select Streamable HTTP (not STDIO), and paste the full MCP endpoint into URL."
-msgstr "サーバーに名前を付け、「ストリーミング可能なHTTP」を選び、MCP endpoint全体をURL欄へ貼り付けます。STDIOではありません。"
+#: includes/class-oauth-store.php:130
+msgid "Authorization is busy. Try again."
+msgstr "認可処理中です。もう一度お試しください。"
 
-#: connection-profiles.js
-msgid "For this header-based route, leave Bearer token environment variable empty. Under Headers, set the name to Authorization and the value to Bearer <connection-key>, with one space after Bearer. Never put the key in chat or screenshots."
-msgstr "このヘッダー方式では「Bearer トークン環境変数」は空欄にします。「ヘッダー」の左欄はAuthorization、右欄はBearerと接続キーの間に半角スペースを1つ入れた値です。キーをチャットやスクリーンショットへ含めないでください。"
+#: includes/class-oauth.php:92
+msgid "OAuth dependencies are unavailable."
+msgstr "OAuthの依存ライブラリを利用できません。"
 
-#: connection-profiles.js
-msgid "Save. To edit later, open the MCP tab in Plugins and select the gear beside the server name you chose. Keep that server enabled."
-msgstr "保存します。後から編集する場合は、プラグイン内のMCPタブで、自分で付けたサーバー名の横にある歯車を押します。そのサーバーを有効にしておきます。"
+#: includes/class-oauth.php:96
+msgid "Signing key creation failed."
+msgstr "署名鍵の作成に失敗しました。"
 
-#: connection-profiles.js
-msgid "Return to the same Codex conversation and ask for a read-only context check. If the tools are still missing, use Restart when offered or restart the app and resume. A saved setting alone is not a connection check."
-msgstr "元のCodexの会話へ戻り、読み取り専用の接続確認を依頼します。ツールがまだ出ない場合は、再起動の操作が表示されていれば使い、なければアプリを再起動して再開します。設定の保存だけでは接続確認になりません。"
+#: includes/class-oauth.php:101
+msgid "Signing keys could not be stored."
+msgstr "署名鍵を保存できませんでした。"
 
-#: includes/class-onboarding.php
+#: includes/class-oauth.php:107
+msgid "OAuth is not configured."
+msgstr "OAuthが設定されていません。"
+
+#: includes/class-oauth.php:185
+msgid "Invalid scope."
+msgstr "スコープが無効です。"
+
+#: includes/class-oauth.php:191
+msgid "Scope is not available."
+msgstr "このスコープは利用できません。"
+
+#: includes/class-oauth.php:242
+msgid "Consent was revoked."
+msgstr "同意が取り消されました。"
+
+#: includes/class-oauth.php:255
+msgid "Revocation failed."
+msgstr "取り消しに失敗しました。"
+
+#: includes/class-onboarding.php:17 includes/connections-page.php:11
+msgid "Download AI guide"
+msgstr "AI用手順書をダウンロード"
+
+#: includes/class-onboarding.php:17
+msgid "Connect your AI"
+msgstr "AIと接続する"
+
+#: includes/class-onboarding.php:17
+msgid "Give this guide to your usual AI"
+msgstr "手順書を、いつものAIへ"
+
+#: includes/class-onboarding.php:18
+msgid "Download this guide and ask your usual AI to read it. Your AI will guide you through connecting, confirm the connection, then continue with your article. Ask about layout as well as wording: work with your theme's look or assemble a separate article layout, using a reference image if helpful."
+msgstr "手順書をダウンロードして、いつものAIに読ませてください。AIが接続を案内し、接続を確認できたら、そのまま記事作成の相談へ進みます。文章だけでなく、段組や見た目も相談できます。「今のテーマに馴染ませたい」「記事用に別のレイアウトを組みたい」など、希望や参考画像をAIに伝えてください。"
+
+#: includes/class-onboarding.php:29
 msgid "How to publish or schedule"
 msgstr "公開・予約の手順"
 
-#: includes/class-onboarding.php
+#: includes/class-onboarding.php:30
 msgid "Save draft and Review do not publish. Ask your AI to publish through a separately authorized publishing connection."
-msgstr "下書きの保存やReviewでの承認だけでは公開されません。別途許可した公開用接続を使い、AIに公開を依頼します。"
+msgstr "下書きの保存や確認画面での承認だけでは公開されません。別途許可した公開用接続を使い、AIに公開を依頼します。"
 
-#: includes/class-onboarding.php
+#: includes/class-onboarding.php:32
 msgid "Save your changes and check Open theme preview."
-msgstr "変更を保存し、「Open theme preview」でテーマを含めた表示を確認します。"
+msgstr "変更を保存し、「テーマプレビューを開く」でテーマを含めた表示を確認します。"
 
-#: includes/class-onboarding.php
+#: includes/class-onboarding.php:33
 msgid "First time only: open AI connections with the same WordPress account that owns the draft and choose your AI client."
-msgstr "初回のみ、下書きを所有するWordPressアカウントでAI connectionsを開き、利用するAIを選びます。"
+msgstr "初回のみ、下書きを所有するWordPressアカウントで「AI接続」を開き、利用するAIを選びます。"
 
-#: includes/class-onboarding.php
+#: includes/class-onboarding.php:35
 msgid "Open AI connections"
 msgstr "AI接続設定を開く"
 
-#: includes/class-onboarding.php
+#: includes/class-onboarding.php:37
 msgid "For a connection key, select the following option and choose Create connection:"
 msgstr "キー方式では、次の項目を選んで「接続を作成」を押します。"
 
-#: includes/class-onboarding.php includes/connections-page.php
+#: includes/class-onboarding.php:37 includes/connections-page.php:68
 msgid "Allow immediate and scheduled public publication of my drafts"
 msgstr "自分の下書きの即時公開・予約公開を許可"
 
-#: includes/connections-page.php
-msgid "Create connection"
-msgstr "接続を作成"
-
-#: includes/class-onboarding.php
+#: includes/class-onboarding.php:38
 msgid "Add the returned publishing URL and new key to your AI as a separate connection. Keep the draft connection; its permissions do not change. Put the key in secure connection settings, never in chat."
 msgstr "表示された公開用URLと新しいキーを、AI側に別の接続として追加します。下書き用接続は残します。その権限は変わりません。キーは安全な接続設定に入力し、チャットには貼らないでください。"
 
-#: includes/class-onboarding.php
+#: includes/class-onboarding.php:39
 msgid "For OAuth, choose Use the publishing endpoint and authorize publication with the draft owner account. The registered application must permit publication access."
-msgstr "OAuth方式では「Use the publishing endpoint」を選び、下書きの所有者アカウントで公開を許可します。登録済みアプリ側も公開アクセスを許可している必要があります。"
+msgstr "OAuth方式では「公開用エンドポイントを使用」を選び、下書きの所有者アカウントで公開を許可します。登録済みアプリ側も公開アクセスを許可している必要があります。"
 
-#: includes/class-onboarding.php
+#: includes/class-onboarding.php:41
 msgid "Return to the same AI conversation. Ask it to verify publication access, then say \"Publish this draft now\" or give the publication date, time and time zone. Connection setup alone does not request publication."
 msgstr "同じAIとの会話へ戻り、公開権限の接続確認を依頼します。その後「この下書きを今すぐ公開して」、または公開したい日付・時刻・タイムゾーンを伝えます。接続設定が終わっただけでは公開の依頼になりません。"
 
-#: includes/class-onboarding.php
+#: includes/class-onboarding.php:42
 msgid "Check the AI result and Publication status in Articles. Published posts have View published post; scheduled posts are not public yet. Use Cancel reservation to cancel a pending schedule."
-msgstr "AIの結果と記事画面のPublication状態を確認します。公開後は「View published post」で公開ページを開けます。予約済みはまだ公開されていません。「Cancel reservation」で予約を取り消せます。"
+msgstr "AIの結果と記事画面の公開状態を確認します。公開後は「公開済み投稿を表示」で公開ページを開けます。予約済みはまだ公開されていません。「予約を取り消す」で予約を取り消せます。"
 
-#: includes/class-onboarding.php
+#: includes/class-onboarding.php:45
 msgid "Your account cannot grant publication access. Ask your administrator about the atshift Article Composer publisher role for this same account; do not switch to another owner to publish this draft."
 msgstr "このアカウントには公開アクセスを許可する権限がありません。同じアカウントにatshift Article Composer publisher権限を付けるか、管理者に相談してください。別の所有者に切り替えてこの下書きを公開することはできません。"
 
-#: includes/class-onboarding.php
+#: includes/class-onboarding.php:47
 msgid "Only grant this access to a trusted AI connection: it can publish without another WordPress approval. Initial publication only is supported; later draft edits do not update the public post."
 msgstr "信頼するAI接続だけに許可してください。WordPressでの再承認なしに公開できる権限です。現在は初回公開のみ対応し、公開後の下書き編集は公開記事に反映されません。"
 
-#: includes/class-component-appearance.php
-msgid "Appearance must reference distinct existing field keys and options supported by their types and layout."
-msgstr "装飾には重複しない既存のフィールド名を指定し、その入力タイプとレイアウトで利用できる設定を使用してください。"
+#: includes/class-onboarding.php:54 includes/class-onboarding.php:130
+msgid "Workspace access is required."
+msgstr "作業画面へのアクセス権限が必要です。"
 
-#: includes/class-github-updater.php
-msgid "Create structured articles with your preferred AI."
-msgstr "普段使うAIで構造化された記事を作成します。"
+#: includes/class-onboarding.php:57
+msgid "The current catalog could not be read."
+msgstr "現在のカタログを読み込めませんでした。"
 
-#: includes/class-github-updater.php
-msgid "View release notes on GitHub"
-msgstr "GitHubでリリースノートを表示"
+#: includes/class-onboarding.php:130 includes/class-onboarding.php:133
+msgid "AI guide"
+msgstr "AI用手順書"
 
-#: includes/class-github-updater.php
-msgid "The GitHub update could not be verified. Check for updates again."
-msgstr "GitHubの更新を確認できませんでした。更新をもう一度確認してください。"
+#: includes/class-onboarding.php:133
+msgid "The AI guide could not be prepared. Please try again."
+msgstr "AI用手順書を準備できませんでした。もう一度お試しください。"
 
-#: includes/class-github-updater.php
-msgid "Could not create a temporary update file."
-msgstr "更新用の一時ファイルを作成できませんでした。"
+#: includes/class-private-blobs.php:33
+msgid "Invalid private storage identity."
+msgstr "非公開ファイルの保存識別子が無効です。"
 
-#: includes/class-github-updater.php
-msgid "The GitHub update download failed."
-msgstr "GitHubから更新ファイルをダウンロードできませんでした。"
+#: includes/class-private-blobs.php:42
+msgid "Invalid private media metadata."
+msgstr "非公開ファイルの管理情報が無効です。"
 
-#: includes/class-github-updater.php
-msgid "The update ZIP failed its SHA-256 integrity check."
-msgstr "更新ZIPのSHA-256整合性チェックに失敗しました。"
+#: includes/class-private-blobs.php:45
+msgid "Private media storage unavailable."
+msgstr "非公開ファイルの保存領域を利用できません。"
 
-#: admin.js
-#. translators: 1: destination label; 2: WordPress post type identifier.
-#, javascript-format
-msgid "Destination: %1$s (%2$s)"
-msgstr "公開先: %1$s (%2$s)"
+#: includes/class-private-blobs.php:48 includes/class-private-blobs.php:52
+msgid "Incomplete private media."
+msgstr "非公開ファイルの保存データが完全ではありません。"
 
-#: includes/class-publications.php
-msgid "This publication destination is unavailable or not permitted for this account."
-msgstr "この公開先は利用できないか、このアカウントには利用権限がありません。"
+#: includes/class-private-blobs.php:56 includes/class-private-blobs.php:64
+msgid "Private media integrity check failed."
+msgstr "非公開ファイルの整合性を確認できませんでした。"
 
-#: includes/class-publications.php
-msgid "The publication destination is no longer available or permitted. Nothing was published."
-msgstr "公開先が利用できなくなったか、権限が失われました。公開は行われていません。"
+#: includes/class-private-blobs.php:67
+msgid "Private media storage is busy."
+msgstr "非公開ファイルの保存領域で別の処理を実行中です。"
 
-#: includes/class-publications.php
-msgid "The publication post no longer matches its destination or owner."
-msgstr "公開する投稿の公開先または所有者が、保存された設定と一致しません。"
+#: includes/class-private-blobs.php:73
+msgid "Private media capacity reached."
+msgstr "非公開ファイルの保存容量の上限に達しました。"
 
-#: admin.js
-msgid "No terms"
-msgstr "指定なし"
+#: includes/class-private-blobs.php:79
+msgid "Private media could not be saved."
+msgstr "非公開ファイルを保存できませんでした。"
 
-#: admin.js
-#. translators: %s: selected category, tag or custom taxonomy names.
-#, javascript-format
-msgid "Classification: %s"
-msgstr "分類: %s"
+#: includes/class-publication-access.php:130
+msgid "Article structure JSON and Composer-managed image/PDF delivery are paused because access rules have not been verified for the following components. Normal article HTML is unchanged; protected files are not made public."
+msgstr "次の構成要素について閲覧制限の判定を検証できていないため、記事の構造JSONとComposerが管理する画像・PDFの配信を保留しています。通常の記事本文HTMLは変更せず、保護対象のファイルも公開しません。"
 
-#: includes/class-publications.php
+#: includes/class-publication-access.php:139
+msgid "Additional article output is paused for these recent articles: dynamic block/shortcode content, oversized content, or an unavailable access decision needs a verified integration. Normal article HTML is unchanged."
+msgstr "次の最近の記事では追加出力を保留しています。動的なブロック・ショートコード、容量が大きすぎる本文、または取得できない閲覧権限の判定に対応する連携が必要です。通常の記事本文HTMLは変更しません。"
+
+#: includes/class-publication-media.php:10
+msgid "Publication storage is busy."
+msgstr "公開用ストレージを処理中です。"
+
+#: includes/class-publication-media.php:19
+msgid "At most 50 media bindings can be published."
+msgstr "公開できるメディアの関連付けは最大50件です。"
+
+#: includes/class-publication-media.php:28
+msgid "Publication media changed."
+msgstr "公開用メディアが変更されました。"
+
+#: includes/class-publication-media.php:31
+msgid "Publication media exceeds 100 MiB."
+msgstr "公開用メディアが100 MiBを超えています。"
+
+#: includes/class-publication-media.php:48
+msgid "Invalid publication media binding."
+msgstr "公開用メディアの関連付けが無効です。"
+
+#: includes/class-publication-media.php:51
+msgid "Invalid publication element."
+msgstr "公開用要素が無効です。"
+
+#: includes/class-publication-media.php:57
+msgid "Missing publication media binding."
+msgstr "公開用メディアの関連付けがありません。"
+
+#: includes/class-publication-media.php:65
+#: includes/class-publication-media.php:69
+#: includes/class-publication-media.php:72
+#: includes/class-publication-media.php:83
+#: includes/class-publication-media.php:86
+msgid "Unavailable media."
+msgstr "メディアを利用できません。"
+
+#: includes/class-publications.php:91
+msgid "Use empty publishAt/timeZone for immediate publication."
+msgstr "即時公開ではpublishAtとtimeZoneを空にしてください。"
+
+#: includes/class-publications.php:95
+msgid "Use an exact ISO timestamp with seconds and UTC offset."
+msgstr "秒とUTCオフセットを含む正確なISO形式の日時を使用してください。"
+
+#: includes/class-publications.php:98
+msgid "Use an IANA time zone or fixed UTC offset."
+msgstr "IANAタイムゾーンまたは固定UTCオフセットを使用してください。"
+
+#: includes/class-publications.php:102
+msgid "Date, offset and time zone disagree (including daylight saving time)."
+msgstr "日時、UTCオフセット、タイムゾーンが一致しません（夏時間を含む）。"
+
+#: includes/class-publications.php:105
+msgid "Schedule between one minute and one year in the future."
+msgstr "1分後から1年後までの日時を予約してください。"
+
+#: includes/class-publications.php:140
 msgid "Use JSON within 8 KiB."
 msgstr "8 KiB以内のJSONを使用してください。"
 
-#: includes/class-publications.php
+#: includes/class-publications.php:152
+msgid "A request ID cannot describe a different publication."
+msgstr "同じリクエストIDで異なる公開内容を指定することはできません。"
+
+#: includes/class-publications.php:155
+msgid "This article has already entered publication. Updating a published post is not supported yet."
+msgstr "この記事はすでに公開処理に入りました。公開済み投稿の更新にはまだ対応していません。"
+
+#: includes/class-publications.php:156
+msgid "Reload publication status before changing it."
+msgstr "変更する前に公開状況を再読み込みしてください。"
+
+#: includes/class-publications.php:158
+msgid "The draft changed. Read it before publishing."
+msgstr "下書きが変更されました。公開前に読み込んでください。"
+
+#: includes/class-publications.php:160
+msgid "This publication destination is unavailable or not permitted for this account."
+msgstr "この公開先は利用できないか、このアカウントには利用権限がありません。"
+
+#: includes/class-publications.php:162
+msgid "Publication history limit reached."
+msgstr "公開履歴の上限に達しました。"
+
+#: includes/class-publications.php:165
+msgid "Connection is busy. Retry publication."
+msgstr "接続を処理中です。公開を再試行してください。"
+
+#: includes/class-publications.php:168
+msgid "Publication authority changed. Nothing was scheduled."
+msgstr "公開権限が変更されました。予約は行われていません。"
+
+#: includes/class-publications.php:176
+msgid "Publication request could not be stored."
+msgstr "公開リクエストを保存できませんでした。"
+
+#: includes/class-publications.php:177
+msgid "Publication changed during validation. Reload its status."
+msgstr "検証中に公開内容が変更されました。状況を再読み込みしてください。"
+
+#: includes/class-publications.php:184
+msgid "Scheduling failed. Nothing was published."
+msgstr "予約に失敗しました。公開は行われていません。"
+
+#: includes/class-publications.php:211
+msgid "Publication is no longer cancellable at this version."
+msgstr "このバージョンでは、公開を取り消せる状態ではありません。"
+
+#: includes/class-publications.php:212
+msgid "Cancellation failed."
+msgstr "取り消しに失敗しました。"
+
+#: includes/class-publications.php:231
+msgid "The owner no longer has publication access."
+msgstr "所有者の公開権限が失われています。"
+
+#: includes/class-publications.php:233 includes/class-publications.php:287
+msgid "The publication destination is no longer available or permitted. Nothing was published."
+msgstr "公開先が利用できなくなったか、権限が失われました。公開は行われていません。"
+
+#: includes/class-publications.php:235 includes/class-publications.php:276
+msgid "The publication post no longer matches its destination or owner."
+msgstr "公開する投稿の公開先または所有者が、保存された設定と一致しません。"
+
+#: includes/class-publications.php:237
+msgid "Legacy publication authority is unverified. Set publication again."
+msgstr "旧形式の公開権限は未検証です。公開を設定し直してください。"
+
+#: includes/class-publications.php:239 includes/class-publications.php:256
+msgid "The publishing connection was revoked."
+msgstr "公開用接続が取り消されました。"
+
+#: includes/class-publications.php:246
 msgid "The draft, media, categories, tags or behavior policy changed. Set publication again."
 msgstr "下書き、素材、カテゴリー、タグ、または動作方針が変更されました。公開を再設定してください。"
 
-#: includes/class-publications.php
+#: includes/class-publications.php:248
+msgid "The saved rendering changed."
+msgstr "保存済みの表示内容が変更されました。"
+
+#: includes/class-publications.php:251
+msgid "Connection is busy. Set publication again."
+msgstr "接続を処理中です。公開を設定し直してください。"
+
+#: includes/class-publications.php:258
+msgid "Publication state changed before admission."
+msgstr "公開処理を受け付ける前に公開状況が変更されました。"
+
+#: includes/class-publications.php:264 includes/class-publications.php:281
+#: includes/class-reservations.php:69
+msgid "InnoDB is required."
+msgstr "InnoDBが必要です。"
+
+#: includes/class-publications.php:266 includes/class-publications.php:283
+#: includes/class-reservations.php:72
+msgid "Could not start publication transaction."
+msgstr "公開トランザクションを開始できませんでした。"
+
+#: includes/class-publications.php:270
+msgid "Could not create publication post."
+msgstr "公開先の投稿を作成できませんでした。"
+
+#: includes/class-publications.php:272 includes/class-publications.php:277
+msgid "Could not attach publication post."
+msgstr "公開先の投稿を関連付けられませんでした。"
+
+#: includes/class-publications.php:293
+msgid "WordPress did not publish the post."
+msgstr "WordPressで投稿が公開されませんでした。"
+
+#: includes/class-publications.php:297
 msgid "Could not commit the publication categories or tags."
 msgstr "公開するカテゴリーまたはタグの確定に失敗しました。"
 
-#: includes/class-taxonomies.php
-msgid "A selected taxonomy is duplicated, unavailable or not permitted for this destination."
-msgstr "選択した分類が重複しているか、この投稿先では利用できない、または利用権限がありません。"
+#: includes/class-reservations.php:12 includes/class-reservations.php:43
+#: includes/class-reservations.php:48
+msgid "Scheduled (Article Composer)"
+msgstr "予約済み（Article Composer）"
 
-#: includes/class-taxonomies.php
-msgid "This taxonomy requires a term. Choose an existing term or omit it to use WordPress defaults."
-msgstr "この分類には項目の指定が必要です。既存の項目を選ぶか、分類の指定を省略してWordPressの既定値を使用してください。"
+#. translators: %s: number of scheduled destination entries.
+#: includes/class-reservations.php:16
+#, php-format
+msgid "Scheduled (Article Composer) <span class=\"count\">(%s)</span>"
+msgid_plural "Scheduled (Article Composer) <span class=\"count\">(%s)</span>"
+msgstr[0] "予約済み（Article Composer）<span class=\"count\">(%s)</span>"
 
-#: includes/class-taxonomies.php
-msgid "A selected term is missing, duplicated, not permitted or over the selection limit."
-msgstr "選択した分類項目が存在しない、重複している、利用権限がない、または選択数の上限を超えています。"
+#: includes/class-reservations.php:17
+msgid "Inactive Article Composer reservation"
+msgstr "無効なArticle Composer予約"
 
-#: includes/class-taxonomies.php
-msgid "The selected categories or tags changed. Set publication again."
-msgstr "選択したカテゴリーまたはタグが変更されました。公開を再設定してください。"
+#: includes/class-reservations.php:57
+msgid "Manage reservation in Article Composer"
+msgstr "Article Composerで予約を管理"
 
-#: includes/class-taxonomies.php
-msgid "WordPress could not assign the selected categories or tags. Nothing was published."
-msgstr "選択したカテゴリーまたはタグをWordPressに設定できませんでした。公開は行われていません。"
+#: includes/class-reservations.php:83
+msgid "Could not create reservation post."
+msgstr "予約記事を作成できませんでした。"
 
-#: includes/class-taxonomies.php
-msgid "WordPress did not retain the selected categories or tags. Nothing was published."
-msgstr "WordPressが選択したカテゴリーまたはタグを保持しませんでした。公開は行われていません。"
+#: includes/class-reservations.php:86
+msgid "The reservation post could not be verified."
+msgstr "予約記事の状態を確認できませんでした。"
 
-#: includes/class-public-structure.php
-msgid "Public structure not found."
-msgstr "公開構造が見つかりません。"
+#: includes/class-reservations.php:90
+msgid "Could not attach reservation post."
+msgstr "予約記事を関連付けられませんでした。"
 
-#: includes/plugin.php
-msgid "Draft status"
-msgstr "下書きの状態"
+#: includes/class-review.php:31
+msgid "Secure transport and draft review access are required."
+msgstr "安全な通信と下書きのレビュー権限が必要です。"
 
-#: includes/plugin.php
-msgid "Drafts"
-msgstr "下書き"
+#: includes/class-review.php:38
+msgid "Use a v2 or v3 snapshot for review."
+msgstr "レビューにはv2またはv3のスナップショットを使用してください。"
 
-#: includes/plugin.php
-msgid "Trash"
-msgstr "ゴミ箱"
+#: includes/class-review.php:40
+msgid "Move CSS image resources into pinned image fields before review."
+msgstr "レビュー前に、CSSで参照する画像を参照先が固定された画像フィールドへ移してください。"
 
-#: includes/class-drafts.php
-msgid "Use JSON within 2 KiB."
-msgstr "2 KiB以内のJSONを使用してください。"
+#: includes/class-review.php:46
+msgid "Use pinned references for every article image before review."
+msgstr "レビュー前に、記事内のすべての画像の参照先を固定してください。"
 
-#: includes/class-drafts.php
-msgid "Supply the saved version and state version only."
-msgstr "保存版と状態のバージョンだけを指定してください。"
+#: includes/class-review.php:90
+msgid "Use JSON expectedVersion."
+msgstr "JSONでexpectedVersionを指定してください。"
 
-#: includes/class-drafts.php
-msgid "Supply an article ID and integer saved/state versions."
-msgstr "記事IDと、保存版・状態の整数バージョンを指定してください。"
+#: includes/class-review.php:92
+msgid "Use integer expectedVersion only."
+msgstr "整数のexpectedVersionのみを指定してください。"
 
-#: includes/class-drafts.php
-msgid "The draft or trash state changed. Refresh the list before trying again."
-msgstr "下書きまたはゴミ箱の状態が変わりました。一覧を更新してから操作してください。"
+#: includes/class-review.php:98
+msgid "The article changed."
+msgstr "記事が変更されました。"
 
-#: includes/class-drafts.php
-msgid "Cancel the publication reservation before moving this draft to Trash."
-msgstr "この下書きをゴミ箱に移動する前に、公開予約を取り消してください。"
+#: includes/class-review.php:102
+msgid "Review history limit reached."
+msgstr "レビュー履歴の上限に達しました。"
 
-#: includes/class-drafts.php
-msgid "The draft state could not be saved."
-msgstr "下書きの状態を保存できませんでした。"
+#: includes/class-review.php:105
+msgid "Could not store review request."
+msgstr "レビューリクエストを保存できませんでした。"
 
-#: includes/class-store.php
+#: includes/class-review.php:118
+msgid "Use the authenticated review screen."
+msgstr "認証されたレビュー画面を使用してください。"
+
+#: includes/class-review.php:127
+msgid "Review is no longer available for this exact content."
+msgstr "この内容に対応するレビューは、もう利用できません。"
+
+#: includes/class-review.php:130
+msgid "Could not record decision."
+msgstr "判断結果を記録できませんでした。"
+
+#: includes/class-review.php:136
+msgid "POST required."
+msgstr "POSTが必要です。"
+
+#: includes/class-review.php:136 includes/class-review.php:150
+#: includes/class-review.php:152 includes/plugin.php:268
+#: includes/plugin.php:341
+msgid "Review"
+msgstr "レビュー"
+
+#: includes/class-review.php:150
+msgid "Review unavailable. Open a fresh review link from your workspace."
+msgstr "レビューを利用できません。作業画面から新しいレビューリンクを開いてください。"
+
+#: includes/class-review.php:152
+msgid "Review unavailable."
+msgstr "レビューを利用できません。"
+
+#: includes/class-review.php:159
+msgid "Pending"
+msgstr "保留中"
+
+#: includes/class-review.php:159
+msgid "Approved"
+msgstr "承認済み"
+
+#: includes/class-review.php:160
+msgid "Rejected"
+msgstr "却下済み"
+
+#: includes/class-review.php:160
+msgid "Revoked"
+msgstr "取り消し済み"
+
+#: includes/class-review.php:161
+msgid "Invalidated"
+msgstr "無効"
+
+#: includes/class-review.php:161
+msgid "Expired"
+msgstr "期限切れ"
+
+#: includes/class-review.php:162 includes/plugin.php:265
+#: includes/plugin.php:312
+msgid "Articles"
+msgstr "記事"
+
+#: includes/class-review.php:162
+msgid "Not published"
+msgstr "未公開"
+
+#. translators: 1: saved version number, 2: article revision number.
+#: includes/class-review.php:164
+#, php-format
+msgid "Version %1$s · Revision %2$s"
+msgstr "バージョン %1$s・リビジョン %2$s"
+
+#. translators: 1: filename, 2: file size in bytes, 3: media source type.
+#: includes/class-review.php:167
+#, php-format
+msgid "%1$s · %2$s bytes · %3$s"
+msgstr "%1$s・%2$s バイト・%3$s"
+
+#: includes/class-review.php:171
+msgid "Exact version preview"
+msgstr "このバージョンのプレビュー"
+
+#: includes/class-review.php:176
+msgid "Approve this version"
+msgstr "このバージョンを承認"
+
+#: includes/class-review.php:176
+msgid "Request changes"
+msgstr "修正を依頼"
+
+#: includes/class-review.php:177
+msgid "Withdraw approval"
+msgstr "承認を撤回"
+
+#: includes/class-schema.php:33
+msgid "Article Composer could not prepare its database tables. Check database permissions and InnoDB support, then reload to retry. Setup has not been marked complete."
+msgstr "Article Composerのデータベーステーブルを準備できませんでした。データベース権限とInnoDBへの対応を確認し、再読み込みして再試行してください。設定は完了扱いになっていません。"
+
+#: includes/class-schema.php:38
+msgid "Article Composer database setup failed. Check database permissions and InnoDB support, then activate again."
+msgstr "Article Composerのデータベース設定に失敗しました。データベース権限とInnoDBへの対応を確認し、もう一度有効化してください。"
+
+#: includes/class-schema.php:38
+msgid "Activation failed"
+msgstr "有効化に失敗しました"
+
+#. translators: %s: JSON type.
+#: includes/class-snapshot.php:31
+#, php-format
+msgid "Invalid JSON type: %s"
+msgstr "無効なJSON型: %s"
+
+#. translators: %s: property name.
+#: includes/class-snapshot.php:35
+#, php-format
+msgid "Unknown property: %s"
+msgstr "不明なプロパティ: %s"
+
+#. translators: %s: property name.
+#: includes/class-snapshot.php:36
+msgid "Invalid field name."
+msgstr "フィールド名が無効です。"
+
+#: includes/class-snapshot.php:58
+msgid "Use a single component root without document declarations."
+msgstr "文書宣言を含めず、部品のルート要素を1つだけ使用してください。"
+
+#: includes/class-snapshot.php:68
+msgid "Text must be inside the component root."
+msgstr "テキストは部品のルート要素の内側に配置してください。"
+
+#: includes/class-snapshot.php:70
+msgid "Use exactly one component root."
+msgstr "部品のルート要素は必ず1つにしてください。"
+
+#. translators: %s: HTML element name.
+#: includes/class-snapshot.php:73
+#, php-format
+msgid "Unsupported HTML element: %s"
+msgstr "対応していないHTML要素: %s"
+
+#. translators: %s: HTML attribute name.
+#: includes/class-snapshot.php:75
+#, php-format
+msgid "Unsupported HTML attribute: %s"
+msgstr "対応していないHTML属性: %s"
+
+#. translators: %s: HTML attribute name.
+#: includes/class-snapshot.php:76
+msgid "Invalid component URL."
+msgstr "部品のURLが無効です。"
+
+#: includes/class-snapshot.php:78
+msgid "Unsupported layout marker."
+msgstr "対応していないレイアウトマーカーです。"
+
+#: includes/class-snapshot.php:81
+msgid "Invalid, repeated or non-leaf binding."
+msgstr "関連付けが無効、重複、または末端要素以外に設定されています。"
+
+#: includes/class-snapshot.php:89
+msgid "Invalid Q&A layout."
+msgstr "Q&Aレイアウトが無効です。"
+
+#. translators: %s: field key.
+#: includes/class-snapshot.php:95
+#, php-format
+msgid "Required field is empty: %s"
+msgstr "必須フィールドが空です: %s"
+
+#. translators: %s: field key.
+#: includes/class-snapshot.php:97
+#, php-format
+msgid "Invalid field URL: %s"
+msgstr "フィールドのURLが無効です: %s"
+
+#. translators: %s: field key.
+#: includes/class-snapshot.php:98
+msgid "Image alternative text or link text is required."
+msgstr "画像の代替テキストまたはリンクテキストが必要です。"
+
+#: includes/class-snapshot.php:99
+msgid "Plain text fields cannot have alt text."
+msgstr "プレーンテキストのフィールドには代替テキストを設定できません。"
+
+#: includes/class-snapshot.php:130
+msgid "Component must be an object."
+msgstr "部品はオブジェクトで指定してください。"
+
+#: includes/class-snapshot.php:149
+msgid "PHP DOM extension is required."
+msgstr "PHPのDOM拡張が必要です。"
+
+#: includes/class-snapshot.php:150
+msgid "Snapshot exceeds 4 MB."
+msgstr "スナップショットが4 MBを超えています。"
+
+#: includes/class-snapshot.php:155
+msgid "Article ID must use letters, digits, underscores or hyphens."
+msgstr "記事IDには英数字、アンダースコア、ハイフンを使用してください。"
+
+#: includes/class-snapshot.php:159
+msgid "Duplicate component."
+msgstr "部品が重複しています。"
+
+#: includes/class-snapshot.php:162
+msgid "Component revision mismatch."
+msgstr "部品のリビジョンが一致しません。"
+
+#: includes/class-snapshot.php:163
+msgid "Invalid component name."
+msgstr "部品名が無効です。"
+
+#: includes/class-snapshot.php:165
+msgid "External CSS imports are not supported."
+msgstr "外部CSSのインポートには対応していません。"
+
+#: includes/class-snapshot.php:169
+msgid "Invalid or duplicate field."
+msgstr "フィールドが無効か、重複しています。"
+
+#: includes/class-snapshot.php:173
+msgid "Field type does not match its HTML element."
+msgstr "フィールドの種類とHTML要素が一致しません。"
+
+#: includes/class-snapshot.php:176
+msgid "Component example does not match HTML."
+msgstr "部品のサンプルとHTMLが一致しません。"
+
+#: includes/class-snapshot.php:179
+msgid "Missing field definitions."
+msgstr "フィールド定義がありません。"
+
+#: includes/class-snapshot.php:183
+msgid "Invalid variant."
+msgstr "バリエーションが無効です。"
+
+#: includes/class-snapshot.php:186
+msgid "At least one variant is required."
+msgstr "バリエーションを1つ以上指定してください。"
+
+#: includes/class-snapshot.php:189
+msgid "Invalid Q&A fields or presentations."
+msgstr "Q&Aのフィールドまたは表示形式が無効です。"
+
+#: includes/class-snapshot.php:199
+msgid "Duplicate block or unknown component."
+msgstr "ブロックが重複しているか、不明な部品です。"
+
+#: includes/class-snapshot.php:202
+msgid "Unknown variant or incorrect field set."
+msgstr "不明なバリエーションか、フィールドの組み合わせが正しくありません。"
+
+#: includes/class-snapshot.php:205
+msgid "Missing field value."
+msgstr "フィールド値がありません。"
+
+#: includes/class-snapshot.php:208
+msgid "Media references require schema v2, an empty URL and contextual text."
+msgstr "メディア参照には、スキーマv2、空のURL、内容を説明するテキストが必要です。"
+
+#: includes/class-snapshot.php:262
+msgid "Only components used by the article may be imported."
+msgstr "記事で使用している部品だけをインポートできます。"
+
+#: includes/class-store.php:61
 msgid "Choose drafts or Trash."
 msgstr "下書きまたはゴミ箱を選択してください。"
 
-#: admin.js
-msgid "Trash is empty."
-msgstr "ゴミ箱は空です。"
+#: includes/class-store.php:78
+msgid "Another save is in progress."
+msgstr "別の保存処理を実行中です。"
 
-#: admin.js
-msgid "No saved drafts."
-msgstr "保存された下書きはありません。"
+#: includes/class-store.php:83
+msgid "Use active catalog components or this article's saved component revisions. New designs require an administrator."
+msgstr "有効なカタログ部品、またはこの記事に保存されている部品リビジョンを使用してください。新しいデザインには管理者権限が必要です。"
 
-#. translators: %s: draft title.
-#: admin.js
-#, javascript-format
-msgid "Restore %s"
-msgstr "「%s」を復元"
+#: includes/class-store.php:85
+msgid "The saved version changed. Reload it before saving."
+msgstr "保存済みバージョンが変更されました。保存前に再読み込みしてください。"
 
-#. translators: %s: draft title.
-#: admin.js
-#, javascript-format
-msgid "Move %s to Trash"
-msgstr "「%s」をゴミ箱に移動"
+#: includes/class-store.php:87
+msgid "Changed content must have a newer article revision."
+msgstr "内容を変更した場合は、記事のリビジョンを進めてください。"
 
-#: admin.js
-msgid "Discard the unsaved changes?"
-msgstr "未保存の変更を破棄しますか？"
+#: includes/class-store.php:88
+msgid "This prototype allows 100 saved versions per article."
+msgstr "この試作版では、記事ごとに100バージョンまで保存できます。"
 
-#. translators: %s: draft title.
-#: admin.js
-#, javascript-format
-msgid "Move \"%s\" to Trash? You can restore it later. Published posts and shared components will not be deleted."
-msgstr "「%s」をゴミ箱に移動しますか？ 後から復元できます。公開済みの記事や共通部品は削除されません。"
+#: includes/class-store.php:99
+msgid "Could not create preview draft."
+msgstr "プレビュー用の下書きを作成できませんでした。"
 
-#: admin.js
-msgid "Draft restored. Not published."
-msgstr "下書きを復元しました。公開はしていません。"
+#: includes/class-store.php:103
+msgid "Could not save snapshot."
+msgstr "スナップショットを保存できませんでした。"
 
-#: admin.js
-msgid "Draft moved to Trash."
-msgstr "下書きをゴミ箱に移動しました。"
+#: includes/class-store.php:105
+msgid "Could not commit snapshot."
+msgstr "スナップショットの保存を確定できませんでした。"
+
+#: includes/class-store.php:111
+msgid "The snapshot was not saved."
+msgstr "スナップショットは保存されていません。"
+
+#: includes/class-taxonomies.php:96
+msgid "A selected taxonomy is duplicated, unavailable or not permitted for this destination."
+msgstr "選択した分類が重複しているか、この投稿先では利用できない、または利用権限がありません。"
+
+#: includes/class-taxonomies.php:100
+msgid "This taxonomy requires a term. Choose an existing term or omit it to use WordPress defaults."
+msgstr "この分類には項目の指定が必要です。既存の項目を選ぶか、分類の指定を省略してWordPressの既定値を使用してください。"
+
+#: includes/class-taxonomies.php:105
+msgid "A selected term is missing, duplicated, not permitted or over the selection limit."
+msgstr "選択した分類項目が存在しない、重複している、利用権限がない、または選択数の上限を超えています。"
+
+#: includes/class-taxonomies.php:130 includes/class-taxonomies.php:142
+msgid "The selected categories or tags changed. Set publication again."
+msgstr "選択したカテゴリーまたはタグが変更されました。公開を再設定してください。"
+
+#: includes/class-taxonomies.php:134
+msgid "WordPress could not assign the selected categories or tags. Nothing was published."
+msgstr "選択したカテゴリーまたはタグをWordPressに設定できませんでした。公開は行われていません。"
+
+#: includes/class-taxonomies.php:147
+msgid "WordPress did not retain the selected categories or tags. Nothing was published."
+msgstr "WordPressが選択したカテゴリーまたはタグを保持しませんでした。公開は行われていません。"
+
+#: includes/class-transfer.php:42
+msgid "Transfer credentials require HTTPS."
+msgstr "転送用認証情報にはHTTPSが必要です。"
+
+#: includes/class-transfer.php:44
+msgid "Use a small JSON transfer manifest."
+msgstr "容量の小さいJSON転送マニフェストを使用してください。"
+
+#: includes/class-transfer.php:52
+msgid "Invalid transfer manifest."
+msgstr "転送マニフェストが無効です。"
+
+#: includes/class-transfer.php:53
+msgid "Private storage unavailable."
+msgstr "非公開ストレージを利用できません。"
+
+#: includes/class-transfer.php:55
+msgid "Reload the current article version."
+msgstr "記事の現在のバージョンを再読み込みしてください。"
+
+#: includes/class-transfer.php:62
+msgid "Too many active transfers for this account. Finish existing transfers or wait for expiry."
+msgstr "このアカウントで有効な転送が多すぎます。既存の転送を完了するか、期限切れを待ってください。"
+
+#: includes/class-transfer.php:63
+msgid "Too many active transfers."
+msgstr "有効な転送が多すぎます。"
+
+#: includes/class-transfer.php:68
+msgid "Could not save transfer."
+msgstr "転送を保存できませんでした。"
+
+#: includes/class-transfer.php:85
+msgid "Transfer is invalid, revoked or expired."
+msgstr "転送が無効、取り消し済み、または期限切れです。"
+
+#: includes/class-transfer.php:103
+msgid "The article changed; request a new transfer."
+msgstr "記事が変更されました。新しい転送を要求してください。"
+
+#: includes/class-transfer.php:118
+msgid "Transfer not found."
+msgstr "転送が見つかりません。"
+
+#: includes/class-transfer.php:123
+msgid "Could not revoke transfer."
+msgstr "転送を取り消せませんでした。"
+
+#: includes/connections-page.php:9 includes/plugin.php:267
+msgid "AI connections"
+msgstr "AI接続"
+
+#: includes/connections-page.php:10
+msgid "Give the guide to your usual AI first, then follow its connection guidance here. Connections last up to 30 days."
+msgstr "まず手順書をいつものAIに渡し、その接続案内に従ってここで設定してください。接続の有効期間は最長30日です。"
+
+#: includes/connections-page.php:13
+msgid "Before connecting: install MCP Adapter"
+msgstr "AI接続の前に：MCP Adapterをインストール"
+
+#: includes/connections-page.php:14
+msgid "MCP Adapter 0.7.1 or newer is required for AI connections. Manual JSON import does not require it."
+msgstr "AIとの接続にはMCP Adapter 0.7.1以上が必要です。手動でJSONを取り込むだけの場合は不要です。"
+
+#: includes/connections-page.php:16
+msgid "Open Plugins > Add New Plugin and search for MCP Adapter by WordPress.org."
+msgstr "「プラグイン」→「新規追加」を開き、MCP Adapter（作者：WordPress.org）を検索してください。"
+
+#: includes/connections-page.php:17
+msgid "Install and activate it. If already installed, update it to 0.7.1 or newer if needed, then make sure it is active."
+msgstr "インストールして有効化してください。導入済みの場合は、必要に応じて0.7.1以上へ更新し、有効になっていることを確認してください。"
+
+#: includes/connections-page.php:18
+msgid "Return here and continue with your AI's connection settings below."
+msgstr "この画面に戻り、下にあるAIとの接続設定へ進んでください。"
+
+#: includes/connections-page.php:20
+msgid "Official MCP Adapter page"
+msgstr "MCP Adapterの公式ページ"
+
+#: includes/connections-page.php:22
+msgid "Find MCP Adapter in WordPress"
+msgstr "WordPressでMCP Adapterを検索"
+
+#: includes/connections-page.php:24
+msgid "If you cannot install or activate plugins, ask your site administrator to complete this step."
+msgstr "プラグインをインストール・有効化する権限がない場合は、サイト管理者へこの操作を依頼してください。"
+
+#: includes/connections-page.php:28
+msgid "Your AI / client"
+msgstr "利用するAI・クライアント"
+
+#: includes/connections-page.php:29
+msgid "Choose a client"
+msgstr "クライアントを選択"
+
+#: includes/connections-page.php:31
+msgid "This client supports an Authorization header stored privately for my account, not shared with other staff."
+msgstr "このクライアントでは、他の担当者と共有せず、本人のアカウント専用にAuthorizationヘッダーを安全に保存できます。"
+
+#: includes/connections-page.php:33
+msgid "Connection instructions"
+msgstr "接続手順"
+
+#: includes/connections-page.php:35
+msgid "Official connection instructions"
+msgstr "公式の接続手順"
+
+#: includes/connections-page.php:38
+msgid "OAuth connection"
+msgstr "OAuth接続"
+
+#: includes/connections-page.php:40
+msgid "Registered application"
+msgstr "登録済みアプリケーション"
+
+#: includes/connections-page.php:41
+msgid "Use the publishing endpoint"
+msgstr "公開用エンドポイントを使用"
+
+#: includes/connections-page.php:42 includes/connections-page.php:74
+msgid "MCP endpoint"
+msgstr "MCPエンドポイント"
+
+#: includes/connections-page.php:43
+msgid "OAuth client ID"
+msgstr "OAuthクライアントID"
+
+#: includes/connections-page.php:44
+msgid "In your AI's MCP settings, choose OAuth and enter this endpoint and client ID. Leave the client secret empty. Continue to WordPress, sign in with your own account and review the requested access."
+msgstr "AIのMCP設定でOAuthを選び、このエンドポイントとクライアントIDを入力してください。クライアントシークレットは空欄にします。続いてWordPressを開き、本人のアカウントでログインして、要求された権限を確認してください。"
+
+#: includes/connections-page.php:45
+msgid "Protocol details"
+msgstr "プロトコルの詳細"
+
+#: includes/connections-page.php:47
+msgid "Register an application (administrator)"
+msgstr "アプリケーションを登録（管理者）"
+
+#: includes/connections-page.php:48
+msgid "Use the exact callback URL shown by the AI service. Registration is shared; each staff member authorizes their own WordPress account. This version supports pre-registered public clients with PKCE S256, not automatic client registration."
+msgstr "AIサービスに表示された正確なコールバックURLを使用してください。登録情報は共有されますが、各担当者は自分のWordPressアカウントで認可します。このバージョンはPKCE S256を使う事前登録済みのパブリッククライアントに対応しており、自動クライアント登録には対応していません。"
+
+#: includes/connections-page.php:50
+msgid "Application name"
+msgstr "アプリケーション名"
+
+#: includes/connections-page.php:51
+msgid "Service"
+msgstr "サービス"
+
+#: includes/connections-page.php:51
+msgid "ChatGPT"
+msgstr "ChatGPT"
+
+#: includes/connections-page.php:51
+msgid "Claude"
+msgstr "Claude"
+
+#: includes/connections-page.php:51
+msgid "Gemini"
+msgstr "Gemini"
+
+#: includes/connections-page.php:51
+msgid "Other"
+msgstr "その他"
+
+#: includes/connections-page.php:52
+msgid "Exact callback URL"
+msgstr "正確なコールバックURL"
+
+#: includes/connections-page.php:53
+msgid "Permit requesting layouts, files and previews"
+msgstr "レイアウト・ファイル・プレビューへのアクセス要求を許可"
+
+#: includes/connections-page.php:54
+msgid "Permit requesting publication access"
+msgstr "公開権限の要求を許可"
+
+#: includes/connections-page.php:55
+msgid "Register application"
+msgstr "アプリケーションを登録"
+
+#: includes/connections-page.php:62
+msgid "1. Create a connection"
+msgstr "1. 接続を作成"
+
+#: includes/connections-page.php:64
+msgid "Connection name"
+msgstr "接続名"
+
+#: includes/connections-page.php:65
+msgid "My AI app"
+msgstr "自分のAIアプリ"
+
+#: includes/connections-page.php:66
+msgid "Allow reusable layouts, private file transfers and portable previews"
+msgstr "再利用可能なレイアウト・非公開ファイル転送・持ち運び用プレビューを許可"
+
+#: includes/connections-page.php:70
+msgid "Create connection"
+msgstr "接続を作成"
+
+#: includes/connections-page.php:72
+msgid "Publishing access lets this AI publish without another WordPress approval. Revoking the key cancels pending reservations; key expiry does not. Existing draft-only keys stay draft-only."
+msgstr "公開権限を与えると、このAIはWordPress上で追加の承認を受けずに公開できます。キーを取り消すと保留中の予約も取り消されますが、キーの期限切れでは取り消されません。既存の下書き専用キーは、下書き専用のままです。"
+
+#: includes/connections-page.php:73
+msgid "2. Add it to your AI's connection settings"
+msgstr "2. AIの接続設定に追加"
+
+#: includes/connections-page.php:76
+msgid "Copy MCP endpoint"
+msgstr "MCPエンドポイントをコピー"
+
+#: includes/connections-page.php:77
+msgid "This route uses Streamable HTTP with an Authorization: Bearer header. OAuth clients use the separate OAuth setup."
+msgstr "この接続経路はAuthorization: Bearerヘッダー付きのStreamable HTTPを使用します。OAuthクライアントは別のOAuth設定を使用してください。"
+
+#: includes/connections-page.php:80 includes/connections-page.php:81
+msgid "Configuration template (no secret)"
+msgstr "設定テンプレート（秘密情報なし）"
+
+#: includes/connections-page.php:83
+msgid "Download configuration template"
+msgstr "設定テンプレートをダウンロード"
+
+#: includes/connections-page.php:86
+msgid "Shown once. Put this key in your AI app's secure connection settings, not in a chat or the AI guide."
+msgstr "表示は一度だけです。このキーはAIアプリの安全な接続設定に保存し、チャットやAI用手順書には記載しないでください。"
+
+#: includes/connections-page.php:87
+msgid "Connection key"
+msgstr "接続キー"
+
+#: includes/connections-page.php:90
+msgid "Copy connection key"
+msgstr "接続キーをコピー"
+
+#: includes/connections-page.php:91
+msgid "Done"
+msgstr "完了"
+
+#: includes/connections-page.php:95
+msgid "Return to the same AI conversation"
+msgstr "同じAIとの会話に戻る"
+
+#: includes/connections-page.php:96
+msgid "Ask your AI to check the connection and continue your article. It will confirm a successful live context response before proceeding. Never paste the key in chat."
+msgstr "AIに接続を確認して記事作成を続けるよう依頼してください。実際のコンテキスト取得が成功したことをAIが確認してから進みます。キーはチャットに貼り付けないでください。"
+
+#: includes/connections-page.php:97
+msgid "Your connections"
+msgstr "自分の接続"
+
+#: includes/connections-page.php:97
+msgid "Check connection"
+msgstr "接続を確認"
+
+#: includes/plugin.php:54
+msgid "Structured drafts"
+msgstr "構造化された下書き"
+
+#: includes/plugin.php:70
+msgid "atshift Article Composer author"
+msgstr "atshift Article Composer 作成者"
+
+#: includes/plugin.php:71
+msgid "atshift Article Composer designer"
+msgstr "atshift Article Composer 部品管理者"
+
+#: includes/plugin.php:72
+msgid "atshift Article Composer publisher"
+msgstr "atshift Article Composer 公開担当者"
+
+#: includes/plugin.php:155
+msgid "Review not found."
+msgstr "レビューが見つかりません。"
+
+#: includes/plugin.php:162
+msgid "This local media file is missing, unsupported or inaccessible."
+msgstr "このローカルメディアファイルが見つからないか、非対応、またはアクセスできません。"
+
+#: includes/plugin.php:175
+msgid "Use application/json."
+msgstr "application/jsonを使用してください。"
+
+#: includes/plugin.php:178
+msgid "Supply snapshot and integer expectedVersion only."
+msgstr "snapshotと整数のexpectedVersionのみを指定してください。"
+
+#: includes/plugin.php:194
+msgid "Invalid version."
+msgstr "バージョンが無効です。"
+
+#: includes/plugin.php:241
+msgid "This preview requires its authorized WordPress session and exact saved version."
+msgstr "このプレビューには、許可されたWordPressセッションと、対応する保存済みバージョンが必要です。"
+
+#: includes/plugin.php:241 includes/plugin.php:248
+msgid "Private preview"
+msgstr "非公開プレビュー"
+
+#: includes/plugin.php:248
+msgid "A referenced media file is unavailable, changed or no longer permitted."
+msgstr "参照先のメディアファイルを利用できない、変更された、または利用権限が失われています。"
+
+#: includes/plugin.php:268 includes/plugin.php:275
+msgid "Review structured article"
+msgstr "構造化記事をレビュー"
+
+#: includes/plugin.php:294
+msgid "Close"
+msgstr "閉じる"
+
+#: includes/plugin.php:303
+msgid "New article"
+msgstr "新しい記事"
+
+#: includes/plugin.php:304
+msgid "Download article handoff"
+msgstr "記事の引き継ぎデータをダウンロード"
+
+#: includes/plugin.php:304
+msgid "Article handoff"
+msgstr "記事の引き継ぎ"
+
+#: includes/plugin.php:305
+msgid "Import snapshot"
+msgstr "スナップショットをインポート"
+
+#: includes/plugin.php:306
+msgid "Load sample"
+msgstr "サンプルを読み込み"
+
+#: includes/plugin.php:307
+msgid "Media sample"
+msgstr "メディアのサンプル"
+
+#: includes/plugin.php:308
+msgid "Refresh articles"
+msgstr "記事を再読み込み"
+
+#: includes/plugin.php:310
+msgid "This is a private workspace for preparing articles. Choose Posts, Pages or an available custom post type as the destination. Once published or scheduled, an article leaves this draft list and appears in its destination list. Cancelled, invalidated or failed reservations return here. Saved content and files are retained."
+msgstr "ここは公開前の記事を準備するための非公開の下書き置き場です。公開先には、投稿・固定ページ・利用可能なカスタム投稿を選べます。公開または予約が確定すると、この下書き一覧から外れ、選択した投稿先の一覧に表示されます。予約を取り消した場合、内容変更で予約が無効になった場合、公開に失敗した場合は、この一覧に戻ります。保存した本文やファイルは削除されません。"
+
+#: includes/plugin.php:311
+msgid "Private drafts"
+msgstr "非公開の下書き"
 
 #. translators: %s: current WordPress user's display name.
-#: includes/plugin.php
+#: includes/plugin.php:316
 #, php-format
 msgid "Draft owner: %s"
 msgstr "下書きの所有者：%s"
 
 #. translators: %s: translated WordPress role names.
-#: includes/plugin.php
+#: includes/plugin.php:320
 #, php-format
 msgid "WordPress role: %s"
 msgstr "WordPressの権限グループ：%s"
 
-#: includes/plugin.php
-msgid "This is a private workspace for preparing articles. Choose Posts, Pages or an available custom post type as the destination. Once published or scheduled, an article leaves this draft list and appears in its destination list. Cancelled, invalidated or failed reservations return here. Saved content and files are retained."
-msgstr "ここは公開前の記事を準備するための非公開の下書き置き場です。公開先には、投稿・固定ページ・利用可能なカスタム投稿を選べます。公開または予約が確定すると、この下書き一覧から外れ、選択した投稿先の一覧に表示されます。予約を取り消した場合、内容変更で予約が無効になった場合、公開に失敗した場合は、この一覧に戻ります。保存した本文やファイルは削除されません。"
+#: includes/plugin.php:323
+msgid "Draft status"
+msgstr "下書きの状態"
 
-#: includes/class-reservations.php
-msgid "Scheduled (Article Composer)"
-msgstr "予約済み（Article Composer）"
+#: includes/plugin.php:324
+msgid "Drafts"
+msgstr "下書き"
 
-#: includes/class-reservations.php
-msgid "Scheduled (Article Composer) <span class=\"count\">(%s)</span>"
-msgid_plural "Scheduled (Article Composer) <span class=\"count\">(%s)</span>"
-msgstr[0] "予約済み（Article Composer）<span class=\"count\">(%s)</span>"
+#: includes/plugin.php:325
+msgid "Trash"
+msgstr "ゴミ箱"
 
-#: includes/class-reservations.php
-msgid "Inactive Article Composer reservation"
-msgstr "無効なArticle Composer予約"
+#: includes/plugin.php:329 admin.js:97
+msgid "No article selected"
+msgstr "記事が選択されていません"
 
-#: includes/class-reservations.php
-msgid "Manage reservation in Article Composer"
-msgstr "Article Composerで予約を管理"
+#: includes/plugin.php:334
+msgid "View published post"
+msgstr "公開済み投稿を表示"
 
-#: includes/class-reservations.php
-msgid "Could not create reservation post."
-msgstr "予約記事を作成できませんでした。"
+#: includes/plugin.php:335
+msgid "Cancel reservation"
+msgstr "予約を取り消す"
 
-#: includes/class-reservations.php
-msgid "The reservation post could not be verified."
-msgstr "予約記事の状態を確認できませんでした。"
+#: includes/plugin.php:338
+msgid "Save draft"
+msgstr "下書きを保存"
 
-#: includes/class-reservations.php
-msgid "Could not attach reservation post."
-msgstr "予約記事を関連付けられませんでした。"
+#: includes/plugin.php:339
+msgid "Export snapshot"
+msgstr "スナップショットをエクスポート"
 
-#: includes/connections-page.php
-msgid "Before connecting: install MCP Adapter"
-msgstr "AI接続の前に：MCP Adapterをインストール"
+#: includes/plugin.php:340
+msgid "Open theme preview"
+msgstr "テーマプレビューを開く"
 
-#: includes/connections-page.php
-msgid "MCP Adapter 0.7.1 or newer is required for AI connections. Manual JSON import does not require it."
-msgstr "AIとの接続にはMCP Adapter 0.7.1以上が必要です。手動でJSONを取り込むだけの場合は不要です。"
+#: includes/plugin.php:345
+msgid "Edit article"
+msgstr "記事を編集"
 
-#: includes/connections-page.php
-msgid "Open Plugins > Add New Plugin and search for MCP Adapter by WordPress.org."
-msgstr "「プラグイン」→「新規追加」を開き、MCP Adapter（作者：WordPress.org）を検索してください。"
+#: includes/plugin.php:346
+msgid "Title"
+msgstr "タイトル"
 
-#: includes/connections-page.php
-msgid "Install and activate it. If already installed, update it to 0.7.1 or newer if needed, then make sure it is active."
-msgstr "インストールして有効化してください。導入済みの場合は、必要に応じて0.7.1以上へ更新し、有効になっていることを確認してください。"
+#: includes/plugin.php:348
+msgid "Component"
+msgstr "部品"
 
-#: includes/connections-page.php
-msgid "Return here and continue with your AI's connection settings below."
-msgstr "この画面に戻り、下にあるAIとの接続設定へ進んでください。"
+#: includes/plugin.php:349
+msgid "Add component"
+msgstr "部品を追加"
 
-#: includes/connections-page.php
-msgid "Official MCP Adapter page"
-msgstr "MCP Adapterの公式ページ"
+#: includes/plugin.php:355
+msgid "Private files"
+msgstr "非公開ファイル"
 
-#: includes/connections-page.php
-msgid "Find MCP Adapter in WordPress"
-msgstr "WordPressでMCP Adapterを検索"
+#: includes/plugin.php:358
+msgid "Use"
+msgstr "用途"
 
-#: includes/connections-page.php
-msgid "If you cannot install or activate plugins, ask your site administrator to complete this step."
-msgstr "プラグインをインストール・有効化する権限がない場合は、サイト管理者へこの操作を依頼してください。"
+#: includes/plugin.php:359 admin.js:177
+msgid "Reference only"
+msgstr "参考資料のみ"
 
-#: atshift-article-composer.php
-msgid "atshift Article Composer could not migrate its legacy data. Its tools are disabled to avoid mixing data. Keep your database backup and check for conflicting legacy/new Article Composer tables or insufficient database permissions, then reload."
-msgstr "atshift Article Composerの既存データを移行できませんでした。データの混在を防ぐため、機能を停止しています。データベースのバックアップを保管し、新旧テーブル名の重複やデータベース権限の不足を確認してから再読み込みしてください。"
+#: includes/plugin.php:359 admin.js:178
+msgid "Publication candidate"
+msgstr "公開候補"
 
-#: includes/class-connections.php
-msgid "Nested requests are not permitted in this AI connection."
-msgstr "このAI接続では、処理中に別のリクエストを呼び出すことはできません。"
+#: includes/plugin.php:360
+msgid "Add files"
+msgstr "ファイルを追加"
 
-#: includes/class-private-blobs.php
-msgid "Invalid private storage identity."
-msgstr "非公開ファイルの保存識別子が無効です。"
+#: includes/plugin.php:366
+msgid "Article media"
+msgstr "記事のメディア"
 
-#: includes/class-private-blobs.php
-msgid "Invalid private media metadata."
-msgstr "非公開ファイルの管理情報が無効です。"
+#: includes/plugin.php:368
+msgid "Existing WordPress media"
+msgstr "WordPressの既存メディア"
 
-#: includes/class-private-blobs.php
-msgid "Private media storage unavailable."
-msgstr "非公開ファイルの保存領域を利用できません。"
+#: includes/plugin.php:370
+msgid "Search media"
+msgstr "メディアを検索"
 
-#: includes/class-private-blobs.php
-msgid "Incomplete private media."
-msgstr "非公開ファイルの保存データが完全ではありません。"
+#: includes/plugin.php:371
+msgid "More results"
+msgstr "さらに表示"
 
-#: includes/class-private-blobs.php
-msgid "Private media integrity check failed."
-msgstr "非公開ファイルの整合性を確認できませんでした。"
+#: includes/plugin.php:375
+msgid "WordPress theme preview"
+msgstr "WordPressテーマのプレビュー"
 
-#: includes/class-private-blobs.php
-msgid "Private media storage is busy."
-msgstr "非公開ファイルの保存領域で別の処理を実行中です。"
+#. translators: %s: current PHP version.
+#: includes/runtime.php:13
+#, php-format
+msgid "atshift Article Composer requires PHP 8.2 or newer. This site runs PHP %s. The plugin is not running until PHP is upgraded. Saved data is unchanged."
+msgstr "atshift Article Composer は PHP 8.2 以上が必要です。現在は PHP %s です。サイトの PHP を更新するまで、このプラグインの処理を停止しています。保存済みデータは変更されません。"
 
-#: includes/class-private-blobs.php
-msgid "Private media capacity reached."
-msgstr "非公開ファイルの保存容量の上限に達しました。"
+#: admin.js:69 catalog.js:38
+msgid "Request failed."
+msgstr "リクエストに失敗しました。"
 
-#: includes/class-private-blobs.php
-msgid "Private media could not be saved."
-msgstr "非公開ファイルを保存できませんでした。"
+#. translators: 1: currentPublication.state; 2: currentPublication.publishAt ?
+#. ` · ${new Date(currentPublication.publishAt).toLocaleString(config.locale,
+#. {tim; 3: currentPublication.error ? ` · ${currentPublication.error}` : "".
+#: admin.js:80
+msgid "Publication: %1$s%2$s%3$s"
+msgstr "公開: %1$s%2$s%3$s"
+
+#. translators: 1: destination label; 2: WordPress post type identifier.
+#: admin.js:83
+msgid "Destination: %1$s (%2$s)"
+msgstr "公開先: %1$s (%2$s)"
+
+#: admin.js:86
+msgid "No terms"
+msgstr "指定なし"
+
+#. translators: %s: selected category, tag or custom taxonomy names.
+#: admin.js:88
+msgid "Classification: %s"
+msgstr "分類: %s"
+
+#. translators: 1: candidate.article.revision; 2: saved ? `WordPress
+#. v${saved.version}` : "Not saved".
+#: admin.js:99
+msgid "Article r%1$s · %2$s"
+msgstr "記事 r%1$s・%2$s"
+
+#. translators: 1: saved.version.
+#: admin.js:99
+msgid "WordPress v%1$s"
+msgstr "WordPress v%1$s"
+
+#: admin.js:99
+msgid "Not saved"
+msgstr "未保存"
+
+#. translators: 1: file count, 2: per-file size limit in MiB.
+#: admin.js:157
+msgid "%1$d private file · %2$d MiB max/file"
+msgid_plural "%1$d private files · %2$d MiB max/file"
+msgstr[0] "非公開ファイル %1$d件・1ファイル最大%2$d MiB"
+
+#: admin.js:158
+msgid "Private storage unavailable"
+msgstr "非公開ストレージを利用できません"
+
+#. translators: 1: purpose; 2: Math.ceil(item.bytes / 1024).
+#: admin.js:179
+msgid "%1$s · Private · %2$s KiB"
+msgstr "%1$s・非公開・%2$s KiB"
+
+#: admin.js:208
+msgid "Article changes not saved."
+msgstr "記事の変更は保存されていません。"
+
+#. translators: 1: a.filename.
+#: admin.js:218
+msgid "Private: %1$s"
+msgstr "非公開: %1$s"
+
+#. translators: 1: a.filename.
+#: admin.js:221
+msgid "WordPress: %1$s"
+msgstr "WordPress: %1$s"
+
+#: admin.js:232
+msgid "URL / no file"
+msgstr "URL／ファイルなし"
+
+#. translators: 1: value.assetRef.kind; 2: value.assetRef.id.
+#: admin.js:248
+msgid "Saved source: %1$s %2$s"
+msgstr "保存済みの参照元: %1$s %2$s"
+
+#. translators: 1: field.label.
+#: admin.js:258
+msgid "%1$s URL"
+msgstr "%1$s URL"
+
+#: admin.js:263
+msgid "Alternative text"
+msgstr "代替テキスト"
+
+#: admin.js:263
+msgid "Link text"
+msgstr "リンクテキスト"
+
+#. translators: %d: number of existing media files.
+#: admin.js:317
+msgid "%d existing WordPress file found."
+msgid_plural "%d existing WordPress files found."
+msgstr[0] "WordPressの既存ファイルが%d件見つかりました。"
+
+#: admin.js:323
+msgid "Select component"
+msgstr "部品を選択"
+
+#: admin.js:327
+msgid "All other available components"
+msgstr "その他の利用可能な部品"
+
+#: admin.js:359
+msgid " · Stopped"
+msgstr "・停止中"
+
+#: admin.js:373
+msgid "Enabled"
+msgstr "有効"
+
+#: admin.js:374
+msgid "Duration (ms)"
+msgstr "時間（ミリ秒）"
+
+#: admin.js:375
+msgid "Show caption"
+msgstr "キャプションを表示"
+
+#. translators: 1: block.id.
+#: admin.js:418
+msgid "%1$s variant"
+msgstr "%1$sのバリエーション"
+
+#: admin.js:428
+msgid "Move up"
+msgstr "上へ移動"
+
+#: admin.js:429
+msgid "Move down"
+msgstr "下へ移動"
+
+#: admin.js:430
+msgid "Remove component"
+msgstr "部品を取り除く"
+
+#: admin.js:519
+msgid "Saved draft loaded."
+msgstr "保存済みの下書きを読み込みました。"
+
+#: admin.js:526
+msgid "Trash is empty."
+msgstr "ゴミ箱は空です。"
+
+#: admin.js:526
+msgid "No saved drafts."
+msgstr "保存された下書きはありません。"
+
+#. translators: 1: item.title; 2: item.version.
+#: admin.js:536
+msgid "%1$s · v%2$s"
+msgstr "%1$s・v%2$s"
+
+#: admin.js:539 admin.js:580
+msgid "Discard the unsaved import?"
+msgstr "未保存のインポート内容を破棄しますか？"
+
+#. translators: %s: draft title.
+#: admin.js:547
+msgid "Restore %s"
+msgstr "「%s」を復元"
+
+#. translators: %s: draft title.
+#: admin.js:549
+msgid "Move %s to Trash"
+msgstr "「%s」をゴミ箱に移動"
+
+#: admin.js:558
+msgid "Discard the unsaved changes?"
+msgstr "未保存の変更を破棄しますか？"
+
+#. translators: %s: draft title.
+#: admin.js:560
+msgid "Move \"%s\" to Trash? You can restore it later. Published posts and shared components will not be deleted."
+msgstr "「%s」をゴミ箱に移動しますか？ 後から復元できます。公開済みの記事や共通部品は削除されません。"
+
+#: admin.js:570
+msgid "Draft restored. Not published."
+msgstr "下書きを復元しました。公開はしていません。"
+
+#: admin.js:570
+msgid "Draft moved to Trash."
+msgstr "下書きをゴミ箱に移動しました。"
+
+#: admin.js:579
+msgid "Choose a WordPress snapshot JSON file."
+msgstr "WordPress用のスナップショットJSONファイルを選択してください。"
+
+#: admin.js:604
+msgid "Import ready. Not yet saved."
+msgstr "インポートの準備ができました。まだ保存されていません。"
+
+#: admin.js:610
+msgid "Discard the unsaved article?"
+msgstr "未保存の記事を破棄しますか？"
+
+#: admin.js:617
+msgid "Untitled article"
+msgstr "無題の記事"
+
+#: admin.js:632
+msgid "New article. Not saved."
+msgstr "新しい記事です。まだ保存されていません。"
+
+#: admin.js:646
+msgid "Component is no longer active. Refresh the catalog."
+msgstr "部品が無効になっています。カタログを再読み込みしてください。"
+
+#: admin.js:692
+msgid "Maximum file size is 4 MB."
+msgstr "ファイルサイズの上限は4 MBです。"
+
+#: admin.js:703
+msgid "Use at most 50 article blocks."
+msgstr "記事のブロックは50件以内にしてください。"
+
+#: admin.js:709
+msgid "Unknown composition property."
+msgstr "不明な記事構成プロパティです。"
+
+#: admin.js:719
+msgid "Article changed. Export a fresh AI handoff."
+msgstr "記事が変更されました。最新のAI引き継ぎデータをエクスポートしてください。"
+
+#: admin.js:762
+msgid "Sample could not be loaded."
+msgstr "サンプルを読み込めませんでした。"
+
+#: admin.js:768
+msgid "Media sample could not be loaded."
+msgstr "メディアのサンプルを読み込めませんでした。"
+
+#: admin.js:773
+msgid "Cancel this publication reservation?"
+msgstr "この公開予約を取り消しますか？"
+
+#: admin.js:775
+msgid "Publication reservation cancelled."
+msgstr "公開予約を取り消しました。"
+
+#: admin.js:805
+msgid "Draft saved. Not published."
+msgstr "下書きを保存しました。公開はされていません。"
+
+#. translators: 1: file.name.
+#: admin.js:832
+msgid "%1$s: file exceeds the upload limit."
+msgstr "%1$s: ファイルがアップロード上限を超えています。"
+
+#. translators: 1: received + 1; 2: files.length; 3: file.name.
+#: admin.js:836
+msgid "Receiving %1$s/%2$s: %3$s"
+msgstr "%1$s/%2$sを受信中: %3$s"
+
+#. translators: %d: number of received private files.
+#: admin.js:844
+msgid "%d file received privately. Not published."
+msgid_plural "%d files received privately. Not published."
+msgstr[0] "%d件のファイルを非公開で受信しました。公開はされていません。"
+
+#. translators: 1: received; 2: files.length; 3: e.message.
+#: admin.js:846
+msgid "%1$s/%2$s received. %3$s"
+msgstr "%1$s/%2$sを受信しました。%3$s"
+
+#: catalog.js:105
+msgid "Active"
+msgstr "有効"
+
+#: catalog.js:105
+msgid "Inactive"
+msgstr "無効"
+
+#: catalog.js:112
+msgid "Not registered"
+msgstr "未登録"
+
+#: catalog.js:119
+msgid " · Required"
+msgstr "・必須"
+
+#: catalog.js:143
+msgid " · Inactive"
+msgstr "・無効"
+
+#: catalog.js:146 catalog.js:242 catalog.js:250 catalog.js:266 catalog.js:313
+msgid "Discard unsaved component changes?"
+msgstr "部品の未保存の変更を破棄しますか？"
+
+#: catalog.js:150
+msgid "Component loaded."
+msgstr "部品を読み込みました。"
+
+#: catalog.js:154
+msgid "No components registered."
+msgstr "登録済みの部品はありません。"
+
+#. translators: 1: item.name.
+#: catalog.js:168
+msgid "Enable %1$s"
+msgstr "%1$sを有効化"
+
+#: catalog.js:182
+msgid "Behavior availability saved. Reload previews to apply."
+msgstr "動作の利用可否を保存しました。反映するにはプレビューを再読み込みしてください。"
+
+#. translators: 1: number of matching components, 2: number available.
+#: catalog.js:209
+msgid "Matching components: %1$d. Available: %2$d."
+msgstr "一致する部品: %1$d件。利用可能: %2$d件。"
+
+#: catalog.js:246
+msgid "Personal recipe ready. Not registered."
+msgstr "個人用レシピの準備ができました。まだ登録されていません。"
+
+#: catalog.js:254
+msgid "Shared structure ready. Not registered."
+msgstr "共有構造の準備ができました。まだ登録されていません。"
+
+#: catalog.js:258
+msgid "Component changes not registered."
+msgstr "部品の変更は登録されていません。"
+
+#: catalog.js:269
+msgid "Maximum component size is 512 KiB."
+msgstr "部品のサイズ上限は512 KiBです。"
+
+#: catalog.js:276
+msgid "Import one component or personal recipe."
+msgstr "部品または個人用レシピを1件インポートしてください。"
+
+#: catalog.js:288
+msgid "Component changed. Download a new handoff before importing."
+msgstr "部品が変更されました。インポート前に新しい引き継ぎデータをダウンロードしてください。"
+
+#: catalog.js:307
+msgid "Component ready. Not registered."
+msgstr "部品の準備ができました。まだ登録されていません。"
+
+#: catalog.js:315
+msgid "Example unavailable."
+msgstr "サンプルを利用できません。"
+
+#: catalog.js:320
+msgid "New component"
+msgstr "新しい部品"
+
+#: catalog.js:323
+msgid "Example ready. Not registered."
+msgstr "サンプルの準備ができました。まだ登録されていません。"
+
+#: catalog.js:330
+msgid "Keep the selected component ID. Import a new component separately."
+msgstr "選択した部品のIDを維持してください。新しい部品は別途インポートしてください。"
+
+#: catalog.js:362
+msgid "Existing shared structure reused. No duplicate created."
+msgstr "既存の共有構造を再利用しました。重複する部品は作成されていません。"
+
+#: catalog.js:363
+msgid "Component version registered."
+msgstr "部品のバージョンを登録しました。"
+
+#: catalog.js:377
+msgid "Component available."
+msgstr "部品を利用できるようにしました。"
+
+#: catalog.js:378
+msgid "Component unavailable for new articles."
+msgstr "新しい記事で部品を利用できないようにしました。"
+
+#: catalog.js:387
+msgid "Register this definition and its example content for all workspace users?"
+msgstr "この定義とサンプル内容を、作業画面を利用する全ユーザー向けに登録しますか？"
+
+#: catalog.js:402
+msgid "Shared copy registered. Personal definition retained."
+msgstr "共有用のコピーを登録しました。個人用の定義は保持されています。"
+
+#: connection-profiles.js:5
+msgid "ChatGPT (web: Chat / Work)"
+msgstr "ChatGPT（Web版：Chat / Work）"
+
+#: connection-profiles.js:6
+msgid "Use OAuth with a pre-registered client ID and PKCE S256. A fixed connection key is not used. Actual availability depends on your ChatGPT account and its custom MCP settings."
+msgstr "事前登録済みのクライアントIDとPKCE S256によるOAuthを使用します。固定の接続キーは使用しません。実際に利用できるかは、ChatGPTアカウントとカスタムMCP設定によって異なります。"
+
+#: connection-profiles.js:7
+msgid "Open Settings > Plugins > View agents, then Add > Add custom MCP server. The installed-plugin settings list is not the creation screen. Labels may vary by version."
+msgstr "「設定 → プラグイン → エージェント一覧を見る」から、「追加 → カスタムMCPサーバーを追加」へ進みます。設定内のインストール済み一覧とは別の画面です。表示名はバージョンで変わる場合があります。"
+
+#: connection-profiles.js:7
+msgid "Ask the site administrator to register the callback URL from your AI's OAuth settings."
+msgstr "AIのOAuth設定に表示されるコールバックURLの登録を、サイト管理者に依頼してください。"
+
+#: connection-profiles.js:7
+msgid "Enter the MCP endpoint and client ID in the AI's custom MCP connection. Sign in to WordPress and approve only the access you need."
+msgstr "AIのカスタムMCP接続にエンドポイントとクライアントIDを入力してください。WordPressにログインし、必要なアクセスだけを許可してください。"
+
+#: connection-profiles.js:7
+msgid "Install the created plugin, select it in the intended Chat or Work conversation, and ask the AI to confirm live context. A visible add menu does not prove that Article Composer OAuth works with this account."
+msgstr "作成したプラグインをインストールし、利用するChatまたはWorkの会話で選んで、AIに実際の接続確認を依頼します。追加メニューがあるだけでは、そのアカウントでArticle ComposerのOAuth接続が動くとは確認できません。"
+
+#: connection-profiles.js:9
+msgid "Claude (OAuth)"
+msgstr "Claude（OAuth）"
+
+#: connection-profiles.js:10
+msgid "Use a pre-registered OAuth client and your own WordPress login. Confirm that your connector accepts a public client with PKCE S256 and no client secret."
+msgstr "事前登録済みのOAuthクライアントと、本人のWordPressログインを使用します。PKCE S256を使い、クライアントシークレットを持たないパブリッククライアントに、コネクタが対応していることを確認してください。"
+
+#: connection-profiles.js:11
+msgid "In Claude Desktop, open Settings > Connectors > Add to reach Add custom connector. The first screen asks for a name and MCP server URL; check the following authentication screen before choosing a route."
+msgstr "Claude.appでは「設定 → コネクタ → 追加」から「カスタムコネクタを追加」を開きます。最初の画面は名前とMCPサーバーURLの入力です。その先の認証画面を確認してから接続経路を選びます。"
+
+#: connection-profiles.js:11
+msgid "Register the callback URL shown by Claude's custom connector settings."
+msgstr "Claudeのカスタムコネクタ設定に表示されるコールバックURLを登録してください。"
+
+#: connection-profiles.js:11
+msgid "Enter the endpoint and client ID, then sign in to WordPress and review access."
+msgstr "エンドポイントとクライアントIDを入力し、WordPressにログインして権限を確認してください。"
+
+#: connection-profiles.js:13
+msgid "Claude (private header, limited beta)"
+msgstr "Claude（個人用ヘッダー・限定ベータ）"
+
+#: connection-profiles.js:14
+msgid "Conditional: Request headers is a limited beta. Use only a connector private to your own account. A Team/Enterprise shared key acts as one WordPress owner for everyone; do not use that route for separate staff accounts."
+msgstr "条件付き対応: Request headersは限定ベータです。本人のアカウント専用の非公開コネクタでのみ使用してください。Team/Enterpriseで共有キーを使うと、全員が同じWordPress所有者として操作します。担当者ごとにアカウントを分ける運用には使用しないでください。"
+
+#: connection-profiles.js:15
+msgid "In Claude Desktop, open Settings > Connectors > Add. On the web, use the visible Connectors entry. Confirm Request headers is actually available before creating a key; the name and URL form alone does not prove header support."
+msgstr "Claude.appでは「設定 → コネクタ → 追加」を開きます。Web版では表示されているコネクタの入口を使います。キーを作る前に「Request headers」が実際に使えるか確認してください。名前とURLの入力欄だけではヘッダー対応を確認できません。"
+
+#: connection-profiles.js:15
+msgid "Enter the endpoint below. Select No sign-in for this fixed-key route, then add a required Authorization header with the full value Bearer <connection-key>. WordPress authentication remains required."
+msgstr "下のエンドポイントを入力してください。この固定キー方式では「サインインなし」を選び、必須のAuthorizationヘッダーにBearer <connection-key>という完全な値を追加します。WordPress側での認証は引き続き必要です。"
+
+#: connection-profiles.js:15
+msgid "Enable the connector in the conversation. Desktop remote connectors also run from Anthropic's cloud, not your computer."
+msgstr "会話内でコネクタを有効化してください。デスクトップのリモートコネクタも、手元のコンピューターではなくAnthropicのクラウドから動作します。"
+
+#: connection-profiles.js:18
+msgid "Direct HTTP route. The template references an environment variable, never your actual key. This is not the Claude Desktop local-server configuration."
+msgstr "直接HTTP接続を行う経路です。テンプレートは実際のキーではなく環境変数を参照します。Claude Desktopのローカルサーバー設定ではありません。"
+
+#: connection-profiles.js:19
+msgid "Merge the template's mcpServers entry into .mcp.json without replacing other servers."
+msgstr "他のサーバー設定を置き換えず、テンプレートのmcpServers項目を.mcp.jsonに追加してください。"
+
+#: connection-profiles.js:19
+msgid "Set the named environment variable securely in the process that launches Claude Code. Do not put the key in chat, source control or shell history."
+msgstr "Claude Codeを起動するプロセスで、指定された環境変数を安全に設定してください。キーをチャット、ソース管理、シェル履歴に残さないでください。"
+
+#: connection-profiles.js:19
+msgid "Restart the session and check /mcp. Keep tool confirmations enabled."
+msgstr "セッションを再起動して/mcpを確認してください。ツールの実行確認は有効のままにしてください。"
+
+#: connection-profiles.js:21
+msgid "Gemini Apps (web / mobile)"
+msgstr "Gemini Apps（Web／モバイル）"
+
+#: connection-profiles.js:22
+msgid "OAuth route for eligible accounts. Google's documented custom-app rollout is US-only, English, age 18+, personal accounts with Keep Activity on; check current availability. Gemini CLI is separate."
+msgstr "対象アカウント向けのOAuth接続です。Googleが案内するカスタムアプリの提供条件は、米国内・英語・18歳以上・アクティビティの保存が有効な個人アカウントです。最新の提供状況を確認してください。Gemini CLIは別の経路です。"
+
+#: connection-profiles.js:23
+msgid "Check eligibility and support for a pre-registered public OAuth client using PKCE S256."
+msgstr "利用条件と、PKCE S256を使う事前登録済みパブリックOAuthクライアントへの対応を確認してください。"
+
+#: connection-profiles.js:23
+msgid "Register the exact callback URL, then enter the endpoint and client ID in the custom app settings and authorize your WordPress account."
+msgstr "正確なコールバックURLを登録し、カスタムアプリ設定にエンドポイントとクライアントIDを入力して、本人のWordPressアカウントを認可してください。"
+
+#: connection-profiles.js:26
+msgid "Direct Streamable HTTP route via Gemini CLI, not the Gemini chat website. Templates keep tool confirmation on."
+msgstr "Gemini CLIによる直接のStreamable HTTP接続で、Geminiのチャットサイトとは別です。テンプレートはツールの実行確認を有効に保ちます。"
+
+#: connection-profiles.js:27
+msgid "Merge the template's mcpServers entry into your private ~/.gemini/settings.json without replacing other settings."
+msgstr "他の設定を置き換えず、テンプレートのmcpServers項目を本人用の~/.gemini/settings.jsonに追加してください。"
+
+#: connection-profiles.js:27
+msgid "Set the named environment variable securely before launching Gemini CLI. The settings loader expands it in Authorization; never substitute a literal key into a shared file."
+msgstr "Gemini CLIを起動する前に、指定された環境変数を安全に設定してください。設定の読み込み時にAuthorization内の変数が展開されます。共有ファイルにキーの実値を書き込まないでください。"
+
+#: connection-profiles.js:27
+msgid "Restart Gemini CLI and check /mcp. Do not enable trust or automatic approval just to connect."
+msgstr "Gemini CLIを再起動して/mcpを確認してください。接続のためだけにtrustや自動承認を有効にしないでください。"
+
+#: connection-profiles.js:29
+msgid "Codex (desktop app)"
+msgstr "Codex（デスクトップ版）"
+
+#: connection-profiles.js:30
+msgid "Local desktop MCP setup, separate from ChatGPT web OAuth. The steps match the desktop screens checked on 2026-10-31; if labels differ, confirm the visible screen instead of guessing."
+msgstr "ローカルのデスクトップ版MCP設定で、ChatGPT Web版のOAuthとは別の経路です。手順は2026-10-31に確認した画面に基づきます。表示名が違う場合は、推測せず実際の画面を確認してください。"
+
+#: connection-profiles.js:32
+msgid "Open Settings > Plugins > Add > Add MCP server."
+msgstr "「設定 → プラグイン → 追加 → MCPサーバーを追加」を開きます。"
+
+#: connection-profiles.js:33
+msgid "Enter a server name, select Streamable HTTP (not STDIO), and paste the full MCP endpoint into URL."
+msgstr "サーバーに名前を付け、「ストリーミング可能なHTTP」を選び、MCP endpoint全体をURL欄へ貼り付けます。STDIOではありません。"
+
+#: connection-profiles.js:34
+msgid "For this header-based route, leave Bearer token environment variable empty. Under Headers, set the name to Authorization and the value to Bearer <connection-key>, with one space after Bearer. Never put the key in chat or screenshots."
+msgstr "このヘッダー方式では「Bearer トークン環境変数」は空欄にします。「ヘッダー」の左欄はAuthorization、右欄はBearerと接続キーの間に半角スペースを1つ入れた値です。キーをチャットやスクリーンショットへ含めないでください。"
+
+#: connection-profiles.js:35
+msgid "Save. To edit later, open the MCP tab in Plugins and select the gear beside the server name you chose. Keep that server enabled."
+msgstr "保存します。後から編集する場合は、プラグイン内のMCPタブで、自分で付けたサーバー名の横にある歯車を押します。そのサーバーを有効にしておきます。"
+
+#: connection-profiles.js:36
+msgid "Return to the same Codex conversation and ask for a read-only context check. If the tools are still missing, use Restart when offered or restart the app and resume. A saved setting alone is not a connection check."
+msgstr "元のCodexの会話へ戻り、読み取り専用の接続確認を依頼します。ツールがまだ出ない場合は、再起動の操作が表示されていれば使い、なければアプリを再起動して再開します。設定の保存だけでは接続確認になりません。"
+
+#: connection-profiles.js:38
+msgid "Codex (local CLI / IDE)"
+msgstr "Codex（ローカルCLI／IDE）"
+
+#: connection-profiles.js:39
+msgid "Direct HTTP route using bearer_token_env_var. This does not enable the ChatGPT web connector or prove hosted Codex can reach this site."
+msgstr "bearer_token_env_varを使う直接HTTP接続です。これによってChatGPT Web版のコネクタが有効になるわけではなく、ホスト型Codexからサイトへ到達できることを確認するものでもありません。"
+
+#: connection-profiles.js:40
+msgid "Merge the template into ~/.codex/config.toml, retaining existing servers and policies."
+msgstr "既存のサーバー設定とポリシーを残して、テンプレートを~/.codex/config.tomlに追加してください。"
+
+#: connection-profiles.js:40
+msgid "Make the named environment variable available to the local Codex process through your secure launch environment."
+msgstr "安全な起動環境を通じて、指定された環境変数をローカルのCodexプロセスから利用できるようにしてください。"
+
+#: connection-profiles.js:40
+msgid "Start a new session and check codex mcp list. Confirm context before editing an article."
+msgstr "新しいセッションを開始し、codex mcp listを確認してください。記事を編集する前にコンテキストを確認してください。"
+
+#: connection-profiles.js:42
+msgid "Other AI / custom MCP client"
+msgstr "その他のAI／カスタムMCPクライアント"
+
+#: connection-profiles.js:43
+msgid "Requires Streamable HTTP and a secure custom Authorization header. OAuth-only or chat-only clients cannot use this key. A cloud client also needs a reachable HTTPS site."
+msgstr "Streamable HTTPと、安全に保存できるカスタムAuthorizationヘッダーが必要です。OAuth専用またはチャット専用のクライアントでは、このキーを使用できません。クラウド型クライアントからは、到達可能なHTTPSサイトも必要です。"
+
+#: connection-profiles.js:44
+msgid "Select HTTP / Streamable HTTP in the client's MCP settings, not legacy SSE or stdio."
+msgstr "クライアントのMCP設定では、旧式のSSEやstdioではなく、HTTP／Streamable HTTPを選択してください。"
+
+#: connection-profiles.js:44
+msgid "Enter the endpoint and store Authorization: Bearer <connection-key> in its secure settings. Do not put the key in a URL."
+msgstr "エンドポイントを入力し、安全な設定欄にAuthorization: Bearer <connection-key>を保存してください。キーをURLに含めないでください。"
+
+#: connection-profiles.js:44
+msgid "Keep the credential private to one WordPress owner and confirm an authenticated request below. Client file transfer and preview display need separate verification."
+msgstr "認証情報は1人のWordPress所有者専用にし、下で認証されたリクエストを確認してください。クライアントのファイル転送とプレビュー表示は別途検証が必要です。"
+
+#: connection-profiles.js:46
+msgid "Other OAuth MCP client"
+msgstr "その他のOAuth対応MCPクライアント"
+
+#: connection-profiles.js:47
+msgid "Pre-registered public OAuth client, authorization code with PKCE S256, exact resource indicator and rotating refresh tokens. No client secret or dynamic registration."
+msgstr "事前登録済みのパブリックOAuthクライアントを使用します。PKCE S256付きの認可コード、正確なリソース指定、ローテーションするリフレッシュトークンに対応します。クライアントシークレットと動的登録は使用しません。"
+
+#: connection-profiles.js:48
+msgid "Register this client's exact callback URL with the site administrator."
+msgstr "このクライアントの正確なコールバックURLの登録を、サイト管理者に依頼してください。"
+
+#: connection-profiles.js:48
+msgid "Configure the client ID and endpoint, then authorize your own WordPress account."
+msgstr "クライアントIDとエンドポイントを設定し、本人のWordPressアカウントを認可してください。"
+
+#: connection-profiles.js:49
+msgid "AI without MCP (JSON proposal)"
+msgstr "MCP非対応のAI（JSONによる提案）"
+
+#: connection-profiles.js:50
+msgid "No connection key needed. Give the AI the guide, receive an article JSON proposal, then import and save it in WordPress. This fallback does not automatically save or publish."
+msgstr "接続キーは不要です。AIに手順書を渡して記事のJSON案を受け取り、WordPressでインポートして保存してください。この代替手順では自動保存・自動公開は行いません。"
+
+#: connection-profiles.js:51
+msgid "Download the AI guide and ask the AI to read it before preparing an article."
+msgstr "AI用手順書をダウンロードし、記事を準備する前にAIに読ませてください。"
+
+#: connection-profiles.js:51
+msgid "Import its article JSON with Import snapshot, then save and review the private preview. Use a fresh article handoff for later edits."
+msgstr "「スナップショットをインポート」で記事JSONを読み込み、保存して非公開プレビューを確認してください。その後の編集には最新の記事引き継ぎデータを使用してください。"
+
+#: connection-profiles.js:70
+msgid "Choose your AI and client first."
+msgstr "まずAIとクライアントを選択してください。"
+
+#: connection-profiles.js:73
+msgid "A valid credential-free HTTP(S) MCP endpoint is required."
+msgstr "認証情報を含まない、有効なHTTP(S)のMCPエンドポイントが必要です。"
+
+#: connection-profiles.js:74
+msgid "HTTPS is required outside local development."
+msgstr "ローカル開発環境以外ではHTTPSが必要です。"
+
+#: connection-profiles.js:75
+msgid "This cloud connector cannot reach a local/private address. Use an approved public HTTPS test site; no tunnel is opened automatically."
+msgstr "このクラウドコネクタからローカル／プライベートアドレスには到達できません。承認された公開HTTPSテストサイトを使用してください。トンネルは自動で開きません。"
+
+#: connection-profiles.js:76
+msgid "Confirm that this client supports private, per-owner header credentials."
+msgstr "このクライアントが、所有者ごとの非公開ヘッダー認証情報に対応していることを確認してください。"
+
+#: connection-profiles.js:77
+msgid "Client settings available. A successful request confirms authentication, not the complete article/file/preview workflow."
+msgstr "クライアント設定を利用できます。リクエストの成功で確認できるのは認証であり、記事・ファイル・プレビューの一連の動作全体ではありません。"
+
+#. translators: 1: template.env.
+#: connections.js:34
+msgid "Store this connection's key in %1$s for this client process. Keep other staff accounts in separate environments. Merge the template; do not replace existing settings."
+msgstr "このクライアントプロセスでは、接続キーを%1$sに保存してください。他の担当者のアカウントは別の環境で扱ってください。テンプレートは既存の設定を置き換えずに追加してください。"
+
+#: connections.js:52
+msgid "OAuth dependencies are unavailable. Install the complete plugin ZIP and enable OpenSSL, Sodium and mbstring."
+msgstr "OAuthの依存ライブラリを利用できません。完全なプラグインZIPをインストールし、OpenSSL、Sodium、mbstringを有効化してください。"
+
+#: connections.js:53
+msgid "HTTPS is required."
+msgstr "HTTPSが必要です。"
+
+#: connections.js:54
+msgid "An administrator must register an application first."
+msgstr "先に管理者がアプリケーションを登録する必要があります。"
+
+#: connections.js:55
+msgid "No application is registered for this service. Ask the site administrator to add its exact callback URL."
+msgstr "このサービスのアプリケーションは登録されていません。正確なコールバックURLの追加をサイト管理者に依頼してください。"
+
+#: connections.js:56
+msgid "OAuth discovery could not be verified. The server must route the metadata URL below to WordPress before a client can connect."
+msgstr "OAuthの検出情報を確認できませんでした。クライアントが接続するには、サーバーが下のメタデータURLをWordPressへ振り分ける必要があります。"
+
+#: connections.js:57
+msgid "This cloud service cannot reach the local site. Use an approved public HTTPS site for a real account test."
+msgstr "このクラウドサービスからローカルサイトには到達できません。実際のアカウントでのテストには、承認された公開HTTPSサイトを使用してください。"
+
+#: connections.js:58
+msgid "OAuth is configured. Complete sign-in from your AI's connection settings. A provider account connection has not been verified by this screen."
+msgstr "OAuthは設定済みです。AIの接続設定からサインインを完了してください。この画面では、AIサービスのアカウントとの接続は確認されていません。"
+
+#: connections.js:60
+msgid "Metadata"
+msgstr "メタデータ"
+
+#: connections.js:60
+msgid "Authorization"
+msgstr "認可"
+
+#: connections.js:60
+msgid "Token"
+msgstr "トークン"
+
+#: connections.js:60
+msgid "Client authentication"
+msgstr "クライアント認証"
+
+#: connections.js:60
+msgid "none; PKCE S256 required"
+msgstr "なし・PKCE S256が必要"
+
+#: connections.js:81
+msgid "Disable application"
+msgstr "アプリケーションを無効化"
+
+#. translators: 1: client.name.
+#: connections.js:83
+msgid "Disable %1$s for all staff and cancel its pending reservations?"
+msgstr "全担当者について%1$sを無効化し、保留中の予約を取り消しますか？"
+
+#: connections.js:98
+msgid "Connection request failed."
+msgstr "接続リクエストに失敗しました。"
+
+#: connections.js:110
+msgid "Activate the official MCP Adapter plugin (0.7.1 or newer) to enable connections."
+msgstr "接続を有効にするには、公式のMCP Adapterプラグイン（0.7.1以降）を有効化してください。"
+
+#: connections.js:111
+msgid "HTTPS is required to create and use connections."
+msgstr "接続の作成と利用にはHTTPSが必要です。"
+
+#: connections.js:112
+msgid "Local site: connect from this computer. Cloud-hosted AI services cannot reach this address."
+msgstr "ローカルサイトです。このコンピューターから接続してください。クラウド型AIサービスからは、このアドレスに到達できません。"
+
+#: connections.js:113
+msgid "Ready."
+msgstr "準備完了。"
+
+#. translators: 1: item.name; 2: Number(item.authoring) ? "Layouts, files and
+#. previews" : "Draft editing"; 3: Number(item.publishing) ? "Publishing
+#. allowed" : "No publishing"; 4: new Date(Number(item.expires) *
+#. 1000).toLocaleString(); 5: Number(item.last_used) ? `Last connected ${new
+#. Date(Number(item.last_used) * 1000).toLocaleString()}` : "Not c.
+#: connections.js:117
+msgid "%1$s · %2$s · %3$s · Expires %4$s · %5$s"
+msgstr "%1$s・%2$s・%3$s・有効期限 %4$s・%5$s"
+
+#: connections.js:117
+msgid "Layouts, files and previews"
+msgstr "レイアウト・ファイル・プレビュー"
+
+#: connections.js:117
+msgid "Draft editing"
+msgstr "下書きの編集"
+
+#: connections.js:117
+msgid "Publishing allowed"
+msgstr "公開を許可"
+
+#: connections.js:117
+msgid "No publishing"
+msgstr "公開を許可しない"
+
+#. translators: 1: new Date(Number(item.last_used) * 1000).toLocaleString().
+#: connections.js:117
+msgid "Last connected %1$s"
+msgstr "最終接続 %1$s"
+
+#: connections.js:117
+msgid "Not connected yet"
+msgstr "まだ接続されていません"
+
+#: connections.js:118
+msgid "Authenticated request received. Return to the same AI conversation: it should confirm live context, then continue your article. This timestamp alone does not verify the AI's tools, file transfer or preview rendering."
+msgstr "認証されたリクエストを受信しました。同じAIとの会話に戻ってください。AIが実際のコンテキストを確認してから記事作成を続けます。この日時だけでは、AIのツール・ファイル転送・プレビュー表示の動作は確認できません。"
+
+#: connections.js:119
+msgid "Revoke"
+msgstr "取り消す"
+
+#: connections.js:120
+msgid "Connection revoked. Pending reservations cancelled. Published posts and saved drafts are unchanged."
+msgstr "接続と保留中の予約を取り消しました。公開済み投稿と保存済み下書きは変更されません。"
+
+#: connections.js:123
+msgid "No connections."
+msgstr "接続はありません。"
+
+#: connections.js:133
+msgid "Waiting for your AI to connect. Add the endpoint and key in its connection settings."
+msgstr "AIからの接続を待っています。AIの接続設定にエンドポイントとキーを追加してください。"
+
+#: connections.js:147
+msgid "Application registered. Each staff member must authorize their own account from the AI service."
+msgstr "アプリケーションを登録しました。各担当者はAIサービスから自分のアカウントを認可する必要があります。"
+
+#: connections.js:158
+msgid "Key copied. Keep it in your AI app's secure connection settings."
+msgstr "キーをコピーしました。AIアプリの安全な接続設定に保存してください。"
+
+#: connections.js:159
+msgid "Endpoint copied."
+msgstr "エンドポイントをコピーしました。"

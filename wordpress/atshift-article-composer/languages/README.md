@@ -1,10 +1,11 @@
 # Translation Files
 
 Text domain: `atshift-article-composer`. Untranslated messages fall back to English.
-The GitHub ZIP's Japanese catalog preserves existing Japanese welcome, consent
-and compatibility notices; it is intentionally not a complete UI translation.
-The WordPress.org ZIP includes only this document and the POT template, with
-English source text and support for separately installed WordPress language packs.
+Both distribution packages bundle Japanese PHP and JavaScript catalogs and the
+Japanese user guide. The Japanese catalog covers all current POT entries,
+including consent, compatibility and error messages. English remains the source
+language. Separately installed WordPress language packs are also supported.
+The GitHub-to-directory transition retains these bundled files.
 
 ## Add a Language
 
@@ -15,6 +16,7 @@ English source text and support for separately installed WordPress language pack
    Plural-Forms header. Preserve placeholders and source references.
 3. Run `npm run i18n:compile`. This builds PHP `.mo` files and per-source
    JavaScript JSON catalogs without removing the JavaScript entries from PO.
+   Check the PO with `msgfmt --check --check-format` before packaging.
 4. Run `npm run test:i18n`, `npm run pack:wordpress`, and verify the installed
    ZIP with the WordPress user's language set to the new locale.
 

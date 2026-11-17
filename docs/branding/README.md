@@ -14,14 +14,24 @@ empty space and clearer small-size framing.
 - `wordpress/atshift-article-composer/assets/icon-256x256.png`: high-density brand icon.
 - `wordpress-org/assets/icon-128x128.png` and `icon-256x256.png`: identical directory copies.
 
-The three plugin icons are included in both distribution ZIPs. The master and
-this note are not packaged. The original user image is retained unchanged outside
-the repository. The selected master is opaque; do not describe it as transparent.
-This is an unreleased working-tree change; the version has not been bumped.
-Local validation builds in `.local/icon-preview/build/` are not release artifacts.
-Do not replace the published 0.7.2 ZIPs or the previously submitted review package.
+Current ZIPs include the 20px menu icon and package the 128px heading icon as
+`assets/admin-logo.png`. Directory-sized `icon-128x128.png` and `icon-256x256.png`
+are reserved for the directory assets; the master and this note are not packaged.
+The original user image is retained unchanged outside the repository. The selected
+master is opaque; do not describe it as transparent. Historical release ZIPs are
+not changed when new branding is prepared.
 
-After directory approval and separate publication approval, upload only the two
+## Approved Banner
+
+The owner approved the [English-only v3 banner](candidates/v3/README.md) on
+November 17, 2026. It retains "Just talk. Then publish." and adds smaller copy:
+"Create articles. Design layouts. Publish to WordPress."
+"All with the AI you already use."
+The 1544x500 and 772x250 exports are prepared in `wordpress-org/assets/`.
+Earlier v1/v2 proposals remain reference-only. Japanese banner artwork is not
+included; Japanese interface translation is a separate feature.
+
+After separate publication approval, upload the two approved banners and two
 directory icons to the SVN repository's top-level `assets/` directory, alongside
 `trunk/` and `tags/`, not inside either. Including them in a review ZIP does not
 publish a directory icon. See the [official asset requirements](https://developer.wordpress.org/plugins/wordpress-org/plugin-assets/).

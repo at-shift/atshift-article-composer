@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/wordpress-media-fixture.php';
 require_once ABSPATH . 'wp-includes/pomo/mo.php';
+require_once ABSPATH . 'wp-includes/pomo/po.php';
 require_once ABSPATH . 'wp-admin/includes/screen.php';
 require_once ABSPATH . 'wp-admin/includes/class-wp-screen.php';
 set_current_screen( 'toplevel_page_structured-fields' );
@@ -12,6 +13,21 @@ function sfi_check( $condition, $label ) {
     echo 'PASS ' . ++$checks . ': ' . $label . PHP_EOL;
 }
 $root = dirname( __DIR__ ) . '/wordpress/atshift-article-composer';
+$template = new PO(); $japanese = new PO();
+sfi_check( $template->import_from_file( $root . '/languages/atshift-article-composer.pot' ), 'Current POT parses' );
+sfi_check( $japanese->import_from_file( $root . '/languages/atshift-article-composer-ja.po' ), 'Japanese PO parses' );
+sfi_check( count( $template->entries ) === count( $japanese->entries ), 'Japanese catalog has the same entries as the current POT' );
+foreach ( $template->entries as $key => $entry ) {
+    $translated = $japanese->entries[$key] ?? null;
+    if ( ! $translated || in_array( 'fuzzy', $translated->flags, true ) || 1 !== count( $translated->translations ) || '' === trim( $translated->translations[0] ) || $translated->plural !== $entry->plural ) {
+        throw new RuntimeException( 'Missing or unreviewed Japanese entry: ' . $entry->singular );
+    }
+    preg_match_all( '/%(?:\d+\$)?[sdif]/', $entry->singular, $source_placeholders );
+    preg_match_all( '/%(?:\d+\$)?[sdif]/', $translated->translations[0], $target_placeholders );
+    sort( $source_placeholders[0] ); sort( $target_placeholders[0] );
+    if ( $source_placeholders[0] !== $target_placeholders[0] ) throw new RuntimeException( 'Japanese placeholder mismatch: ' . $entry->singular );
+}
+sfi_check( true, 'Every Japanese entry is translated, non-fuzzy and preserves placeholders/plurals' );
 $directory = get_temp_dir() . 'deft-i18n-' . wp_generate_uuid4();
 mkdir( $directory, 0700 );
 $locale = 'en_US';
@@ -21,17 +37,11 @@ $baseline = Atshift\Deft\Snapshot::validate( file_get_contents( $root . '/sample
 $behaviors = Atshift\Deft\Behaviors::registry();
 try {
     $locale = 'ja'; unload_textdomain( 'atshift-article-composer', true );
-    $bundled_japanese = 'wordpress-org' !== getenv( 'SF_DISTRIBUTION' );
-    if ( $bundled_japanese ) {
     sfi_check( 'AI用手順書をダウンロード' === Atshift\Deft\Onboarding::copy()['download'], 'Bundled Japanese MO loads through WordPress gettext' );
     sfi_check( '予約済み（Article Composer）' === __( 'Scheduled (Article Composer)', 'atshift-article-composer' ), 'Renamed reservation label uses the rebuilt Japanese catalog' );
     sfi_check( 'Article Composerで予約を管理' === __( 'Manage reservation in Article Composer', 'atshift-article-composer' ), 'Renamed reservation action uses the rebuilt Japanese catalog' );
-    } else {
-        sfi_check( 'Download AI guide' === Atshift\Deft\Onboarding::copy()['download'], 'English-only distribution falls back to English in Japanese locale' );
-        sfi_check( 'Scheduled (Article Composer)' === __( 'Scheduled (Article Composer)', 'atshift-article-composer' ), 'English-only reservation label remains readable' );
-        sfi_check( 'Manage reservation in Article Composer' === __( 'Manage reservation in Article Composer', 'atshift-article-composer' ), 'English-only reservation action remains readable' );
-    }
-    sfi_check( 'Request failed.' === __( 'Request failed.', 'atshift-article-composer' ), 'Missing Japanese entries fall back to English' );
+    sfi_check( 'リクエストに失敗しました。' === __( 'Request failed.', 'atshift-article-composer' ), 'Japanese errors are available in both distributions' );
+    sfi_check( 'Untranslated example' === __( 'Untranslated example', 'atshift-article-composer' ), 'Unknown entries still fall back to English' );
     $locale = 'fr_FR'; unload_textdomain( 'atshift-article-composer', true );
     $mo = new MO(); $mo->set_header( 'Language', 'fr_FR' );
     $mo->set_header( 'Plural-Forms', 'nplurals=2; plural=(n > 1);' );

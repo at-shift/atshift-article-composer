@@ -126,9 +126,10 @@ try {
     if ( $handoff ) {
         deft_update_check( ! file_exists( dirname( $entry ) . '/includes/class-github-updater.php' ), 'Handoff removes the external updater.' );
         deft_update_check( '' === get_plugin_data( $entry, false, false )['UpdateURI'], 'Handoff removes the external update URI.' );
-    } else {
-        deft_update_check( file_exists( dirname( $entry ) . '/languages/atshift-article-composer-ja.mo' ), 'Installed update includes Japanese translations.' );
     }
+    deft_update_check( file_exists( dirname( $entry ) . '/languages/atshift-article-composer-ja.mo' ), 'Installed update retains bundled Japanese, including after handoff.' );
+    deft_update_check( file_exists( dirname( $entry ) . '/GETTING-STARTED.ja.md' ), 'Installed update retains the Japanese guide.' );
+    deft_update_check( 4 === count( glob( dirname( $entry ) . '/languages/atshift-article-composer-ja-*.json' ) ), 'Installed update retains all four Japanese script catalogs.' );
     echo json_encode( array( 'updater_checks' => $GLOBALS['deft_update_checks'], 'installed' => $manifest['version'] ) ), PHP_EOL;
 } finally {
     remove_filter( 'pre_http_request', $http, 10 ); delete_site_transient( GitHubUpdater::CACHE );

@@ -1,4 +1,4 @@
-# atshift Article Composer for WordPress 0.7.6
+# atshift Article Composer for WordPress 1.0.0
 
 This repository starts from the submitted 0.7.6 runtime. See [release channels](../docs/RELEASING.md) for packaging and the planned transition from GitHub updates to WordPress.org. Both packages use the same canonical basename. Older experimental data is not migrated automatically.
 For installation and everyday use, see the [Installation and User Guide](../docs/GETTING-STARTED.md).
@@ -6,7 +6,8 @@ Earlier alpha and 0.5.x documents below are historical design notes, not current
 
 Alpha.14 was the preceding private GitHub code checkpoint. Its OAuth and runtime changes remain:
 [ALPHA14.md](../docs/ALPHA14.md). Existing keys and separately delegated publication
-remain part of the current implementation. The 0.7.6 WordPress.org submission remains under review.
+remain part of the current implementation. The 0.7.6 submission was approved;
+1.0.0 is being prepared locally for the first directory release.
 This does not imply a WordPress.org release or a production installation.
 
 Development candidate, not for production use. Earlier `0.2.0` labels were local-only
@@ -14,7 +15,7 @@ prototype labels and were never released. The browser package and WordPress
 plugin use the same development version.
 Known issues and deferred work are tracked in `../docs/FOLLOW-UP.md`.
 Japanese installation and usage instructions are in
-[GETTING-STARTED.ja.md](atshift-article-composer/GETTING-STARTED.ja.md), included only in the GitHub ZIP along with Japanese catalogs. The WordPress.org ZIP is English-only and excludes the GitHub updater; it retains WordPress language-pack support.
+[GETTING-STARTED.ja.md](atshift-article-composer/GETTING-STARTED.ja.md), included in both ZIPs along with Japanese catalogs. The WordPress.org ZIP excludes the GitHub updater and retains WordPress language-pack support.
 Current MCP additions are in [ALPHA10.md](../docs/ALPHA10.md), extending [ALPHA9.md](../docs/ALPHA9.md).
 
 This is a separate plugin, not an update to atshift Fields. It runs on WordPress's

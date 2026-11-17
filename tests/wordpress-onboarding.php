@@ -27,16 +27,10 @@ try {
     sfo_check( ! Onboarding::first_visit() && '' === sfo_render(), 'Subscribers cannot consume onboarding or see the download link' );
     wp_set_current_user( $users[0] ); update_user_meta( $users[0], 'locale', 'ja' );
     $first = sfo_render();
-    $bundled_japanese = 'wordpress-org' !== getenv( 'SF_DISTRIBUTION' );
-    if ( $bundled_japanese ) {
     sfo_check( str_contains( $first, 'id="sf-ai-welcome"' ) && str_contains( $first, '手順書をダウンロードして、いつものAIに読ませてください' ) && str_contains( $first, 'AIが接続を案内し' ), 'First Articles visit starts with giving the guide to AI in Japanese' );
     sfo_check( str_contains( $first, '段組や見た目も相談できます' ) && str_contains( $first, '今のテーマに馴染ませたい' ) && str_contains( $first, '記事用に別のレイアウトを組みたい' ), 'Japanese introduction explains theme-aware and separate article layout choices' );
-    } else {
-        sfo_check( str_contains( $first, 'id="sf-ai-welcome"' ) && str_contains( $first, 'Give this guide to your usual AI' ) && str_contains( $first, 'guide you through connecting' ), 'English-only package keeps guide-first onboarding in a Japanese account' );
-        sfo_check( str_contains( $first, 'Ask about layout as well as wording' ) && str_contains( $first, 'assemble a separate article layout' ), 'English-only introduction retains design guidance' );
-    }
     sfo_check( str_contains( $first, '<dialog id="sf-ai-welcome"' ) && str_contains( $first, 'id="sf-ai-welcome-download"' ) && ! str_contains( $first, 'AIへの自動接続・記事の公開には対応していません' ), 'First-use modal contains the focused instruction and download without technical detail' );
-    sfo_check( str_contains( $first, 'id="sf-ai-guide"' ) && str_contains( $first, $bundled_japanese ? 'AI用手順書をダウンロード' : 'Download AI guide' ), 'Download is available before creating or selecting an article' );
+    sfo_check( str_contains( $first, 'id="sf-ai-guide"' ) && str_contains( $first, 'AI用手順書をダウンロード' ), 'Download is available before creating or selecting an article in both packages' );
     $dom = new DOMDocument(); @$dom->loadHTML( '<?xml encoding="UTF-8">' . $first ); $xpath = new DOMXPath( $dom );
     $links = $xpath->query( '//dialog[@id="sf-ai-welcome"]//a' );
     sfo_check( 1 === $links->length && 'sf-ai-welcome-download' === $links->item( 0 )->getAttribute( 'id' ), 'The first-use modal has only the guide download action, not connection setup' );
