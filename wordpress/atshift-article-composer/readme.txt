@@ -4,7 +4,7 @@ Tags: ai, mcp, publishing, structured-content
 Requires at least: 6.9
 Tested up to: 7.2
 Requires PHP: 8.2
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,11 +14,13 @@ Create and publish WordPress articles with your usual AI. Focus on your content,
 
 **Create the article, its layout and its publication plan with the AI you already use.**
 
-atshift Article Composer connects a compatible AI client to WordPress so you can
-turn a conversation, reference materials or a layout image into a structured
-article. Your AI can assemble sections and responsive columns, style reusable
-components, save a private draft, prepare a preview, and publish or schedule it
-to the destination you choose. It does not include an AI model or a new chat app.
+atshift Article Composer connects a compatible AI client (such as ChatGPT, Claude
+or Gemini) to WordPress so you can turn a conversation, reference materials or a
+layout image into a structured article. Your AI can assemble sections and
+responsive columns, style reusable components, save a private draft, prepare a
+preview, and publish or schedule it to the destination you choose. It does not
+include an AI model or a new chat app. Available connection features vary by
+application, plan and region.
 
 Start with one thing in Article Composer: download the guide for your AI.
 
@@ -230,6 +232,9 @@ package, which also includes Japanese catalogs and the Japanese guide. Standard
 WordPress.org language packs remain supported.
 
 == Changelog ==
+
+= 1.0.2 =
+* Clarified that compatible AI clients include ChatGPT, Claude and Gemini, while connection availability depends on the application, plan and region.
 
 = 1.0.1 =
 * Confirmed compatibility with WordPress 7.2 and PHP 8.6.

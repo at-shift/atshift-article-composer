@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2 - 2026-11-26
+
+- Clarify that compatible AI clients include ChatGPT, Claude and Gemini, while connection availability depends on the application, plan and region.
+
 ## 1.0.1 - 2026-11-26
 
 - Confirmed compatibility with WordPress 7.2 and PHP 8.6.
