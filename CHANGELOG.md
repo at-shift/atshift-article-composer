@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 - 2026-11-26
+
+- Confirmed compatibility with WordPress 7.2 and PHP 8.6.
+
 ## 1.0.0 - 2026-11-17
 
 - Publish the first directory release following WordPress.org approval.
